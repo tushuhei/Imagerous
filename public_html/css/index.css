@@ -10,4 +10,13 @@
 .side_feed {
     border-bottom:1px solid #777;
     padding:5px 0;
+    color:#ccc;
+}
+.side_feed :hover {
+    background-color: #333;
+    color:#fff;
+}
+.side_feed img {
+    background-color: #333;
+    color:#fff;
 }

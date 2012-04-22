@@ -4,25 +4,33 @@ function getData ($id) {
     $data = new Article();
     $data->id = $id;
 
-    libxml_use_internal_errors(true);
-    $content = file_get_contents('http://matome.naver.jp/odai/'.$id);
-    $doc = new DOMDocument();
-    $doc->loadHTML($content);
-    libxml_clear_errors();
+    try {
+        libxml_use_internal_errors(true);
+        $content = file_get_contents('http://matome.naver.jp/odai/'.$id);
+        $doc = new DOMDocument();
+        $doc->loadHTML($content);
+        libxml_clear_errors();
 
-    $xpath = new DOMXPath($doc);
-    $nodes = $xpath->query('//img[@class="MTMItemThumb"]');
-    $data->images = array();
-    foreach ($nodes as $node) {
-        $data->images[] = $node->getAttribute('src');
-    }
+        $xpath = new DOMXPath($doc);
+        $nodes = $xpath->query('//img[@class="MTMItemThumb"]');
+        $data->images = array();
+        foreach ($nodes as $node) {
+            $data->images[] = $node->getAttribute('src');
+        }
 
-    $nodes = $xpath->query('//div[@class="mdHeading01Thumb"]/img');
-    $data->thumb = $nodes->item(0)->getAttribute('src');
-    if (preg_match("/<title>(.*?)<\/title>/i", $content, $matches)) { 
-        $data->title = $matches[1];
+        $nodes = $xpath->query('//div[@class="mdHeading01Thumb"]/img');
+        $data->thumb = $nodes->item(0)->getAttribute('src');
+        if (preg_match("/<title>(.*?)<\/title>/i", $content, $matches)) { 
+            $data->title = $matches[1];
+        }
+        return $data;
     }
-    return $data;
+    catch (Exception $e) {
+        $data->images = array();
+        $data->thumb = "";
+        $data->title = "取得に失敗しました";
+        return $data;
+    }
 }
 
 function validateNaverId ($id) {
