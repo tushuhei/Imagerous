@@ -16,8 +16,8 @@
                     <div class="container">
                         <ul class="nav">
                             <li>
-                            <a href="http://matome.naver.jp/odai/<?=$recommends[2]->id?>" target="_blank">
-                                <?=$recommends[2]->name?>
+                            <a href="http://matome.naver.jp/odai/<?=$data->id?>" target="_blank">
+                                <?=$data->title?>
                             </a>
                             </li>
                         </ul>
@@ -34,26 +34,27 @@
                         <? foreach($recommends as $recommend): ?>
                         <div class="side_feed clearfix">
                             <div style="float:left; width:50px">
-                                <img src="<?=$recommend->image?>" width="50">
+                                <img src="<?=$recommend->thumb?>" width="50">
                             </div>
                             <div style="float:left; width:150px; margin-left:5px">
-                                <?=$recommend->name?>
+                                <?=$recommend->title?>
                             </div>
                         </div>
                         <? endforeach ?>
                     </div>
                     <div class="side_component">
                         <div class="side_title"> つくる </div>
-                        NAVER まとめの URL を入力するだけでページをつくることができます。
+                        <div style="margin-bottom:5px">NAVER まとめの URL を入力するだけでページをつくることができます。</div>
                         <form method="GET" action="#">
-                            <input type="text" size="100" name="url" placeholder="http://matome.naver.jp/odai/2127423633480175601">
+                            http://matome.naver.jp/odai/
+                            <input type="text" size="100" name="id" placeholder="2127423633480175601">
                             <input type="submit" class="btn btn-primary">
                         </form>
                     </div>
                 </div>
                 <div class="span10">
                     <!--Body content-->
-                    <? foreach($data['images'] as $image): ?>
+                    <? foreach($data->images as $image): ?>
                     <img src="<?=$image?>">
                     <? endforeach ?>
                 </div>
