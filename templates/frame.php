@@ -2,6 +2,12 @@
 <html>
     <head>
         <meta charset="utf-8">
+        <meta property="og:title" content="Imagerous*">
+        <meta property="og:type" content="website">
+        <meta property="og:description" content="画像をまとめる">
+        <meta property="og:url" content="http://imagerous.ddo.jp">
+        <meta property="og:image" content="http://imagerous.ddo.jp/img/logo.png">
+        <meta property="og:site_name" content="Imagerous*">
         <title> Imagerous* </title>
         <link rel="stylesheet" href="/css/bootstrap/css/bootstrap.css" type="text/css">
         <link rel="stylesheet" href="/css/index.css" type="text/css">
@@ -54,6 +60,19 @@
                             <input type="submit" class="btn btn-primary">
                         </form>
                     </div>
+                    <div class="side_component">
+                        <script type="text/javascript"><!--
+                            google_ad_client = "ca-pub-6865664974975544";
+                            /* imagerous-side */
+                            google_ad_slot = "5719922558";
+                            google_ad_width = 160;
+                            google_ad_height = 600;
+                            //-->
+                        </script>
+                        <script type="text/javascript"
+                            src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+                        </script>
+                    </div> 
                 </div>
                 <div class="span10">
                     <? if (!empty($result)): ?>
