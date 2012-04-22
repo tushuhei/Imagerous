@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <title> NAVER まとめの画像まとめ </title>
+        <title> Imagerous* </title>
         <link rel="stylesheet" href="/css/bootstrap/css/bootstrap.css" type="text/css">
         <link rel="stylesheet" href="/css/index.css" type="text/css">
     </head>
@@ -17,6 +17,7 @@
                         <ul class="nav">
                             <li>
                             <a href="http://matome.naver.jp/odai/<?=$data->id?>" target="_blank">
+                            <img src="<?=$data->thumb?>" width="20">
                                 <?=$data->title?>
                             </a>
                             </li>
@@ -55,14 +56,15 @@
                     </div>
                 </div>
                 <div class="span10">
-                    <!--Body content-->
-                    <? if(count($data->images) != 0): ?>
-                    <? foreach($data->images as $image): ?>
-                    <img src="<?=$image?>">
-                    <? endforeach ?>
-                    <? else: ?>
-                    <span style="color:#fff">データの取得に失敗しました。再度お試しください。</span>
+                    <? if (!empty($result)): ?>
+                    <div class="alert"><?=$result[0]?></div>
                     <? endif ?>
+                    <!--Body content-->
+                    <? foreach($data->images as $image): ?>
+                    <a href="" class="main_image">
+                        <img src="<?=$image?>">
+                    </a>
+                    <? endforeach ?>
                 </div>
             </div>
         </div>
