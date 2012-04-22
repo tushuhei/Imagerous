@@ -1,0 +1,13 @@
+.side_component {
+    color:#ddd;
+    margin-bottom:20px;
+}
+.side_title {
+    font-size: 14px;
+    font-weight:bold;
+    margin-bottom:5px;
+}
+.side_feed {
+    border-bottom:1px solid #777;
+    padding:5px 0;
+}
