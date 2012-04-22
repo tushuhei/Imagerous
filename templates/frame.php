@@ -4,19 +4,41 @@
         <meta charset="utf-8">
         <meta property="og:title" content="Imagerous*">
         <meta property="og:type" content="website">
-        <meta property="og:description" content="画像をまとめる">
+        <meta property="og:description" content="画像をまとめてアートをつくろう">
         <meta property="og:url" content="http://imagerous.ddo.jp">
         <meta property="og:image" content="http://imagerous.ddo.jp/img/logo.png">
         <meta property="og:site_name" content="Imagerous*">
+        <meta property="fb:admins" content="100000617688375">
         <title> Imagerous* </title>
         <link rel="stylesheet" href="/css/bootstrap/css/bootstrap.css" type="text/css">
         <link rel="stylesheet" href="/css/index.css" type="text/css">
+        <script type="text/javascript">
+
+            var _gaq = _gaq || [];
+            _gaq.push(['_setAccount', 'UA-31083586-1']);
+            _gaq.push(['_trackPageview']);
+
+            (function() {
+             var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+             ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+             var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+             })();
+
+         </script>
     </head>
     <body style="background-color:#222">
+        <div id="fb-root"></div>
+        <script>(function(d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s); js.id = id;
+            js.src = "//connect.facebook.net/ja_JP/all.js#xfbml=1&appId=366371993398682";
+            fjs.parentNode.insertBefore(js, fjs);
+            }(document, 'script', 'facebook-jssdk'));</script>
         <div class="navbar navbar-fixed-top">
             <div class="navbar-inner">
                 <div class="container">
-                    <a class="brand" href="#">
+                    <a class="brand" href="/">
                         Imagerous* 
                     </a>
                     <div class="container">
@@ -28,6 +50,11 @@
                             </a>
                             </li>
                         </ul>
+                        <span style="position:fixed; top:10px; right:200px">
+                        <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://imagerous.ddo.jp?id=<?=$id?>" data-lang="ja">ツイート</a>
+                    </span>
+                        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+                        <div class="fb-like" style="position:fixed; top:10px; right:100px" data-href="http://imagerous.ddo.jp?id=<?=$id?>" data-send="false" data-layout="button_count" data-width="60" data-show-faces="false" data-colorscheme="dark"></div>
                     </div>
                 </div>
             </div>
@@ -38,18 +65,18 @@
                     <!--Sidebar content-->
                     <div class="side_component">
                         <div class="side_title"> おすすめ </div>
-                        <? foreach($recommends as $recommend): ?>
-                        <a href="index.php?id=<?=$recommend->id?>">
+                        <? for($i = 0; $i < 5; $i++): ?>
+                        <a href="index.php?id=<?=$recommends[$i]->id?>">
                         <div class="side_feed clearfix">
                             <div style="float:left; width:50px">
-                                <img src="<?=$recommend->thumb?>" width="50">
+                                <img src="<?=$recommends[$i]->thumb?>" width="50">
                             </div>
                             <div style="float:left; width:150px; margin-left:5px;">
-                                <?=$recommend->title?>
+                                <?=$recommends[$i]->title?>
                             </div>
                         </div>
                         </a>
-                        <? endforeach ?>
+                        <? endfor ?>
                     </div>
                     <div class="side_component">
                         <div class="side_title"> つくる </div>
@@ -79,11 +106,24 @@
                     <div class="alert"><?=$result[0]?></div>
                     <? endif ?>
                     <!--Body content-->
-                    <? foreach($data->images as $image): ?>
-                    <a href="" class="main_image">
-                        <img src="<?=$image?>">
+                    <? for($i = 0; $i < count($data->images); $i++): ?>
+                    <a class="main_image">
+                        <img src="<?=$data->images[$i]?>">
                     </a>
-                    <? endforeach ?>
+                    <? if ($i % 11 == 10): ?>
+                    <script type="text/javascript"><!--
+                        google_ad_client = "ca-pub-6865664974975544";
+                        /* imagerous-square */
+                        google_ad_slot = "9379218554";
+                        google_ad_width = 336;
+                        google_ad_height = 280;
+                        //-->
+                    </script>
+                    <script type="text/javascript"
+                        src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+                    </script>
+                    <? endif ?>
+                    <? endfor ?>
                 </div>
             </div>
         </div>

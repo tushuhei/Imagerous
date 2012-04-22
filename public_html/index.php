@@ -14,4 +14,6 @@ if ($data === null) {
     $id = $recommends[rand(0, count($recommends)-1)]->id;
     $data = getData($id);
 }
+shuffle($recommends);
+
 include('../templates/frame.php');
