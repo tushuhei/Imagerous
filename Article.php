@@ -29,7 +29,7 @@ class Article {
             $nodes = $xpath->query('//div[@class="mdHeading01Thumb"]/img');
             $this->thumb = $nodes->item(0)->getAttribute('src');
             if (preg_match("/<title>(.*?)<\/title>/i", $content, $matches)) { 
-                $this->title = $matches[1];
+                $this->title = preg_replace('/ \- NAVER まとめ/u', '', $matches[1]);
             }
         } else {
             $this->id = null;

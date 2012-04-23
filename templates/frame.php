@@ -94,10 +94,10 @@
                         <? for($i = 0; $i < 5; $i++): ?>
                         <a href="index.php?id=<?=$recommends[$i]->id?>">
                         <div class="side_feed clearfix">
-                            <div style="float:left; width:50px">
+                            <div style="float:left; width:30%; text-align:center">
                                 <img src="<?=$recommends[$i]->thumb?>" width="50">
                             </div>
-                            <div style="float:left; width:150px; margin-left:5px;">
+                            <div style="float:left; width:65%;margin-left:5px;">
                                 <?=$recommends[$i]->title?>
                             </div>
                         </div>
