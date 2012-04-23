@@ -44,17 +44,17 @@
                     <div class="container">
                         <ul class="nav">
                             <li>
-                            <a href="http://matome.naver.jp/odai/<?=$data->id?>" target="_blank">
-                            <img src="<?=$data->thumb?>" width="20">
-                                <?=$data->title?>
+                            <a href="http://matome.naver.jp/odai/<?=$article->id?>" target="_blank">
+                            <img src="<?=$article->thumb?>" width="20">
+                                <?=$article->title?>
                             </a>
                             </li>
                         </ul>
                         <span style="position:fixed; top:10px; right:200px">
-                        <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://imagerous.ddo.jp?id=<?=$id?>" data-lang="ja">ツイート</a>
+                        <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://imagerous.ddo.jp?id=<?=$article->id?>" data-lang="ja">ツイート</a>
                     </span>
                         <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-                        <div class="fb-like" style="position:fixed; top:10px; right:100px" data-href="http://imagerous.ddo.jp?id=<?=$id?>" data-send="false" data-layout="button_count" data-width="60" data-show-faces="false" data-colorscheme="dark"></div>
+                        <div class="fb-like" style="position:fixed; top:10px; right:100px" data-href="http://imagerous.ddo.jp?id=<?=$article->id?>" data-send="false" data-layout="button_count" data-width="60" data-show-faces="false" data-colorscheme="dark"></div>
                     </div>
                 </div>
             </div>
@@ -102,28 +102,11 @@
                     </div> 
                 </div>
                 <div class="span10">
-                    <? if (!empty($result)): ?>
-                    <div class="alert"><?=$result[0]?></div>
-                    <? endif ?>
-                    <!--Body content-->
-                    <? for($i = 0; $i < count($data->images); $i++): ?>
-                    <a class="main_image">
-                        <img src="<?=$data->images[$i]?>">
-                    </a>
-                    <? if ($i % 11 == 10): ?>
-                    <script type="text/javascript"><!--
-                        google_ad_client = "ca-pub-6865664974975544";
-                        /* imagerous-square */
-                        google_ad_slot = "9379218554";
-                        google_ad_width = 336;
-                        google_ad_height = 280;
-                        //-->
-                    </script>
-                    <script type="text/javascript"
-                        src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
-                    </script>
-                    <? endif ?>
-                    <? endfor ?>
+                <? if ($page === 'index'): ?>
+                    <?include('booth.php');?>
+                <? else: ?>
+                    hoge
+                <? endif ?>
                 </div>
             </div>
         </div>
