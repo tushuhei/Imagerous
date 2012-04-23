@@ -2,7 +2,7 @@
 <div class="alert"><?=$result[0]?></div>
 <? endif ?>
 <? for($i = 0; $i < count($article->contents); $i++): ?>
-<a class="main_image" href="picture.php?id=<?=$article->contents[$i]['href']?>">
+<a class="main_image" href="picture.php?id=<?=$article->contents[$i]['id']?>">
     <img src="<?=$article->contents[$i]['image']?>">
 </a>
 <? if ($i % 11 == 10): ?>

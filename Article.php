@@ -18,9 +18,11 @@ class Article {
 
             $this->contents = array();
             foreach ($nodes as $node) {
+                $href = $node->getElementsByTagName('a')->item(0)->getAttribute('href');
+                preg_match("/.+?\/([0-9]+)$/u", $href, $matches);
                 $this->contents[] = array(
                     "image" => $node->getElementsByTagName('img')->item(0)->getAttribute('src'),
-                    "href" => $node->getElementsByTagName('a')->item(0)->getAttribute('href')
+                    "id" => $matches[1]
                 );
             }
 
