@@ -2,11 +2,16 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <meta property="og:title" content="Imagerous*">
+        <? if ($page === 'booth'): ?>
+        <meta property="og:title" content="<?=$article->title?> | Imagerous*">
+        <meta property="og:url" content="http://imagerous.ddo.jp/index.php?id=<?=$article->id?>">
+        <? elseif ($page === 'single'): ?>
+        <meta property="og:title" content="<?=$picture->title?> | Imagerous*">
+        <meta property="og:url" content="http://imagerous.ddo.jp/picture.php?article=<?=$picture->articleId?>&image=<?=$picture->id?>">
+        <? endif ?>
+        <meta property="og:image" content="<?=$picture->url?>">
+        <meta property="og:description" content="壁紙をまとめる、眺める、つかう。">
         <meta property="og:type" content="website">
-        <meta property="og:description" content="画像をまとめてアートをつくろう">
-        <meta property="og:url" content="http://imagerous.ddo.jp">
-        <meta property="og:image" content="http://imagerous.ddo.jp/img/logo.png">
         <meta property="og:site_name" content="Imagerous*">
         <meta property="fb:admins" content="100000617688375">
         <title> Imagerous* </title>
@@ -42,30 +47,35 @@
                         Imagerous* 
                     </a>
                     <div class="container">
+                        <? if($page == 'booth'): ?>
                         <ul class="nav">
-                            <? if($page == 'booth') { ?>
                             <li>
                             <a href="http://matome.naver.jp/odai/<?=$article->id?>" target="_blank">
                             <img src="<?=$article->thumb?>" width="20">
                                 <?=$article->title?>
                             </a>
                             </li>
-                            <? } else if($page == 'single') { ?>
+                        </ul>
+                        <span style="position:fixed; top:10px; right:240px">
+                            <a href="https://twitter.com/share" class="twitter-share-button" data-text="<?=$article->title?> | Imagerous*" data-url="http://imagerous.ddo.jp?id=<?=$article->id?>" data-lang="ja" data-hashtags="imagerous">ツイート</a>
+                            <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+                        </span>
+                        <div style="position:fixed; top:10px; right:150px" class="fb-like" data-href="http://imagerous.ddo.jp/index.php?id=<?=$article->id?>" data-send="false" data-layout="button_count" data-width="30" data-show-faces="false"></div>
+                        <? elseif($page == 'single'): ?>
+                        <ul class="nav">
                             <li>
                             <a href="http://matome.naver.jp/odai/<?=$picture->articleId?>/<?=$picture->id?>" target="_blank">
                                 <?=$picture->title?>
                             </a>
                             </li>
-                            <? } ?>
                         </ul>
-                        <span style="position:fixed; top:10px; right:200px">
-                            <a href="https://twitter.com/share" class="twitter-share-button" 
-                            data-url="http://imagerous.ddo.jp?id=<?=$article->id?>" data-lang="ja">ツイート</a>
+                        <span style="position:fixed; top:10px; right:240px">
+                            <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://imagerous.ddo.jp/picture.php?article=<?=$picture->articleId?>&image=<?=$picture->id?>" data-lang="ja" data-hashtags="imagerous">ツイート</a>
+                            <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
                         </span>
-                        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-                        <div class="fb-like" style="position:fixed; top:10px; right:100px" 
-                        data-href="http://imagerous.ddo.jp?id=<?=$article->id?>" data-send="false" data-layout="button_count" 
-                        data-width="60" data-show-faces="false" data-colorscheme="dark"></div>
+                        <div style="position:fixed; top:10px; right:150px" class="fb-like" data-href="http://imagerous.ddo.jp/picture.php?article=<?=$picture->articleId?>&image=<?=$picture->id?>" data-send="false" data-layout="button_count" data-width="30" data-show-faces="false"></div>
+                        <? endif ?>
+                        <span style="position:fixed; top:10px; right:50px; visibility:hidden"><img src="/img/logo.png"></span>
                     </div>
                 </div>
             </div>
@@ -77,6 +87,7 @@
                     <div class="side_component">
                         <div class="side_title"> Imagerous* とは？ </div>
                         壁紙をまとめる、眺める、つかう。新しいイメージキュレーションサービスです。
+<div class="fb-like" data-href="http://imagerous.ddo.jp" data-send="false" data-layout="button_count" data-width="30" data-show-faces="false"></div>
                     </div>
                     <div class="side_component">
                         <div class="side_title"> おすすめ </div>
@@ -99,7 +110,7 @@
                             <a href="http://matome.naver.jp/" target="_blank">NAVER まとめ</a>
                             の URL を入力するだけでオリジナルのページをつくることができます。
                         </div>
-                        <form method="GET" action="#">
+                        <form method="GET" action="index.php">
                             http://matome.naver.jp/odai/
                             <input type="text" size="100" name="id" placeholder="2127423633480175601">
                             <input type="submit" class="btn btn-primary">
@@ -123,6 +134,9 @@
                     <?include($page.'.php');?>
                 </div>
             </div>
+        </div>
+        <div style="color:#ddd; margin-top:40px; text-align:center">
+            Copyright (c) 2012 Shuhei Iitsuka @tushuhei All rights reserved.
         </div>
     </body>
 </html>
