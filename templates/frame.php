@@ -43,18 +43,29 @@
                     </a>
                     <div class="container">
                         <ul class="nav">
+                            <? if($page == 'booth') { ?>
                             <li>
                             <a href="http://matome.naver.jp/odai/<?=$article->id?>" target="_blank">
                             <img src="<?=$article->thumb?>" width="20">
                                 <?=$article->title?>
                             </a>
                             </li>
+                            <? } else if($page == 'single') { ?>
+                            <li>
+                            <a href="http://matome.naver.jp/odai/<?=$picture->articleId?>/<?=$picture->id?>" target="_blank">
+                                <?=$picture->title?>
+                            </a>
+                            </li>
+                            <? } ?>
                         </ul>
                         <span style="position:fixed; top:10px; right:200px">
-                        <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://imagerous.ddo.jp?id=<?=$article->id?>" data-lang="ja">ツイート</a>
-                    </span>
+                            <a href="https://twitter.com/share" class="twitter-share-button" 
+                            data-url="http://imagerous.ddo.jp?id=<?=$article->id?>" data-lang="ja">ツイート</a>
+                        </span>
                         <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-                        <div class="fb-like" style="position:fixed; top:10px; right:100px" data-href="http://imagerous.ddo.jp?id=<?=$article->id?>" data-send="false" data-layout="button_count" data-width="60" data-show-faces="false" data-colorscheme="dark"></div>
+                        <div class="fb-like" style="position:fixed; top:10px; right:100px" 
+                        data-href="http://imagerous.ddo.jp?id=<?=$article->id?>" data-send="false" data-layout="button_count" 
+                        data-width="60" data-show-faces="false" data-colorscheme="dark"></div>
                     </div>
                 </div>
             </div>
@@ -63,6 +74,10 @@
             <div class="row-fluid">
                 <div class="span2">
                     <!--Sidebar content-->
+                    <div class="side_component">
+                        <div class="side_title"> Imagerous* とは？ </div>
+                        壁紙をまとめる、眺める、つかう。新しいイメージキュレーションサービスです。
+                    </div>
                     <div class="side_component">
                         <div class="side_title"> おすすめ </div>
                         <? for($i = 0; $i < 5; $i++): ?>
@@ -80,7 +95,10 @@
                     </div>
                     <div class="side_component">
                         <div class="side_title"> つくる </div>
-                        <div style="margin-bottom:5px">NAVER まとめの URL を入力するだけでページをつくることができます。</div>
+                        <div style="margin-bottom:5px">
+                            <a href="http://matome.naver.jp/" target="_blank">NAVER まとめ</a>
+                            の URL を入力するだけでオリジナルのページをつくることができます。
+                        </div>
                         <form method="GET" action="#">
                             http://matome.naver.jp/odai/
                             <input type="text" size="100" name="id" placeholder="2127423633480175601">
@@ -102,11 +120,7 @@
                     </div> 
                 </div>
                 <div class="span10">
-                <? if ($page === 'index'): ?>
-                    <?include('booth.php');?>
-                <? else: ?>
-                    hoge
-                <? endif ?>
+                    <?include($page.'.php');?>
                 </div>
             </div>
         </div>

@@ -1,8 +1,15 @@
 <?
 $recommends = json_decode(file_get_contents('../recommend.json'));
 shuffle($recommends);
-$id = $recommends[rand(0, count($recommends)-1)]->id;
 require_once '../Picture.php';
-if (isset($_GET['id'])) {
-} else {
+$picture = new Picture();
+$picture->id = null;
+
+if (isset($_GET['article']) and isset($_GET['image'])) {
+    $picture->articleId = $_GET['article'];
+    $picture->id = $_GET['image'];
+    $picture->getPicture();
 }
+
+$page = 'single';
+include('../templates/frame.php');

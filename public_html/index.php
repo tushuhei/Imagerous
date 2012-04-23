@@ -21,6 +21,6 @@ if ($article->id === null) {
     $article->id = $recommends[rand(0, count($recommends)-1)]->id;
     $article->getArticle();
 }
-$page = 'index';
+$page = 'booth';
 
 include('../templates/frame.php');
