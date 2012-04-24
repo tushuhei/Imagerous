@@ -25,6 +25,7 @@ if ($article->id === null) {
     $article->id = $recommends[rand(0, count($recommends)-1)]->id;
     $article->getArticle();
 }
+shuffle($article->contents);
 
 // OGP 用にひとつ画像を取ってくる
 $pic1 = new Picture();
@@ -40,6 +41,10 @@ $pic3->id = $article->contents[2]['id'];
 $pic3->articleId = $article->id;
 $pic3->getPicture();
 
-$page = 'booth';
+if ((int)($article->id/10000) % 2 == 0) {
+    $page = 'booth_square';
+} else {
+    $page = 'booth';
+}
 
 include('../templates/frame.php');

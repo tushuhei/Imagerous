@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <? if ($page === 'booth'): ?>
+        <? if ($page === 'booth' or $page === 'booth_square'): ?>
         <meta property="og:title" content="<?=$article->title?> | Imagerous*">
         <meta property="og:url" content="http://imagero.us/index.php?id=<?=$article->id?>">
         <meta property="og:image" content="<?=$pic1->url?>">
@@ -51,7 +51,7 @@
                         Imagerous* 
                     </a>
                     <div class="container">
-                        <? if($page == 'booth'): ?>
+                        <? if($page === 'booth' or $page === 'booth_square'): ?>
                         <ul class="nav">
                             <li>
                             <a href="http://matome.naver.jp/odai/<?=$article->id?>" target="_blank">
@@ -65,7 +65,7 @@
                             <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
                         </span>
                         <div style="position:fixed; top:10px; right:150px" class="fb-like" data-href="http://imagero.us/index.php?id=<?=$article->id?>" data-send="false" data-layout="button_count" data-width="30" data-show-faces="false"></div>
-                        <? elseif($page == 'single'): ?>
+                        <? elseif($page === 'single'): ?>
                         <ul class="nav">
                             <li>
                             <a href="http://matome.naver.jp/odai/<?=$picture->articleId?>/<?=$picture->id?>" target="_blank">
