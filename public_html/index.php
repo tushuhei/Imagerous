@@ -27,10 +27,18 @@ if ($article->id === null) {
 }
 
 // OGP 用にひとつ画像を取ってくる
-$picture = new Picture();
-$picture->id = $article->contents[0]['id'];
-$picture->articleId = $article->id;
-$picture->getPicture();
+$pic1 = new Picture();
+$pic1->id = $article->contents[0]['id'];
+$pic1->articleId = $article->id;
+$pic1->getPicture();
+$pic2 = new Picture();
+$pic2->id = $article->contents[1]['id'];
+$pic2->articleId = $article->id;
+$pic2->getPicture();
+$pic3 = new Picture();
+$pic3->id = $article->contents[2]['id'];
+$pic3->articleId = $article->id;
+$pic3->getPicture();
 
 $page = 'booth';
 

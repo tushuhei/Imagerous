@@ -4,12 +4,15 @@
         <meta charset="utf-8">
         <? if ($page === 'booth'): ?>
         <meta property="og:title" content="<?=$article->title?> | Imagerous*">
-        <meta property="og:url" content="http://imagerous.ddo.jp/index.php?id=<?=$article->id?>">
+        <meta property="og:url" content="http://imagero.us/index.php?id=<?=$article->id?>">
+        <meta property="og:image" content="<?=$pic1->url?>">
+        <meta property="og:image" content="<?=$pic2->url?>">
+        <meta property="og:image" content="<?=$pic3->url?>">
         <? elseif ($page === 'single'): ?>
         <meta property="og:title" content="<?=$picture->title?> | Imagerous*">
-        <meta property="og:url" content="http://imagerous.ddo.jp/picture.php?article=<?=$picture->articleId?>&image=<?=$picture->id?>">
-        <? endif ?>
+        <meta property="og:url" content="http://imagero.us/picture.php?article=<?=$picture->articleId?>&image=<?=$picture->id?>">
         <meta property="og:image" content="<?=$picture->url?>">
+        <? endif ?>
         <meta property="og:description" content="壁紙をまとめる、眺める、つかう。">
         <meta property="og:type" content="website">
         <meta property="og:site_name" content="Imagerous*">
@@ -20,7 +23,7 @@
         <script type="text/javascript">
 
             var _gaq = _gaq || [];
-            _gaq.push(['_setAccount', 'UA-31083586-1']);
+            _gaq.push(['_setAccount', 'UA-30923853-3']);
             _gaq.push(['_trackPageview']);
 
             (function() {
@@ -30,7 +33,8 @@
              })();
 
          </script>
-    </head>
+
+     </head>
     <body style="background-color:#222">
         <div id="fb-root"></div>
         <script>(function(d, s, id) {
@@ -57,10 +61,10 @@
                             </li>
                         </ul>
                         <span style="position:fixed; top:10px; right:240px">
-                            <a href="https://twitter.com/share" class="twitter-share-button" data-text="<?=$article->title?> | Imagerous*" data-url="http://imagerous.ddo.jp?id=<?=$article->id?>" data-lang="ja" data-hashtags="imagerous">ツイート</a>
+                            <a href="https://twitter.com/share" class="twitter-share-button" data-text="<?=$article->title?> | Imagerous*" data-url="http://imagero.us/index.php?id=<?=$article->id?>" data-lang="ja" data-hashtags="imagerous">ツイート</a>
                             <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
                         </span>
-                        <div style="position:fixed; top:10px; right:150px" class="fb-like" data-href="http://imagerous.ddo.jp/index.php?id=<?=$article->id?>" data-send="false" data-layout="button_count" data-width="30" data-show-faces="false"></div>
+                        <div style="position:fixed; top:10px; right:150px" class="fb-like" data-href="http://imagero.us/index.php?id=<?=$article->id?>" data-send="false" data-layout="button_count" data-width="30" data-show-faces="false"></div>
                         <? elseif($page == 'single'): ?>
                         <ul class="nav">
                             <li>
@@ -70,10 +74,10 @@
                             </li>
                         </ul>
                         <span style="position:fixed; top:10px; right:240px">
-                            <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://imagerous.ddo.jp/picture.php?article=<?=$picture->articleId?>&image=<?=$picture->id?>" data-lang="ja" data-hashtags="imagerous">ツイート</a>
+                            <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://imagero.us/picture.php?article=<?=$picture->articleId?>&image=<?=$picture->id?>" data-lang="ja" data-hashtags="imagerous">ツイート</a>
                             <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
                         </span>
-                        <div style="position:fixed; top:10px; right:150px" class="fb-like" data-href="http://imagerous.ddo.jp/picture.php?article=<?=$picture->articleId?>&image=<?=$picture->id?>" data-send="false" data-layout="button_count" data-width="30" data-show-faces="false"></div>
+                        <div style="position:fixed; top:10px; right:150px" class="fb-like" data-href="http://imagero.us/picture.php?article=<?=$picture->articleId?>&image=<?=$picture->id?>" data-send="false" data-layout="button_count" data-width="30" data-show-faces="false"></div>
                         <? endif ?>
                         <span style="position:fixed; top:10px; right:50px; visibility:hidden"><img src="/img/logo.png"></span>
                     </div>
@@ -87,7 +91,6 @@
                     <div class="side_component">
                         <div class="side_title"> Imagerous* とは？ </div>
                         壁紙をまとめる、眺める、つかう。新しいイメージキュレーションサービスです。
-<div class="fb-like" data-href="http://imagerous.ddo.jp" data-send="false" data-layout="button_count" data-width="30" data-show-faces="false"></div>
                     </div>
                     <div class="side_component">
                         <div class="side_title"> おすすめ </div>

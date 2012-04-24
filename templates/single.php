@@ -7,7 +7,7 @@
     <a class="btn" href="<?=$picture->url?>"><i class="icon-download"></i> Download </a>
     </div>
     <div class="fb-comments" 
-        data-href="http://imagerous.ddo.jp/picture.php?article=<?=$picture->articleId?>&image=<?=$picture->id?>" 
+        data-href="http://imagero.us/picture.php?article=<?=$picture->articleId?>&image=<?=$picture->id?>" 
         data-num-posts="2" data-width="350" data-colorscheme="dark"></div>
 </div>
 <? else: ?>
