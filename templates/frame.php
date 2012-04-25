@@ -14,7 +14,7 @@
         <meta property="og:image" content="<?=$picture->url?>">
         <? endif ?>
         <meta property="og:description" content="壁紙をまとめる、眺める、つかう。">
-        <meta property="og:type" content="website">
+        <meta property="og:type" content="article">
         <meta property="og:site_name" content="Imagerous*">
         <meta property="fb:admins" content="100000617688375">
         <title> Imagerous* </title>
