@@ -32,7 +32,10 @@
              var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
              })();
 
-         </script>
+        </script>
+        <script type="text/javascript">
+            window.google_analytics_uacct = "UA-30923853-3";
+        </script>
 
      </head>
     <body style="background-color:#222">
