@@ -1,7 +1,7 @@
 <?
-$recommends = json_decode(file_get_contents('../recommend.json'));
-shuffle($recommends);
 require_once '../Picture.php';
+require_once '../Base.php';
+
 $picture = new Picture();
 $picture->id = null;
 

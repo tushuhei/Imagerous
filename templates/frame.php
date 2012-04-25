@@ -96,6 +96,17 @@
                         壁紙をまとめる、眺める、つかう。新しいイメージキュレーションサービスです。
                     </div>
                     <div class="side_component">
+                        <div class="side_title"> さがす </div>
+                        <form method="GET" action="search.php">
+                            <div class="input">
+                                <input class="span3" name="query" type="text">
+                            </div>
+                            <div style="float:right">
+                                <input type="submit" class="btn btn-primary">
+                            </div>
+                        </form>
+                    </div>
+                    <div class="side_component" style="margin-top:40px">
                         <div class="side_title"> おすすめ </div>
                         <? for($i = 0; $i < 5; $i++): ?>
                         <a href="index.php?id=<?=$recommends[$i]->id?>">
@@ -109,18 +120,6 @@
                         </div>
                         </a>
                         <? endfor ?>
-                    </div>
-                    <div class="side_component">
-                        <div class="side_title"> つくる </div>
-                        <div style="margin-bottom:5px">
-                            <a href="http://matome.naver.jp/" target="_blank">NAVER まとめ</a>
-                            の URL を入力するだけでオリジナルのページをつくることができます。
-                        </div>
-                        <form method="GET" action="index.php">
-                            http://matome.naver.jp/odai/
-                            <input type="text" size="100" name="id" placeholder="2127423633480175601">
-                            <input type="submit" class="btn btn-primary">
-                        </form>
                     </div>
                     <div class="side_component">
                         <script type="text/javascript"><!--

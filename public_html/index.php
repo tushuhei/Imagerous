@@ -1,10 +1,8 @@
 <?php
 require_once '../Article.php';
 require_once '../Picture.php';
+require_once '../Base.php';
 
-// おすすめ json の取得
-$recommends = json_decode(file_get_contents('../recommend.json'));
-shuffle($recommends);
 $article = new Article();
 
 // GET 変数のバリデーション

@@ -10,7 +10,7 @@ class Article {
         $content = @file_get_contents('http://matome.naver.jp/odai/'.$this->id);
         if ($content !== false) {
             $doc = new DOMDocument();
-            $doc->loadHTML($content);
+            $doc->loadHTML(mb_convert_encoding($content, 'HTML-ENTITIES', 'UTF-8'));
             libxml_clear_errors();
 
             $xpath = new DOMXPath($doc);
@@ -28,9 +28,8 @@ class Article {
 
             $nodes = $xpath->query('//div[@class="mdHeading01Thumb"]/img');
             $this->thumb = $nodes->item(0)->getAttribute('src');
-            if (preg_match("/<title>(.*?)<\/title>/i", $content, $matches)) { 
-                $this->title = preg_replace('/ \- NAVER まとめ/u', '', $matches[1]);
-            }
+            $nodes = $xpath->query('//h1[@class="mdHeading01Ttl"]');
+            $this->title = $nodes->item(0)->textContent;
         } else {
             $this->id = null;
         }
