@@ -157,16 +157,14 @@
                             src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
                         </script>
                     </div> 
+                    <div style="color:#ddd; margin-top:40px; text-align:center">
+                        Copyright (c) 2012 Shuhei Iitsuka @tushuhei All rights reserved.
+                    </div>
                 </div>
                 <div style="position:absolute; top:50px; left:250px;">
                     <?include($page.'.php');?>
                 </div>
             </div>
         </div>
-<!--
-        <div style="position:absolute; left: 0px; bottom:0px; color:#ddd; margin-top:40px; text-align:center">
-            Copyright (c) 2012 Shuhei Iitsuka @tushuhei All rights reserved.
-        </div>
--->
     </body>
 </html>

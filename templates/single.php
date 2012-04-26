@@ -15,6 +15,14 @@
             src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
         </script>
     </div>
+    <div style="width:350px; position:fixed; right:20px;top:50px;">
+        <div style="margin:15px 0">
+            <a class="btn" href="<?=$picture->url?>"><i class="icon-download"></i> 写真をダウンロード </a>
+        </div>
+        <div class="fb-comments" 
+            data-href="http://imagero.us/picture.php?article=<?=$picture->articleId?>&image=<?=$picture->id?>" 
+            data-num-posts="2" data-width="350" data-colorscheme="dark"></div>
+    </div>
 </div>
 <? else: ?>
 <span style="color:#fff"> 画像が見つかりませんでした </span>
