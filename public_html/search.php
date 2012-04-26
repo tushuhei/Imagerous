@@ -9,4 +9,6 @@ if (isset($_GET['query'])) {
 
 $searcher = new Searcher();
 $articles = $searcher::getArticles($query);
+
+$page = 'searchresult';
 include('../templates/frame.php');

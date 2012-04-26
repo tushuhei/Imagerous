@@ -72,7 +72,22 @@
                         <ul class="nav">
                             <li>
                             <a href="http://matome.naver.jp/odai/<?=$picture->articleId?>/<?=$picture->id?>" target="_blank">
+                            <img src="<?=$picture->small?>" width="20">
                                 <?=$picture->title?>
+                            </a>
+                            </li>
+                        </ul>
+                        <span style="position:fixed; top:10px; right:240px">
+                            <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://imagero.us/picture.php?article=<?=$picture->articleId?>&image=<?=$picture->id?>" data-lang="ja" data-hashtags="imagerous">ツイート</a>
+                            <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+                        </span>
+                        <div style="position:fixed; top:10px; right:150px" class="fb-like" data-href="http://imagero.us/picture.php?article=<?=$picture->articleId?>&image=<?=$picture->id?>" data-send="false" data-layout="button_count" data-width="30" data-show-faces="false"></div>
+                        <? elseif($page === 'searchresult'): ?>
+                        <ul class="nav">
+                            <li>
+                            <a>
+                            <img src="/img/logo.png" width="20">
+                            <?=$query?> の検索結果
                             </a>
                             </li>
                         </ul>
@@ -87,9 +102,9 @@
                 </div>
             </div>
         </div>
-        <div class="container-fluid" style="margin-top:50px">
-            <div class="row-fluid">
-                <div class="span2">
+        <div>
+            <div>
+                <div style="position:absolute; top:50px; left:10px; width:220px;">
                     <!--Sidebar content-->
                     <div class="side_component">
                         <div class="side_title"> Imagerous* とは？ </div>
@@ -114,7 +129,7 @@
                             <div style="float:left; width:30%; text-align:center">
                                 <img src="<?=$recommends[$i]->thumb?>" width="50">
                             </div>
-                            <div style="float:left; width:65%;margin-left:5px;">
+                            <div style="float:left; width:65%; margin-left:5px;">
                                 <?=$recommends[$i]->title?>
                             </div>
                         </div>
@@ -135,13 +150,15 @@
                         </script>
                     </div> 
                 </div>
-                <div class="span10">
+                <div style="position:absolute; top:50px; left:250px;">
                     <?include($page.'.php');?>
                 </div>
             </div>
         </div>
-        <div style="color:#ddd; margin-top:40px; text-align:center">
+<!--
+        <div style="position:absolute; left: 0px; bottom:0px; color:#ddd; margin-top:40px; text-align:center">
             Copyright (c) 2012 Shuhei Iitsuka @tushuhei All rights reserved.
         </div>
+-->
     </body>
 </html>

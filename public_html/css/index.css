@@ -28,3 +28,16 @@
 .fb_edge_widget_with_comment span.fb_edge_comment_widget iframe.fb_ltr {
     display: none !important;
 }
+.feed {
+    border-bottom:1px solid #777;
+    padding:5px 0;
+    color:#ccc;
+}
+.feed :hover {
+    background-color: #333;
+    color:#fff;
+}
+.feed img {
+    background-color: #fff;
+    color:#fff;
+}
