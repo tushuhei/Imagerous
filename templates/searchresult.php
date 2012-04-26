@@ -11,4 +11,7 @@
         </div>
     </a>
     <? endforeach ?>
+    <? if (count($articles) == 0): ?>
+    <span style="color:#fff"> 記事が見つかりませんでした </span>
+    <? endif ?>
 </div>
