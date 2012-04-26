@@ -3,18 +3,26 @@
     <head>
         <meta charset="utf-8">
         <? if ($page === 'booth' or $page === 'booth_square'): ?>
-        <meta property="og:title" content="<?=$article->title?> | Imagerous*">
-        <meta property="og:url" content="http://imagero.us/index.php?id=<?=$article->id?>">
-        <? foreach ($ogp_pics as $ogp_pic): ?>
-        <meta property="og:image" content="<?=$ogp_pic->url?>">
-        <? endforeach ?>
+            <? if (!isset($_GET['id'])): ?>
+                <meta property="og:title" content="Imagerous*">
+                <meta property="og:url" content="http://imagero.us">
+                <meta property="og:type" content="website">
+                <meta property="og:image" content="http://imagero.us/img/logo.png">
+            <? else: ?>
+                <meta property="og:title" content="<?=$article->title?> | Imagerous*">
+                <meta property="og:url" content="http://imagero.us/index.php?id=<?=$article->id?>">
+                <meta property="og:type" content="article">
+                <? foreach ($ogp_pics as $ogp_pic): ?>
+                    <meta property="og:image" content="<?=$ogp_pic->url?>">
+                <? endforeach ?>
+            <? endif ?>
         <? elseif ($page === 'single'): ?>
-        <meta property="og:title" content="<?=$picture->title?> | Imagerous*">
-        <meta property="og:url" content="http://imagero.us/picture.php?article=<?=$picture->articleId?>&image=<?=$picture->id?>">
-        <meta property="og:image" content="<?=$picture->url?>">
+            <meta property="og:title" content="<?=$picture->title?> | Imagerous*">
+            <meta property="og:url" content="http://imagero.us/picture.php?article=<?=$picture->articleId?>&image=<?=$picture->id?>">
+            <meta property="og:image" content="<?=$picture->url?>">
+            <meta property="og:type" content="article">
         <? endif ?>
         <meta property="og:description" content="壁紙をまとめる、眺める、つかう。">
-        <meta property="og:type" content="article">
         <meta property="og:site_name" content="Imagerous*">
         <meta property="fb:admins" content="100000617688375">
         <title> Imagerous* </title>
