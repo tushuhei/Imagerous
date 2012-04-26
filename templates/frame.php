@@ -125,7 +125,7 @@
                                 <input class="span3" name="query" type="text">
                             </div>
                             <div style="float:right">
-                                <input type="submit" class="btn btn-primary">
+                                <input type="submit" class="btn btn-primary" value="検索">
                             </div>
                         </form>
                     </div>
