@@ -1,6 +1,7 @@
 <?
-require_once '../Picture.php';
-require_once '../Base.php';
+$basedir = dirname(__FILE__) . '/..';
+require_once $basedir.'/models/Base.php';
+require_once $basedir.'/models/Picture.php';
 
 $picture = new Picture();
 $picture->id = null;
@@ -8,7 +9,8 @@ $picture->id = null;
 if (isset($_GET['article']) and isset($_GET['image'])) {
     $picture->articleId = $_GET['article'];
     $picture->id = $_GET['image'];
-    $picture->getPicture();
+    $picture->getContents();
+    $picture->getSmallPic();
 }
 
 $page = 'single';

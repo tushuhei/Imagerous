@@ -1,11 +1,13 @@
 <?php
+require_once $basedir.'/models/Picture.php';
+
 class Article {
     public $id;
     public $title;
     public $thumb;
-    public $contents;
+    public $pictures;
 
-    public function getArticle () {
+    public function getContents () {
         libxml_use_internal_errors(true);
         $content = @file_get_contents('http://matome.naver.jp/odai/'.$this->id);
         if ($content !== false) {
@@ -16,14 +18,15 @@ class Article {
             $xpath = new DOMXPath($doc);
             $nodes = $xpath->query('//p[@class="mdMTMWidget01ItemImg01View"]');
 
-            $this->contents = array();
+            $this->pictures = array();
             foreach ($nodes as $node) {
                 $href = $node->getElementsByTagName('a')->item(0)->getAttribute('href');
                 preg_match("/.+?\/([0-9]+)$/u", $href, $matches);
-                $this->contents[] = array(
-                    "image" => $node->getElementsByTagName('img')->item(0)->getAttribute('src'),
-                    "id" => $matches[1]
-                );
+                $picture = new Picture();
+                $picture->id = $matches[1];
+                $picture->articleId = $this->id;
+                $picture->small = $node->getElementsByTagName('img')->item(0)->getAttribute('src');
+                $this->pictures[] = $picture;
             }
 
             $nodes = $xpath->query('//div[@class="mdHeading01Thumb"]/img');
@@ -58,4 +61,5 @@ class Article {
         }
         return $result;
     }
+
 }

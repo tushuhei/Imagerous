@@ -1,6 +1,6 @@
 <? if ($picture->id !== null): ?>
 <div style="width:780px">
-    <img src="<?=$picture->url?>" width="780">
+<img id="main_pic" src="<?=$picture->url?>" width="780" onerror="document.getElementById('main_pic').src='<?=$picture->small?>'">;
 </div>
 <div style="width:350px; position:absolute; right:20px;top:50px;">
     <div style="margin:15px 0">

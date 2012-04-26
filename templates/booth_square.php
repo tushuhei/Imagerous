@@ -3,10 +3,10 @@
 <? endif ?>
 <? $adSpan = 13; ?>
 <? $adDrop = rand(0, $adSpan); ?>
-<? for($i = 0; $i < count($article->contents); $i++): ?>
+<? for($i = 0; $i < count($article->pictures); $i++): ?>
 <div style="float:left; width:200px; height:200px">
-    <a class="main_image" href="picture.php?article=<?=$article->id?>&image=<?=$article->contents[$i]['id']?>">
-        <img src="<?=$article->contents[$i]['image']?>" style="clip:rect(auto,200px,200px,auto); position:absolute;">
+    <a class="main_image" href="picture.php?article=<?=$article->id?>&image=<?=$article->pictures[$i]->id?>">
+        <img src="<?=$article->pictures[$i]->small?>" style="clip:rect(auto, 200px, 200px, auto); position:absolute;">
     </a>
 </div>
 <? if ($i % $adSpan == $adDrop): ?>

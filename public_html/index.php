@@ -1,7 +1,8 @@
 <?php
-require_once '../Article.php';
-require_once '../Picture.php';
-require_once '../Base.php';
+$basedir = dirname(__FILE__) . '/..';
+require_once $basedir.'/models/Base.php';
+require_once $basedir.'/models/Article.php';
+require_once $basedir.'/models/Picture.php';
 
 $article = new Article();
 
@@ -15,34 +16,28 @@ if (isset($_GET['id'])) {
 } else {
     $article->id = $recommends[rand(0, count($recommends)-1)]->id;
 }
-$article->getArticle();
+$article->getContents();
 
 // 取得出来なかったときの対処
 if ($article->id === null) {
     $result[] = "NAVER まとめの ID ではありません";
     $article->id = $recommends[rand(0, count($recommends)-1)]->id;
-    $article->getArticle();
+    $article->getContents();
 }
-shuffle($article->contents);
 
-// OGP 用にひとつ画像を取ってくる
-$pic1 = new Picture();
-$pic1->id = $article->contents[0]['id'];
-$pic1->articleId = $article->id;
-$pic1->getPicture();
-$pic2 = new Picture();
-$pic2->id = $article->contents[1]['id'];
-$pic2->articleId = $article->id;
-$pic2->getPicture();
-$pic3 = new Picture();
-$pic3->id = $article->contents[2]['id'];
-$pic3->articleId = $article->id;
-$pic3->getPicture();
-
-if ((int)($article->id/10000) % 2 == 0) {
-    $page = 'booth_square';
-} else {
-    $page = 'booth';
+// OGP 用に3つ画像を取ってくる
+$ogp_pics = array();
+for ($i = 0; $i < 3; $i++ ) {
+    $ogp_pic = new Picture();
+    $ogp_pic->id = $article->pictures[$i]->id;
+    $ogp_pic->articleId = $article->id;
+    $ogp_pic->getContents();
+    $ogp_pics[] = $ogp_pic;
 }
+
+// 写真をシャッフルする
+shuffle($article->pictures);
+
+$page = 'booth_square';
 
 include('../templates/frame.php');

@@ -1,7 +1,12 @@
 <?php
-require_once '../Article.php';
-require_once '../Picture.php';
-require_once '../Base.php';
-require_once '../Searcher.php';
+$basedir = dirname(__FILE__) . '/..';
+require_once $basedir.'/models/Base.php';
+require_once $basedir.'/models/Searcher.php';
 
+if (isset($_GET['query'])) {
+    $query = $_GET['query'];
+}
 
+$searcher = new Searcher();
+$articles = $searcher::getArticles($query);
+include('../templates/frame.php');

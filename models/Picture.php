@@ -1,11 +1,14 @@
 <?php
+require_once $basedir.'/models/Article.php';
+
 class Picture {
     public $id;
     public $articleId;
     public $title;
     public $url;
+    public $small;
 
-    public function getPicture () {
+    public function getContents () {
         libxml_use_internal_errors(true);
         $content = @file_get_contents('http://matome.naver.jp/odai/'.$this->articleId.'/'.$this->id);
         if ($content !== false) {
@@ -28,4 +31,17 @@ class Picture {
         }
     }
 
+    public function getSmallPic () {
+        $article = new Article();
+        $article->id = $this->articleId;
+        $result = $article->validateNaverId();
+        if (empty($result)) {
+            $article->getContents();
+            foreach ($article->pictures as $picture) {
+                if ($this->id == $picture->id) {
+                    $this->small = $picture->small;
+                }
+            }
+        }
+    }
 }
