@@ -75,7 +75,7 @@
 	{
 		width		: 210,						// set width - best to match image width
 		height		: 100,						// set height - best to match image height
-		image		: 'img/logo.png',		// set image path
+		image		: null,		// set image path
 		image2		: null,						// set overlay image path - if set color is not used
 		color		: '#336699',				// set scratch color - if image2 is not set uses color
 		overlay		: 'none',					// set the type of overlay effect 'none', 'lighter' - only used with color

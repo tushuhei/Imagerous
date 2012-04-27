@@ -1,6 +1,6 @@
 <div style="width:780px; position:relative">
     <div>
-        <img src="<?=$picture->url?>" style="width:780px" id="main_pic">
+        <img src="<?=$picture->url?>" style="width:780px" id="mainPic">
     </div>
     <div id="spContainer" style="position:absolute; top:0px; left:0px;border:solid black 1px; opacity: 0.8">
     </div>
@@ -19,6 +19,8 @@
     </a>
     <div style="color:#fff"> 上の画像をクリックしてみてください。右の「仕上げる」ボタンを押してみてください。</div>
     <h3 style="color:#ddd; margin:10px 0">わかりましたね？それではお楽しみください</h3>
+    <canvas id="subCanvas"></canvas>
+    <img id="subPic">
 </div>
 <div style="width:180px; position:fixed; right:20px;top:50px; text-align:right">
     <div style="margin:5px">
@@ -27,6 +29,13 @@
             <span id="changeOpacityLbl"> 仕上げる </span>
         </a>
     </div>
+    <div style="margin:5px">
+        <a class="btn btn-large" href="javascript:savePic()">
+            <i id="changeOpacityBtn" class="icon-ok"></i>
+            <span id="changeOpacityLbl"> 保存する</span>
+        </a>
+    </div>
+<a id="data_url_png">
 </div>
 <script type="text/javascript" src="/js/jquery-1.7.2.min.js"></script>
 <script type="text/javascript" src="/js/wScratchPad.js"></script>
@@ -46,21 +55,37 @@
     }
 
     var sp = null;
+    var mainPic = document.getElementById('mainPic');
 
     $(function() {
         $(window).bind('load', function() {
-            var picHeight = ($('#main_pic').height());
             sp = $("#spContainer").wScratchPad({
-                image: null,
-                width: 780,
-                height: picHeight,
+                width: mainPic.width,
+                height: mainPic.height,
                 size: 80,
                 color: "FFCCCC"
             });
         });
     });
 
-    function hoge () {
-        console.log($('#mainCanvas').settings);
+    function savePic() {
+        var canvas = document.getElementById('subCanvas');
+        canvas.width = mainPic.width;
+        canvas.height = mainPic.height;
+        var context = canvas.getContext('2d');
+        var img = new Image();
+        img.src = mainPic.src;
+        img.width = mainPic.width;
+        img.height = mainPic.height;
+        img.onload = function() {
+            var canvas = document.getElementById('subCanvas');
+            var context = canvas.getContext('2d');
+            context.drawImage(img, 0, 0, mainPic.naturalWidth, mainPic.naturalHeight, 0, 0, mainPic.width, mainPic.height);
+            context.drawImage(document.getElementById('mainCanvas'), 0, 0, mainPic.width, mainPic.height);
+            var imgdata = canvas.toDataURL('image/png');
+            imgdata.replace('image/png', 'image/octet-stream');
+            window.open(imgdata, 'save');
+        }
     }
+
 </script>
