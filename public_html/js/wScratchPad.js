@@ -105,6 +105,7 @@
 			var $this = this;
 			
 			this.canvas = document.createElement('canvas');
+                        this.canvas.id = "mainCanvas";
 			this.ctx = this.canvas.getContext('2d');
 			
 			this.sp =
@@ -250,6 +251,7 @@
 		scratchUp: function(e, $this)
 		{
 			$this.ctx.closePath();
-		},
+		}
+
 	}
 })(jQuery);

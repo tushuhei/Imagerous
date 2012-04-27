@@ -16,7 +16,7 @@
                     <meta property="og:image" content="<?=$ogp_pic->url?>">
                 <? endforeach ?>
             <? endif ?>
-        <? elseif ($page === 'single'): ?>
+        <? elseif ($page === 'single' or $page === 'effecter'): ?>
             <meta property="og:title" content="<?=$picture->title?> | Imagerous*">
             <meta property="og:url" content="http://imagero.us/picture.php?article=<?=$picture->articleId?>&image=<?=$picture->id?>">
             <meta property="og:image" content="<?=$picture->url?>">
@@ -76,7 +76,7 @@
                             <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
                         </span>
                         <div style="position:fixed; top:10px; right:150px" class="fb-like" data-href="http://imagero.us/index.php?id=<?=$article->id?>" data-send="false" data-layout="button_count" data-width="30" data-show-faces="false"></div>
-                        <? elseif($page === 'single'): ?>
+                        <? elseif($page === 'single' or $page === 'effecter'): ?>
                         <ul class="nav">
                             <li>
                             <a href="http://matome.naver.jp/odai/<?=$picture->articleId?>/<?=$picture->id?>" target="_blank">
