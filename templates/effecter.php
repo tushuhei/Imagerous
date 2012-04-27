@@ -1,9 +1,6 @@
 <div style="width:780px; position:relative">
-    <div>
-        <img src="<?=$picture->url?>" style="width:780px" id="main_pic">
-    </div>
-    <div id="spContainer" style="position:absolute; top:0px; left:0px;border:solid black 1px; opacity: 0.8">
-    </div>
+<img id="main_pic" src="<?=$picture->url?>" width="780" style="position:absolute; left:0px; top:0px">
+<canvas id="c" style="position:absolute; left:0px; top:0px"></canvas>
 </div>
 <div style="margin:10px 0">
     <h3 style="color:#ddd; margin:10px 0">お手本</h3>
@@ -32,35 +29,61 @@
 <script type="text/javascript" src="/js/wScratchPad.js"></script>
 <script type="text/javascript">
 
-    function changeOpacity () {
-        var container = document.getElementById('spContainer');
-        if (container.style.opacity < 0.9) {
-            container.style.opacity = 1;
-            document.getElementById('changeOpacityBtn').className = 'icon-edit';
-            document.getElementById('changeOpacityLbl').innerText = '透過する';
-        } else {
-            container.style.opacity = 0.8;
-            document.getElementById('changeOpacityBtn').className = 'icon-ok';
-            document.getElementById('changeOpacityLbl').innerText = '仕上げる';
+$(function() {
+    $(window).bind('load', function() {
+        /* Canvas の生成 */
+        var canvas = document.getElementById('c');
+        canvas.addEventListener("mousemove", draw, true);
+        canvas.addEventListener("mousedown", function(){  
+            drawFlag = true;   
+        }, false);    
+        canvas.addEventListener("mouseup", function(){         
+            drawFlag = false; 
+        }, false);
+
+        /* 画像を読み込む. Canvas のサイズを取るのに使用 */
+        var mainPic = document.getElementById('main_pic');
+        canvas.width = mainPic.width;
+        canvas.height = mainPic.height;
+        if ( ! canvas || ! canvas.getContext ) { return false; }
+
+        /* コンテキストの生成 */
+        var ctx = canvas.getContext('2d');
+
+        /* Imageオブジェクトを生成 */
+        var img = new Image();
+        img.src = "<?=$picture->url?>";
+        img.width = mainPic.width;
+        img.height = mainPic.height;
+
+        /* 画像が読み込まれるのを待ってから処理を続行 */
+        img.onload = function() {
+            ctx.drawImage(img, 0, 0, mainPic.naturalWidth, mainPic.naturalHeight, 0, 0, mainPic.width, mainPic.height);
+            /* 長方形を描く */
+            ctx.beginPath();
+            ctx.fillStyle = "rgba(255, 192, 203, 0.8)";
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
         }
-    }
-
-    var sp = null;
-
-    $(function() {
-        $(window).bind('load', function() {
-            var picHeight = ($('#main_pic').height());
-            sp = $("#spContainer").wScratchPad({
-                image: null,
-                width: 780,
-                height: picHeight,
-                size: 80,
-                color: "FFCCCC"
-            });
-        });
+        function draw(e){     
+            if (!drawFlag) return;
+            var rect = event.target.getBoundingClientRect() ;
+            var x = event.clientX - rect.left;
+            var y = event.clientY - rect.top;
+            ctx.globalAlpha = 0;
+            ctx.beginPath();
+            ctx.globalCompositeOperation = 'destination-out';
+            ctx.strokeStyle = '#000000';
+            ctx.lineWidth = brushSize;
+            ctx.lineJoin= 'round';
+            ctx.lineCap = 'round';
+            ctx.shadowBlur = 0;
+            ctx.setTransform(1, 0, 0, 1, 0, 0);
+            ctx.moveTo(startX, startY);
+            ctx.lineTo(endX, endY);
+            ctx.stroke();
+            ctx.closePath();
+        }
     });
 
-    function hoge () {
-        console.log($('#mainCanvas').settings);
-    }
+});
 </script>
