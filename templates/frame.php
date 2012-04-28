@@ -80,7 +80,6 @@
                         <ul class="nav">
                             <li>
                             <a href="http://matome.naver.jp/odai/<?=$picture->articleId?>/<?=$picture->id?>" target="_blank">
-                            <img src="<?=$picture->small?>" width="20">
                                 <?=$picture->title?>
                             </a>
                             </li>

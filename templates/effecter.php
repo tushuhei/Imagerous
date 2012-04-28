@@ -22,40 +22,50 @@
     <canvas id="subCanvas"></canvas>
     <img id="subPic">
 </div>
-<div style="width:180px; position:fixed; right:20px;top:50px; text-align:right">
+<div style="width:170px; position:fixed; right:20px;top:50px; text-align:right">
     <div style="margin:5px">
         <a class="btn btn-large" href="javascript:changeOpacity()">
             <i id="changeOpacityBtn" class="icon-ok"></i>
             <span id="changeOpacityLbl"> 仕上げる </span>
         </a>
     </div>
-    <div style="margin:5px">
-        <a class="btn btn-large" href="javascript:savePic()">
-            <i id="changeOpacityBtn" class="icon-ok"></i>
-            <span id="changeOpacityLbl"> 保存する</span>
+    <div style="margin-top:30px; color:#ddd">
+        <div style="text-align:right; font-size:18px; margin-bottom:10px">
+            ブラシサイズ
+        </div>
+        <? $brashSizes = array(20,40,80); ?>
+        <? foreach ($brashSizes as $brashSize): ?>
+        <a class="brashCircle">
+            <div style="
+                clear:right;
+                margin:5px;
+                float:right;
+                width:<?=$brashSize?>px; 
+                height:<?=$brashSize?>px; 
+                -webkit-border-radius:<?=($brashSize/2)?>px; 
+                -moz-border-radius:<?=($brashSize/2)?>px;
+                border:1px solid #fff;
+                background-color: #bbb;
+                " class="brashCircle"
+                id="brashCircle<?=$brashSize?>"></div>
         </a>
+        <? endforeach ?>
     </div>
-<a id="data_url_png">
 </div>
 <script type="text/javascript" src="/js/jquery-1.7.2.min.js"></script>
 <script type="text/javascript" src="/js/wScratchPad.js"></script>
 <script type="text/javascript">
 
-    function changeOpacity () {
-        var container = document.getElementById('spContainer');
-        if (container.style.opacity < 0.9) {
-            container.style.opacity = 1;
-            document.getElementById('changeOpacityBtn').className = 'icon-edit';
-            document.getElementById('changeOpacityLbl').innerText = '透過する';
-        } else {
-            container.style.opacity = 0.8;
-            document.getElementById('changeOpacityBtn').className = 'icon-ok';
-            document.getElementById('changeOpacityLbl').innerText = '仕上げる';
-        }
-    }
-
     var sp = null;
     var mainPic = document.getElementById('mainPic');
+    var brashCircles = new Array();
+    <? for($i = 0; $i < count($brashSizes); $i++): ?>
+        <? if ($i == count($brashSizes) - 1): ?>
+            brashCircles.push(new BrashCircle(document.getElementById("brashCircle<?=$brashSizes[$i]?>"), <?=$brashSizes[$i]?>, true));
+        <? else: ?>
+            brashCircles.push(new BrashCircle(document.getElementById("brashCircle<?=$brashSizes[$i]?>"), <?=$brashSizes[$i]?>, false));
+        <? endif ?>
+    <? endfor ?>
 
     $(function() {
         $(window).bind('load', function() {
@@ -68,23 +78,66 @@
         });
     });
 
-    function savePic() {
-        var canvas = document.getElementById('subCanvas');
-        canvas.width = mainPic.width;
-        canvas.height = mainPic.height;
-        var context = canvas.getContext('2d');
-        var img = new Image();
-        img.src = mainPic.src;
-        img.width = mainPic.width;
-        img.height = mainPic.height;
-        img.onload = function() {
-            var canvas = document.getElementById('subCanvas');
-            var context = canvas.getContext('2d');
-            context.drawImage(img, 0, 0, mainPic.naturalWidth, mainPic.naturalHeight, 0, 0, mainPic.width, mainPic.height);
-            context.drawImage(document.getElementById('mainCanvas'), 0, 0, mainPic.width, mainPic.height);
-            var imgdata = canvas.toDataURL('image/png');
-            imgdata.replace('image/png', 'image/octet-stream');
-            window.open(imgdata, 'save');
+    function changeBrashSize(size) {
+        sp.wScratchPad("size", size);
+        for (var i = 0; i < brashSizes.length; i++) {
+            document.getElementById('brashCircle' + brashSizes[i]).style.backgroundColor = "#bbb";
+        }
+        document.getElementById('brashCircle'+size).style.backgroundColor = "#0085cc";
+    }
+
+    function BrashCircle(el, size, active) {
+        var circle = this;
+        circle.el = el;
+        circle.size = size;
+        circle.active = active;
+        if (circle.active == true) {
+            circle.el.style.backgroundColor = "#0085cc";
+        }
+        $(circle.el).live("click", function (){
+                sp.wScratchPad("size", circle.size);
+                for (var i = 0; i < brashCircles.length; i++) {
+                    brashCircles[i].setNotActive();
+                }
+                circle.setActive();
+                });
+        $(circle.el).live("mouseover", function (){
+                if (circle.active == false) {
+                    circle.el.style.backgroundColor = "#fff";
+                }
+                });
+        $(circle.el).live("mouseout", function (){
+                if (circle.active == false) {
+                    circle.el.style.backgroundColor = "#bbb";
+                }
+                });
+        $(circle.el).live("mousedown", function (){
+                if (circle.active == false) {
+                    circle.el.style.backgroundColor = "#999";
+                }
+                });
+    }
+    BrashCircle.prototype.setNotActive = function () {
+        var circle = this;
+        circle.el.style.backgroundColor = "#bbb";
+        circle.active = false;
+    };
+    BrashCircle.prototype.setActive = function () {
+        var circle = this;
+        circle.el.style.backgroundColor = "#0085cc";
+        circle.active = true;
+    };
+
+    function changeOpacity () {
+        var container = document.getElementById('spContainer');
+        if (container.style.opacity < 0.9) {
+            container.style.opacity = 1;
+            document.getElementById('changeOpacityBtn').className = 'icon-edit';
+            document.getElementById('changeOpacityLbl').innerText = '透過する';
+        } else {
+            container.style.opacity = 0.8;
+            document.getElementById('changeOpacityBtn').className = 'icon-ok';
+            document.getElementById('changeOpacityLbl').innerText = '仕上げる';
         }
     }
 
