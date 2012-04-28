@@ -24,4 +24,3 @@
 </a>
 <? endif ?>
 <div id="query" style="visibility:hidden"><?=$query?></div>
-<div id="page" style="visibility:hidden">1</div>

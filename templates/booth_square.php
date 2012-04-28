@@ -1,3 +1,4 @@
+<script type="text/javascript" src="/js/index.js"></script>
 <? if (!empty($result)): ?>
 <div class="alert"><?=$result[0]?></div>
 <? endif ?>
@@ -14,6 +15,7 @@
         src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
     </script>
 </div>
+<div id="squares">
 <? for($i = 0; $i < count($article->pictures); $i++): ?>
 <div style="float:left; width:200px; height:200px">
     <a class="main_image" href="picture.php?article=<?=$article->id?>&image=<?=$article->pictures[$i]->id?>">
@@ -21,3 +23,10 @@
     </a>
 </div>
 <? endfor ?>
+</div>
+<a id="loadNext">
+<div id="loadNext">
+もっと見る
+</div>
+</a>
+<div id="article" style="visibility:hidden"><?=$article->id?></div>

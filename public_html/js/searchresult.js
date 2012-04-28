@@ -4,7 +4,7 @@ $(function(){
     $("#loadNext").click(function(){
     $.ajax({
         type: "POST",
-        url: "ajax.php",
+        url: "searchAjax.php",
         data: {
             "query": $("#query").html(),
             "page": page + 1
