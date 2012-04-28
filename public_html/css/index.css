@@ -38,3 +38,17 @@
     background-color: #fff;
     color:#fff;
 }
+#loadNext {
+    clear:left;
+    width:100%;
+    height:30px;
+    background-color:#333;
+    text-align:center;
+    padding-top:10px;
+}
+#loadNext :hover {
+    background-color:#444;
+}
+#loadNext :active {
+    background-color:#333;
+}

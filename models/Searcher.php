@@ -3,9 +3,13 @@ require_once $basedir.'/models/Article.php';
 
 class Searcher {
 
-    public static function getArticles($query) {
+    public static function getArticles($query, $page = null) {
         libxml_use_internal_errors(true);
-        $content = @file_get_contents('http://matome.naver.jp/search?q='.htmlspecialchars($query));
+        if ($page == null) {
+            $content = @file_get_contents('http://matome.naver.jp/search?q='.htmlspecialchars($query));
+        } else {
+            $content = @file_get_contents('http://matome.naver.jp/search?q='.htmlspecialchars($query).'&page='.intval($page));
+        }
         $doc = new DOMDocument();
         $doc->loadHTML(mb_convert_encoding($content, 'HTML-ENTITIES', 'UTF-8'));
         libxml_clear_errors();

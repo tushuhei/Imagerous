@@ -7,9 +7,13 @@ class Article {
     public $thumb;
     public $pictures;
 
-    public function getContents () {
+    public function getContents ($page = null) {
         libxml_use_internal_errors(true);
-        $content = @file_get_contents('http://matome.naver.jp/odai/'.$this->id);
+        if ($page === null) {
+            $content = @file_get_contents('http://matome.naver.jp/odai/'.$this->id);
+        } else {
+            $content = @file_get_contents('http://matome.naver.jp/odai/'.$this->id.'?page='.intval($page));
+        }
         if ($content !== false) {
             $doc = new DOMDocument();
             $doc->loadHTML(mb_convert_encoding($content, 'HTML-ENTITIES', 'UTF-8'));
