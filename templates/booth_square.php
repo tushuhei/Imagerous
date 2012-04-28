@@ -25,8 +25,19 @@
 <? endfor ?>
 </div>
 <a id="loadNext">
-<div id="loadNext">
+<div id="loadNext" style="margin-bottom:10px">
 もっと見る
 </div>
 </a>
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-6865664974975544";
+/* imagerous-footer */
+google_ad_slot = "3360904027";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
 <div id="article" style="visibility:hidden"><?=$article->id?></div>
