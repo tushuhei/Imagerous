@@ -17,17 +17,22 @@
 </div>
 <div id="squares">
 <? for($i = 0; $i < count($article->pictures); $i++): ?>
-<div style="float:left; width:200px; height:200px">
-    <a class="main_image" href="picture.php?article=<?=$article->id?>&image=<?=$article->pictures[$i]->id?>">
-        <img src="<?=$article->pictures[$i]->small?>" style="clip:rect(auto, 200px, 200px, auto); position:absolute;">
-    </a>
-</div>
+    <div style="float:left; width:200px; height:200px">
+        <form id="pictureForm1_<?=$i?>" method="get" action="picture.php">
+            <a class="main_image" href="javascript:document.getElementById('pictureForm1_<?=$i?>').submit()">
+                <img src="<?=$article->pictures[$i]->small?>" style="clip:rect(auto, 200px, 200px, auto); position:absolute;">
+                <input type="hidden" name="article" value="<?=$article->id?>">
+                <input type="hidden" name="image" value="<?=$article->pictures[$i]->id?>">
+                <input type="hidden" name="page" value="1">
+            </a>
+        </form>
+    </div>
 <? endfor ?>
 </div>
 <a id="loadNext">
-<div id="loadNext" style="margin-bottom:10px">
-もっと見る
-</div>
+    <div id="loadNext" style="margin-bottom:10px">
+        もっと見る
+    </div>
 </a>
 <script type="text/javascript"><!--
 google_ad_client = "ca-pub-6865664974975544";

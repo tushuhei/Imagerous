@@ -31,12 +31,12 @@ class Picture {
         }
     }
 
-    public function getSmallPic () {
+    public function getSmallPic ($page = null) {
         $article = new Article();
         $article->id = $this->articleId;
         $result = $article->validateNaverId();
         if (empty($result)) {
-            $article->getContents();
+            $article->getContents($page);
             foreach ($article->pictures as $picture) {
                 if ($this->id == $picture->id) {
                     $this->small = $picture->small;

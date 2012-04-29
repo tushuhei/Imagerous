@@ -7,10 +7,15 @@ $picture = new Picture();
 $picture->id = null;
 
 if (isset($_GET['article']) and isset($_GET['image'])) {
+    if(isset($_GET['page'])) {
+        $page = $_GET['page'];
+    } else {
+        $page = null;
+    }
     $picture->articleId = $_GET['article'];
     $picture->id = $_GET['image'];
     $picture->getContents();
-    $picture->getSmallPic();
+    $picture->getSmallPic($page);
 }
 
 $page = 'single';
