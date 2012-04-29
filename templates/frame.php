@@ -25,7 +25,15 @@
         <meta property="og:description" content="壁紙をまとめる、眺める、つかう。">
         <meta property="og:site_name" content="Imagerous*">
         <meta property="fb:admins" content="100000617688375">
-        <title> Imagerous* </title>
+        <? if ($page === 'booth' or $page === 'booth_square'): ?>
+            <? if (!isset($_GET['id'])): ?>
+                <title> Imagerous* </title>
+            <? else: ?>
+                <title> Imagerous* | <?=$article->title?></title>
+            <? endif ?>
+        <? elseif ($page === 'single' or $page === 'effecter'): ?>
+            <title> Imagerous* | <?=$picture->title?></title>
+        <? endif ?>
         <link rel="stylesheet" href="/css/bootstrap/css/bootstrap.css" type="text/css">
         <link rel="stylesheet" href="/css/index.css" type="text/css">
         <script type="text/javascript">
