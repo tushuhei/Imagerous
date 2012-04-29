@@ -29,10 +29,10 @@
             <? if (!isset($_GET['id'])): ?>
                 <title> Imagerous* </title>
             <? else: ?>
-                <title> Imagerous* | <?=$article->title?></title>
+                <title> <?=$article->title?> | Imagerous* </title>
             <? endif ?>
         <? elseif ($page === 'single' or $page === 'effecter'): ?>
-            <title> Imagerous* | <?=$picture->title?></title>
+            <title> <?=$picture->title?> | Imagerous* </title>
         <? endif ?>
         <link rel="stylesheet" href="/css/bootstrap/css/bootstrap.css" type="text/css">
         <link rel="stylesheet" href="/css/index.css" type="text/css">
