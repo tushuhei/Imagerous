@@ -1,6 +1,8 @@
 <div style="width:780px; position:relative">
     <div>
-        <img src="<?=$picture->url?>" style="width:780px" id="mainPic">
+        <img src="<?=$picture->url?>" 
+        onerror="document.getElementById('mainPic').src='<?=$picture->small?>'"
+style="width:780px" id="mainPic">
     </div>
     <div id="spContainer" style="position:absolute; top:0px; left:0px;border:solid black 1px; opacity: 0.8">
     </div>
@@ -33,7 +35,7 @@
         <div style="text-align:right; font-size:18px; margin-bottom:10px">
             ブラシサイズ
         </div>
-        <? $brashSizes = array(20,40,80); ?>
+        <? $brashSizes = array(20,40,80, 160); ?>
         <? foreach ($brashSizes as $brashSize): ?>
         <a class="brashCircle">
             <div style="
@@ -71,7 +73,7 @@
             sp = $("#spContainer").wScratchPad({
                 width: mainPic.width,
                 height: mainPic.height,
-                size: 80,
+                size: 160,
                 color: "FFCCCC"
             });
         });
