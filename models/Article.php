@@ -6,6 +6,30 @@ class Article {
     public $title;
     public $thumb;
     public $pictures;
+    public $wdata;
+
+    public function getWidgetData ($page = null) {
+        $data = array();
+        libxml_use_internal_errors(true);
+        if ($page === null) {
+            $content = @file_get_contents('http://matome.naver.jp/odai/'.$this->id);
+        } else {
+            $content = @file_get_contents('http://matome.naver.jp/odai/'.$this->id.'?page='.intval($page));
+        }
+        if ($content !== false) {
+            $doc = new DOMDocument();
+            $doc->loadHTML(mb_convert_encoding($content, 'HTML-ENTITIES', 'UTF-8'));
+            libxml_clear_errors();
+
+            $xpath = new DOMXPath($doc);
+            $nodes = $xpath->query('//div[@class="_jWidgetData"]');
+
+            foreach ($nodes as $node) {
+                $data[] = json_decode($node->getAttribute('data-contentdata'));
+            }
+        }
+        $this->wdata = $data;
+    }
 
     public function getContents ($page = null) {
         libxml_use_internal_errors(true);
