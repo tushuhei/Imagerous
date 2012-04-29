@@ -1,5 +1,7 @@
 <div style="visibility:hidden; height:0px;">
 <!-- google_ad_section_start -->
+壁紙をまとめる、眺める、つかう。新しいイメージキュレーションサービスです。
+<?=$article->title?>
 <? foreach($article->wdata as $data): ?>
 <?=$data->title?>
 <?=$data->description?>
