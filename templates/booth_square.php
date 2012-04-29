@@ -1,11 +1,11 @@
-<!-- google_ad_section_start -->
 <div style="visibility:hidden; height:0px;">
+<!-- google_ad_section_start -->
 <? foreach($article->wdata as $data): ?>
 <?=$data->title?>
 <?=$data->description?>
 <? endforeach ?>
-</div>
 <!-- google_ad_section_end -->
+</div>
 <script type="text/javascript" src="/js/index.js"></script>
 <? if (!empty($result)): ?>
 <div class="alert"><?=$result[0]?></div>

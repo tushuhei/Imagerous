@@ -8,29 +8,6 @@ class Article {
     public $pictures;
     public $wdata;
 
-    public function getWidgetData ($page = null) {
-        $data = array();
-        libxml_use_internal_errors(true);
-        if ($page === null) {
-            $content = @file_get_contents('http://matome.naver.jp/odai/'.$this->id);
-        } else {
-            $content = @file_get_contents('http://matome.naver.jp/odai/'.$this->id.'?page='.intval($page));
-        }
-        if ($content !== false) {
-            $doc = new DOMDocument();
-            $doc->loadHTML(mb_convert_encoding($content, 'HTML-ENTITIES', 'UTF-8'));
-            libxml_clear_errors();
-
-            $xpath = new DOMXPath($doc);
-            $nodes = $xpath->query('//div[@class="_jWidgetData"]');
-
-            foreach ($nodes as $node) {
-                $data[] = json_decode($node->getAttribute('data-contentdata'));
-            }
-        }
-        $this->wdata = $data;
-    }
-
     public function getContents ($page = null) {
         libxml_use_internal_errors(true);
         if ($page === null) {
@@ -44,9 +21,9 @@ class Article {
             libxml_clear_errors();
 
             $xpath = new DOMXPath($doc);
-            $nodes = $xpath->query('//p[@class="mdMTMWidget01ItemImg01View"]');
 
             $this->pictures = array();
+            $nodes = $xpath->query('//p[@class="mdMTMWidget01ItemImg01View"]');
             foreach ($nodes as $node) {
                 $href = $node->getElementsByTagName('a')->item(0)->getAttribute('href');
                 preg_match("/.+?\/([0-9]+)$/u", $href, $matches);
@@ -57,8 +34,15 @@ class Article {
                 $this->pictures[] = $picture;
             }
 
+            $this->wdata = array();
+            $nodes = $xpath->query('//div[@class="_jWidgetData"]');
+            foreach ($nodes as $node) {
+                $this->wdata[] = json_decode($node->getAttribute('data-contentdata'));
+            }
+
             $nodes = $xpath->query('//div[@class="mdHeading01Thumb"]/img');
             $this->thumb = $nodes->item(0)->getAttribute('src');
+
             $nodes = $xpath->query('//h1[@class="mdHeading01Ttl"]');
             $this->title = $nodes->item(0)->textContent;
         } else {

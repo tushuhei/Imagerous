@@ -25,8 +25,6 @@ if ($article->id === null) {
     $article->getContents();
 }
 
-$article->getWidgetData();
-
 // OGP 用に3つ画像を取ってくる
 $ogp_pics = array();
 for ($i = 0; $i < 3; $i++ ) {
