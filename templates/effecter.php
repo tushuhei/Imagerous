@@ -31,7 +31,7 @@ style="width:780px" id="mainPic">
             <span id="changeOpacityLbl"> 仕上げる </span>
         </a>
     </div>
-    <div style="margin-top:30px; color:#ddd">
+    <div style="margin-top:30px; color:#fff">
         <div style="text-align:right; font-size:18px; margin-bottom:10px">
             ブラシサイズ
         </div>
