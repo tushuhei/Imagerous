@@ -16,12 +16,14 @@
 </div>
 <div style="width:180px; position:fixed; right:20px;top:50px;text-align:right">
     <div style="margin:15px 0">
-        <a class="btn btn-large" href="<?=$picture->url?>">
+        <a class="btn btn-large" href="<?=$picture->url?>"
+        onClick="_gaq.push(['_trackEvent','click-download-button',<?=$picture->articleId?>,<?=$picture->id?>]);">
             <i class="icon-download"></i> ダウンロード 
         </a>
     </div>
     <div style="margin:15px 0">
-        <a class="btn btn-large" href="/effect.php?article=<?=$picture->articleId?>&image=<?=$picture->id?>">
+        <a class="btn btn-large" href="/effect.php?article=<?=$picture->articleId?>&image=<?=$picture->id?>"
+        onClick="_gaq.push(['_trackEvent','click-play-button',<?=$picture->articleId?>,<?=$picture->id?>]);">
             <i class="icon-edit"></i>&nbsp;&nbsp;&nbsp;写真で遊ぶ&nbsp;&nbsp
         </a>
     </div>
