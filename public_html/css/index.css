@@ -20,6 +20,10 @@
     background-color: #fff;
     color:#fff;
 }
+.main_image {
+    clip:rect(auto, 200px, 200px, auto);
+    position:absolute;
+}
 .main_image :hover {
     filter: alpha(opacity=70); /*For IE*/
     opacity: 0.7; /*Opera・Safari*/
@@ -87,7 +91,11 @@
     height:90px; 
     padding-bottom:10px;
 }
-#wide_foot_ad_mobile {
+.pic_square {
+    float:left;
+    width:200px;
+    height:200px;
+}
+.mobileOnly {
     display:none;
-    height:0px;
 }

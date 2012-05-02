@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width">
+        <meta name="viewport" content="user-scalable=no, width=device-width">
         <? if ($page === 'booth' or $page === 'booth_square'): ?>
             <? if (!isset($_GET['id'])): ?>
                 <meta property="og:title" content="Imagerous*">
