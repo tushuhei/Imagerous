@@ -4,6 +4,7 @@ require_once $basedir.'/models/Article.php';
 class Searcher {
 
     public static function getArticles($query, $page = null) {
+        $query = preg_replace('/\s/', '', $query);
         libxml_use_internal_errors(true);
         if ($page == null) {
             $content = @file_get_contents('http://matome.naver.jp/search?q='.htmlspecialchars($query));
