@@ -1,6 +1,6 @@
 <? if ($picture->id !== null): ?>
-<div style="width:780px">
-    <img id="mainPic" src="<?=$picture->url?>" width="780" onerror="document.getElementById('mainPic').src='<?=$picture->small?>'"
+<div id="picContainer">
+    <img id="mainPic" src="<?=$picture->url?>" onerror="document.getElementById('mainPic').src='<?=$picture->small?>'"
     title="<?=$picture->title?>" alt="<?=$picture->title?>">
     <div style="height:90px; padding-top:10px">
         <script type="text/javascript"><!--
@@ -14,7 +14,7 @@
             src="http://pagead2.googlesyndication.com/pagead/show_ads.js"> </script>
     </div>
 </div>
-<div style="width:180px; position:fixed; right:20px;top:50px;text-align:right">
+<div id="rightSidebar">
     <div style="margin:15px 0">
         <a class="btn btn-large" href="<?=$picture->url?>"
         onClick="_gaq.push(['_trackEvent','click-download-button',<?=$picture->articleId?>,<?=$picture->id?>]);">

@@ -1,8 +1,7 @@
-<div style="width:780px; position:relative">
+<div id="picContainer">
     <div>
-        <img src="<?=$picture->url?>" 
-        onerror="document.getElementById('mainPic').src='<?=$picture->small?>'"
-style="width:780px" id="mainPic">
+        <img src="<?=$picture->url?>" id="mainPic"
+        onerror="document.getElementById('mainPic').src='<?=$picture->small?>'">
     </div>
     <div id="spContainer" style="position:absolute; top:0px; left:0px;border:solid black 1px; opacity: 0.8">
     </div>
@@ -14,7 +13,7 @@ style="width:780px" id="mainPic">
             <div style="float:left; width:60px; text-align:center">
                 <img src="http://tc1.search.naver.jp/?/kaze/mission/USER/1/8/169368/22279/438x438x47c5aea94e73b6527d0b7ee5.jpg/c.95x95" width="50">
             </div>
-            <div style="float:left;margin-left:5px;height:50px; width:710px">
+            <div id="effect_desc">
                 AKB48を「裸に見える画像ジェネレーター」で丸裸にしてみた
             </div>
         </div>
@@ -24,7 +23,7 @@ style="width:780px" id="mainPic">
     <canvas id="subCanvas"></canvas>
     <img id="subPic">
 </div>
-<div style="width:170px; position:fixed; right:20px;top:50px; text-align:right">
+<div id="rightSidebar">
     <div style="margin:5px">
         <a class="btn btn-large" href="javascript:changeOpacity()">
             <i id="changeOpacityBtn" class="icon-ok"></i>
