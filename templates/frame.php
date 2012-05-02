@@ -129,7 +129,7 @@
                         <div class="side_title"> さがす </div>
                         <form method="GET" action="search.php">
                             <div class="input">
-                                <input class="span3" name="query" type="text">
+                                <input class="span3" name="query" type="text" value="<?if (isset($query)) {echo $query;} ?>">
                             </div>
                             <div style="float:right">
                                 <input type="submit" class="btn btn-primary" value="検索">
