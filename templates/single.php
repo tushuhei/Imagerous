@@ -28,7 +28,7 @@
 </div>
 <div id="rightSidebar">
     <div style="margin:15px 0" id="downloadBtn">
-        <a class="btn btn-large" href="<?=$picture->url?>"
+        <a id="downloadAnc" class="btn btn-large" href="<?=$picture->url?>"
         onClick="_gaq.push(['_trackEvent','click-download-button',<?=$picture->articleId?>,<?=$picture->id?>]);">
             <i class="icon-download"></i> ダウンロード 
         </a>

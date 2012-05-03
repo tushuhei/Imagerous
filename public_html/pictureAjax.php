@@ -5,7 +5,7 @@ require_once $basedir.'/models/Article.php';
 if (isset($_POST['direction']) and isset($_POST['picture']) and isset($_POST['article']) and isset($_POST['page'])) {
     $direction = (boolean)$_POST['direction'];
     $articleId = $_POST['article'];
-    $picture = $_POST['picture'];
+    $pictureId = $_POST['picture'];
     $page = $_POST['page'];
 }
 $article = new Article();
@@ -16,22 +16,29 @@ if(empty($result)) {
 }
 
 for ($i = 0; $i < count($article->pictures); $i++) {
-    if ($article->pictures[$i]->id == $picture) {
+    if ($article->pictures[$i]->id == $pictureId) {
         $index = $i;
     }
 }
 if ($direction) {
     if (isset($article->pictures[$index + 1])) {
-        echo json_encode($article->pictures[$index + 1]);
+        $objPic = $article->pictures[$index + 1];
     } else {
         $article->getContents($page + 1);
-        echo json_encode($article->pictures[0]);
+        $objPic = $article->pictures[0];
     }
 } else {
     if (isset($article->pictures[$index - 1])) {
-        echo json_encode($article->pictures[$index - 1]);
+        $objPic = $article->pictures[$index - 1];
     } else {
         $article->getContents($page - 1);
-        echo json_encode($article->pictures[count($article->pictures)]);
+        $objPic = $article->pictures[count($article->pictures)];
     }
 }
+
+$picture = new Picture();
+$picture->id = $objPic->id;
+$picture->articleId = $article->id;
+$picture->getContents ();
+$picture->small = $objPic->small;
+echo json_encode($picture);

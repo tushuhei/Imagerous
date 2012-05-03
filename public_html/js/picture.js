@@ -22,6 +22,8 @@ $.ajax({
         document.getElementById("mainPic").src = obj.small;
         document.getElementById("pictureId").innerHTML = obj.id;
 
+        document.getElementById("downloadAnc").href = obj.url;
+
         var mainPic = document.getElementById('mainPic');
         document.getElementById('goNext').style.height = (mainPic.height - 95) + "px";
         document.getElementById('goPrev').style.height = (mainPic.height - 95) + "px";
