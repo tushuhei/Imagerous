@@ -32,7 +32,7 @@
     </div>
     <div style="margin:5px">
         <a class="btn btn-large" href="javascript:saveImage()">
-            <i id="saveImageBtn" class="icon-ok"></i>
+            <i id="saveImageBtn" class="icon-eject"></i>
             <span id="saveImageLbl"> 保存する </span>
         </a>
     </div>
@@ -137,7 +137,7 @@ function changeOpacity () {
     var container = document.getElementById('spContainer');
     if (container.style.opacity < 0.9) {
         container.style.opacity = 1;
-        document.getElementById('changeOpacityBtn').className = 'icon-edit';
+        document.getElementById('changeOpacityBtn').className = 'icon-eye-open';
         document.getElementById('changeOpacityLbl').innerText = '透過する';
     } else {
         container.style.opacity = 0.8;
