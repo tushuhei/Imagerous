@@ -139,7 +139,7 @@
                         </div>
                     </form>
                 </div>
-                <div class="side_component" style="margin-top:40px" id="recommends">
+                <div class="side_component" style="margin-top:40px">
                     <div class="side_title"> おすすめ </div>
                     <? for($i = 0; $i < 5; $i++): ?>
                     <a href="index.php?id=<?=$recommends[$i]->id?>">
@@ -174,6 +174,21 @@
             <div id="mainFrame">
                 <?include($page.'.php');?>
             </div>
+        </div>
+        <div class="mobileOnly">
+            <div style="color:#ddd; font-size:21px; margin-bottom:10px"> おすすめ </div>
+            <? for($i = 0; $i < 5; $i++): ?>
+            <a href="index.php?id=<?=$recommends[$i]->id?>">
+            <div class="side_feed clearfix">
+                <div style="float:left; width:30%; text-align:center">
+                    <img src="<?=$recommends[$i]->thumb?>" width="50">
+                </div>
+                <div style="float:left; width:65%; margin-left:5px;">
+                    <?=$recommends[$i]->title?>
+                </div>
+            </div>
+            </a>
+            <? endfor ?>
         </div>
     </body>
 </html>
