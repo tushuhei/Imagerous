@@ -13,5 +13,5 @@ if (isset($_GET['article']) and isset($_GET['image'])) {
     $picture->getSmallPic();
 }
 
-$page = 'effecter';
+$template = 'effectTmp';
 include('../templates/frame.php');

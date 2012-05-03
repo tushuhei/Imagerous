@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="user-scalable=no, width=device-width">
-        <? if ($page === 'booth' or $page === 'booth_square'): ?>
+        <? if ($template === 'indexTmp'): ?>
             <? if (!isset($_GET['id'])): ?>
                 <meta property="og:title" content="Imagerous*">
                 <meta property="og:url" content="http://imagero.us">
@@ -17,22 +17,29 @@
                     <meta property="og:image" content="<?=$ogp_pic->url?>">
                 <? endforeach ?>
             <? endif ?>
-        <? elseif ($page === 'single' or $page === 'effecter'): ?>
+        <? elseif ($template === 'pictureTmp' or $template === 'effectTmp'): ?>
             <meta property="og:title" content="<?=$picture->title?> | Imagerous*">
             <meta property="og:url" content="http://imagero.us/picture.php?article=<?=$picture->articleId?>&image=<?=$picture->id?>">
+            <meta property="og:image" content="<?=$picture->url?>">
+            <meta property="og:type" content="article">
+        <? elseif ($template === 'workTmp'): ?>
+            <meta property="og:title" content="<?=$picture->title?> | Imagerous*">
+            <meta property="og:url" content="http://imagero.us/work.php?id=<?=$work->id?>">
             <meta property="og:image" content="<?=$picture->url?>">
             <meta property="og:type" content="article">
         <? endif ?>
         <meta property="og:description" content="壁紙をまとめる、眺める、つかう。">
         <meta property="og:site_name" content="Imagerous*">
         <meta property="fb:admins" content="100000617688375">
-        <? if ($page === 'booth' or $page === 'booth_square'): ?>
+        <? if ($template === 'indexTmp'): ?>
             <? if (!isset($_GET['id'])): ?>
                 <title> Imagerous* </title>
             <? else: ?>
                 <title> <?=$article->title?> | Imagerous* </title>
             <? endif ?>
-        <? elseif ($page === 'single' or $page === 'effecter'): ?>
+        <? elseif ($template === 'pictureTmp' or $template === 'effectTmp'): ?>
+            <title> <?=$picture->title?> | Imagerous* </title>
+        <? elseif ($template === 'workTmp'): ?>
             <title> <?=$picture->title?> | Imagerous* </title>
         <? endif ?>
         <link rel="stylesheet" type="text/css" href="/css/bootstrap/css/bootstrap.css">
@@ -75,7 +82,7 @@
                         Imagerous* 
                     </a>
                     <div id="navbar-info">
-                        <? if($page === 'booth' or $page === 'booth_square'): ?>
+                        <? if ($template === 'indexTmp'): ?>
                         <ul class="nav">
                             <li>
                             <a href="http://matome.naver.jp/odai/<?=$article->id?>" target="_blank">
@@ -86,10 +93,9 @@
                         </ul>
                         <span style="position:fixed; top:10px; right:240px">
                             <a href="https://twitter.com/share" class="twitter-share-button" data-text="<?=$article->title?> | Imagerous*" data-url="http://imagero.us/index.php?id=<?=$article->id?>" data-lang="ja" data-hashtags="imagerous">ツイート</a>
-                            <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
                         </span>
                         <div style="position:fixed; top:10px; right:150px" class="fb-like" data-href="http://imagero.us/index.php?id=<?=$article->id?>" data-send="false" data-layout="button_count" data-width="30" data-show-faces="false"></div>
-                        <? elseif($page === 'single' or $page === 'effecter'): ?>
+                        <? elseif($template === 'pictureTmp' or $template === 'effectTmp'): ?>
                         <ul class="nav">
                             <li>
                             <a href="http://matome.naver.jp/odai/<?=$picture->articleId?>/<?=$picture->id?>" target="_blank">
@@ -99,10 +105,21 @@
                         </ul>
                         <span style="position:fixed; top:10px; right:240px">
                             <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://imagero.us/picture.php?article=<?=$picture->articleId?>&image=<?=$picture->id?>" data-lang="ja" data-hashtags="imagerous">ツイート</a>
-                            <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
                         </span>
                         <div style="position:fixed; top:10px; right:150px" class="fb-like" data-href="http://imagero.us/picture.php?article=<?=$picture->articleId?>&image=<?=$picture->id?>" data-send="false" data-layout="button_count" data-width="30" data-show-faces="false"></div>
-                        <? elseif($page === 'searchresult'): ?>
+                        <? elseif($template === 'workTmp'): ?>
+                        <ul class="nav">
+                            <li>
+                            <a href="http://matome.naver.jp/odai/<?=$picture->articleId?>/<?=$picture->id?>" target="_blank">
+                                <?=$picture->title?>
+                            </a>
+                            </li>
+                        </ul>
+                        <span style="position:fixed; top:10px; right:240px">
+                            <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://imagero.us/work.php?id=<?=$work->id?>" data-lang="ja" data-hashtags="imagerous">ツイート</a>
+                        </span>
+                        <div style="position:fixed; top:10px; right:150px" class="fb-like" data-href="http://imagero.us/work.php?id=<?=$work->id?>" data-send="false" data-layout="button_count" data-width="30" data-show-faces="false"></div>
+                        <? elseif($template === 'searchTmp'): ?>
                         <ul class="nav">
                             <li>
                             <a>
@@ -112,6 +129,7 @@
                             </li>
                         </ul>
                         <? endif ?>
+                        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
                         <span style="position:fixed; top:10px; right:50px; visibility:hidden"><img src="/img/logo.png"></span>
                     </div>
                 </div>
@@ -168,7 +186,7 @@
                 </div>
             </div>
             <div id="mainFrame">
-                <?include($page.'.php');?>
+                <?include($template.'.php');?>
             </div>
         </div>
         <div class="mobileOnly">

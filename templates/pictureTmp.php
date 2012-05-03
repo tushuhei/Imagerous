@@ -48,5 +48,5 @@
 <? endif ?>
 <div style="display:none" id="articleId"><?=$picture->articleId?></div>
 <div style="display:none" id="pictureId"><?=$picture->id?></div>
-<div style="display:none" id="pageNum"><?=$pageNum?></div>
+<div style="display:none" id="pageNum"><?=$page?></div>
 <script type="text/javascript" src="/js/picture.js"></script>

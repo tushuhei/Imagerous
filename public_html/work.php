@@ -5,10 +5,10 @@ require_once $basedir.'/models/Work.php';
 require_once $basedir.'/util.php';
 
 $db = connect_db('imagerous');
-$id = $_GET['id'];
 $work = new Work();
-$work->id = $id;
+$work->id = $_GET['id'];
 $work->loadById($db);
 $work->loadPicture();
-$page = "workTemp";
+$picture = $work->pictureObj;
+$template = "workTmp";
 include('../templates/frame.php');

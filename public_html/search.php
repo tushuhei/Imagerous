@@ -13,5 +13,5 @@ if (count($articles) == 0) {
     $articles = $searcher::getArticles($query.'壁紙');
 }
 
-$page = 'searchresult';
+$template = 'searchTmp';
 include('../templates/frame.php');

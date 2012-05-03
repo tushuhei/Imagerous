@@ -38,6 +38,6 @@ for ($i = 0; $i < 3; $i++ ) {
 // 写真をシャッフルする
 shuffle($article->pictures);
 
-$page = 'booth_square';
+$template = 'indexTmp';
 
 include('../templates/frame.php');

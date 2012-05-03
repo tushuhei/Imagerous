@@ -8,15 +8,15 @@ $picture->id = null;
 
 if (isset($_GET['article']) and isset($_GET['image'])) {
     if(isset($_GET['page'])) {
-        $pageNum = $_GET['page'];
+        $page = $_GET['page'];
     } else {
-        $pageNum = null;
+        $page = null;
     }
     $picture->articleId = $_GET['article'];
     $picture->id = $_GET['image'];
     $picture->getContents();
-    $picture->getSmallPic($pageNum);
+    $picture->getSmallPic($page);
 }
 
-$page = 'single';
+$template = 'pictureTmp';
 include('../templates/frame.php');
