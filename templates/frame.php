@@ -176,7 +176,7 @@
             </div>
         </div>
         <div class="mobileOnly">
-            <div style="color:#ddd; font-size:21px; margin-bottom:10px"> おすすめ </div>
+            <div style="color:#ddd; font-size:21px; margin:20px 0"> おすすめ </div>
             <? for($i = 0; $i < 5; $i++): ?>
             <a href="index.php?id=<?=$recommends[$i]->id?>">
             <div class="side_feed clearfix">
