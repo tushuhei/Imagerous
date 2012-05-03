@@ -2,6 +2,9 @@
 <div id="picContainer">
     <img id="mainPic" src="<?=$picture->url?>" onerror="document.getElementById('mainPic').src='<?=$picture->small?>'"
     title="<?=$picture->title?>" alt="<?=$picture->title?>">
+    <div class="mobileOnly" style="margin-top:20px">
+        <a href="index.php?id=<?=$picture->articleId?>" style="color:#ddd;font-size:21px;">&lt;&lt; 戻る </a>
+    </div>
     <a href="javascript:loadPic(1)"><div class="mobileOnly goNav" id="goNext">&gt;</div></a>
     <a href="javascript:loadPic(0)"><div class="mobileOnly goNav" id="goPrev">&lt;</div></a>
     <div style="height:90px; padding-top:10px">
@@ -27,7 +30,7 @@
     </div>
 </div>
 <div id="rightSidebar">
-    <div style="margin:15px 0" id="downloadBtn">
+    <div id="downloadBtn">
         <a id="downloadAnc" class="btn btn-large" href="<?=$picture->url?>"
         onClick="_gaq.push(['_trackEvent','click-download-button',<?=$picture->articleId?>,<?=$picture->id?>]);">
             <i class="icon-download"></i> ダウンロード 

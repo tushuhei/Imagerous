@@ -99,3 +99,7 @@
 .mobileOnly {
     display:none;
 }
+#downloadBtn {
+    margin:15px 0;
+}
+

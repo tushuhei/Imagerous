@@ -139,7 +139,7 @@
                         </div>
                     </form>
                 </div>
-                <div class="side_component" style="margin-top:40px">
+                <div class="side_component" style="margin-top:40px" id="recommends">
                     <div class="side_title"> おすすめ </div>
                     <? for($i = 0; $i < 5; $i++): ?>
                     <a href="index.php?id=<?=$recommends[$i]->id?>">
