@@ -40,14 +40,9 @@
 <div id="squares">
 <? for($i = 0; $i < count($article->pictures); $i++): ?>
     <div class="pic_square">
-        <form id="pictureForm1_<?=$i?>" method="get" action="picture.php">
-            <a class="main_image" href="javascript:document.getElementById('pictureForm1_<?=$i?>').submit()">
-                <img class="main_image" src="<?=$article->pictures[$i]->small?>" >
-                <input type="hidden" name="article" value="<?=$article->id?>">
-                <input type="hidden" name="image" value="<?=$article->pictures[$i]->id?>">
-                <input type="hidden" name="page" value="1">
-            </a>
-        </form>
+        <a class="main_image" href="picture.php?article=<?=$article->id?>&image=<?=$article->pictures[$i]->id?>&page=1">
+            <img class="main_image" src="<?=$article->pictures[$i]->small?>">
+        </a>
     </div>
 <? endfor ?>
 </div>
