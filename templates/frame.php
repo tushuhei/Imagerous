@@ -36,8 +36,9 @@
             <title> <?=$picture->title?> | Imagerous* </title>
         <? endif ?>
         <link rel="stylesheet" type="text/css" href="/css/bootstrap/css/bootstrap.css">
-        <link rel="stylesheet" type="text/css" media="only screen and (max-width:480px)" href="/css/mobile.css">
-        <link rel="stylesheet" type="text/css" media="screen and (min-width:481px)" href="/css/index.css" >
+        <link href="/css/mobile.css" rel="stylesheet" type="text/css" media="only screen and (min-width: 0px) and (max-width: 320px)" >
+        <link href="/css/index.css" rel="stylesheet" type="text/css" media="only screen and (min-width: 321px) and (max-width: 910px)" >
+        <link href="/css/index.css" rel="stylesheet" type="text/css" media="only screen and (min-width: 911px)" >
         <script type="text/javascript">
 
             var _gaq = _gaq || [];
