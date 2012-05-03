@@ -1,6 +1,7 @@
 <? if ($picture->id !== null): ?>
 <div id="picContainer">
-    <img id="mainPic" src="<?=$picture->url?>" onerror="document.getElementById('mainPic').src='<?=$picture->small?>'"
+    <img id="mainPic" src="<?=$picture->url?>" onerror="document.getElementById('mainPic').src='<?=$picture->small?>';
+document.getElementById('playBtn').style.display = 'none'"
     title="<?=$picture->title?>" alt="<?=$picture->title?>">
     <div class="mobileOnly" style="margin-top:20px">
         <a href="index.php?id=<?=$picture->articleId?>" style="color:#ddd;font-size:21px;">&lt;&lt; 一覧へ戻る </a>
