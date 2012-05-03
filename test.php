@@ -4,7 +4,12 @@ require_once $basedir.'/models/Base.php';
 require_once $basedir.'/models/Searcher.php';
 require_once $basedir.'/models/Article.php';
 require_once $basedir.'/models/Picture.php';
-$article = new Article();
-$article->id = "2009051915323966952";
-$article->getWidgetData();
-var_dump($article->wdata);
+require_once $basedir.'/models/Work.php';
+require_once $basedir.'/util.php';
+
+$db = connect_db('imagerous');
+
+$work = new Work();
+$work->id = 1;
+$work->loadById($db);
+var_dump($work);

@@ -30,6 +30,12 @@
             <span id="changeOpacityLbl"> 仕上げる </span>
         </a>
     </div>
+    <div style="margin:5px">
+        <a class="btn btn-large" href="javascript:saveImage()">
+            <i id="saveImageBtn" class="icon-ok"></i>
+            <span id="saveImageLbl"> 保存する </span>
+        </a>
+    </div>
     <div style="margin-top:30px; color:#fff">
         <div style="text-align:right; font-size:18px; margin-bottom:10px">
             ブラシサイズ
@@ -60,85 +66,103 @@
     var mainPic = document.getElementById('mainPic');
     var brashCircles = new Array();
     <? for($i = 0; $i < count($brashSizes); $i++): ?>
-        <? if ($i == count($brashSizes) - 1): ?>
-            brashCircles.push(new BrashCircle(document.getElementById("brashCircle<?=$brashSizes[$i]?>"), <?=$brashSizes[$i]?>, true));
-        <? else: ?>
-            brashCircles.push(new BrashCircle(document.getElementById("brashCircle<?=$brashSizes[$i]?>"), <?=$brashSizes[$i]?>, false));
-        <? endif ?>
+    <? if ($i == count($brashSizes) - 1): ?>
+    brashCircles.push(new BrashCircle(document.getElementById("brashCircle<?=$brashSizes[$i]?>"), <?=$brashSizes[$i]?>, true));
+    <? else: ?>
+    brashCircles.push(new BrashCircle(document.getElementById("brashCircle<?=$brashSizes[$i]?>"), <?=$brashSizes[$i]?>, false));
+    <? endif ?>
     <? endfor ?>
-
     $(function() {
-        $(window).bind('load', function() {
-            sp = $("#spContainer").wScratchPad({
-                width: mainPic.width,
-                height: mainPic.height,
-                size: 160,
-                color: "FFCCCC"
+            $(window).bind('load', function() {
+                sp = $("#spContainer").wScratchPad({
+                    width: mainPic.width,
+                    height: mainPic.height,
+                    size: 160,
+                    color: "FFCCCC"
+                    });
+                });
             });
-        });
+
+function changeBrashSize(size) {
+    sp.wScratchPad("size", size);
+    for (var i = 0; i < brashSizes.length; i++) {
+        document.getElementById('brashCircle' + brashSizes[i]).style.backgroundColor = "#bbb";
+    }
+    document.getElementById('brashCircle'+size).style.backgroundColor = "#0085cc";
+}
+
+function BrashCircle(el, size, active) {
+    var circle = this;
+    circle.el = el;
+    circle.size = size;
+    circle.active = active;
+    if (circle.active == true) {
+        circle.el.style.backgroundColor = "#0085cc";
+    }
+    $(circle.el).live("click", function (){
+            sp.wScratchPad("size", circle.size);
+            for (var i = 0; i < brashCircles.length; i++) {
+            brashCircles[i].setNotActive();
+            }
+            circle.setActive();
+            });
+    $(circle.el).live("mouseover", function (){
+            if (circle.active == false) {
+            circle.el.style.backgroundColor = "#fff";
+            }
+            });
+    $(circle.el).live("mouseout", function (){
+            if (circle.active == false) {
+            circle.el.style.backgroundColor = "#bbb";
+            }
+            });
+    $(circle.el).live("mousedown", function (){
+            if (circle.active == false) {
+            circle.el.style.backgroundColor = "#999";
+            }
+            });
+}
+BrashCircle.prototype.setNotActive = function () {
+    var circle = this;
+    circle.el.style.backgroundColor = "#bbb";
+    circle.active = false;
+};
+BrashCircle.prototype.setActive = function () {
+    var circle = this;
+    circle.el.style.backgroundColor = "#0085cc";
+    circle.active = true;
+};
+
+function changeOpacity () {
+    var container = document.getElementById('spContainer');
+    if (container.style.opacity < 0.9) {
+        container.style.opacity = 1;
+        document.getElementById('changeOpacityBtn').className = 'icon-edit';
+        document.getElementById('changeOpacityLbl').innerText = '透過する';
+    } else {
+        container.style.opacity = 0.8;
+        document.getElementById('changeOpacityBtn').className = 'icon-ok';
+        document.getElementById('changeOpacityLbl').innerText = '仕上げる';
+    }
+}
+
+function saveImage () {
+    imagedata = document.getElementById('mainCanvas').toDataURL('image/png').replace(/^.*,/, '');
+    $.ajax({
+        type: "POST",
+        url: "saveAjax.php",
+        data: {
+        "imagedata":imagedata,
+        "article":"<?=$picture->articleId?>",
+        "picture":"<?=$picture->id?>"
+        },
+        success: function(data){
+            location.href="work.php?id="+data;
+        },
+        error: function(data){
+        }
     });
 
-    function changeBrashSize(size) {
-        sp.wScratchPad("size", size);
-        for (var i = 0; i < brashSizes.length; i++) {
-            document.getElementById('brashCircle' + brashSizes[i]).style.backgroundColor = "#bbb";
-        }
-        document.getElementById('brashCircle'+size).style.backgroundColor = "#0085cc";
-    }
-
-    function BrashCircle(el, size, active) {
-        var circle = this;
-        circle.el = el;
-        circle.size = size;
-        circle.active = active;
-        if (circle.active == true) {
-            circle.el.style.backgroundColor = "#0085cc";
-        }
-        $(circle.el).live("click", function (){
-                sp.wScratchPad("size", circle.size);
-                for (var i = 0; i < brashCircles.length; i++) {
-                    brashCircles[i].setNotActive();
-                }
-                circle.setActive();
-                });
-        $(circle.el).live("mouseover", function (){
-                if (circle.active == false) {
-                    circle.el.style.backgroundColor = "#fff";
-                }
-                });
-        $(circle.el).live("mouseout", function (){
-                if (circle.active == false) {
-                    circle.el.style.backgroundColor = "#bbb";
-                }
-                });
-        $(circle.el).live("mousedown", function (){
-                if (circle.active == false) {
-                    circle.el.style.backgroundColor = "#999";
-                }
-                });
-    }
-    BrashCircle.prototype.setNotActive = function () {
-        var circle = this;
-        circle.el.style.backgroundColor = "#bbb";
-        circle.active = false;
-    };
-    BrashCircle.prototype.setActive = function () {
-        var circle = this;
-        circle.el.style.backgroundColor = "#0085cc";
-        circle.active = true;
-    };
-
-    function changeOpacity () {
-        var container = document.getElementById('spContainer');
-        if (container.style.opacity < 0.9) {
-            container.style.opacity = 1;
-            document.getElementById('changeOpacityBtn').className = 'icon-edit';
-            document.getElementById('changeOpacityLbl').innerText = '透過する';
-        } else {
-            container.style.opacity = 0.8;
-            document.getElementById('changeOpacityBtn').className = 'icon-ok';
-            document.getElementById('changeOpacityLbl').innerText = '仕上げる';
-        }
-    }
+}
 
 </script>

@@ -4,6 +4,7 @@ require_once $basedir.'/models/Article.php';
 class Picture {
     public $id;
     public $articleId;
+    public $articleObj;
     public $title;
     public $url;
     public $small;
@@ -32,6 +33,7 @@ class Picture {
     }
 
     public function getSmallPic ($page = null) {
+        // TODO this->article に変更
         $article = new Article();
         $article->id = $this->articleId;
         $result = $article->validateNaverId();
