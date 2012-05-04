@@ -149,7 +149,8 @@
                             <input class="span3" name="query" type="text" value="<?if (isset($query)) {echo $query;} ?>">
                         </div>
                         <div style="float:right">
-                            <input type="submit" class="btn btn-primary" value="検索">
+                            <input type="submit" class="btn btn-primary" value="検索"
+                            onClick="_gaq.push(['_trackEvent','click-search-button');">
                         </div>
                     </form>
                 </div>
