@@ -1,4 +1,4 @@
-<div style="margin-top:10px">
+<div>
 <script type="text/javascript"><!--
 google_ad_client = "ca-pub-6865664974975544";
 /* imagerous-work-top */
