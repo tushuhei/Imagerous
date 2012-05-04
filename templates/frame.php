@@ -44,7 +44,7 @@
         <? endif ?>
         <link rel="stylesheet" type="text/css" href="/css/bootstrap/css/bootstrap.css">
         <link href="/css/mobile.css" rel="stylesheet" type="text/css" media="only screen and (min-width: 0px) and (max-width: 320px)" >
-        <link href="/css/index.css" rel="stylesheet" type="text/css" media="only screen and (min-width: 321px) and (max-width: 910px)" >
+        <link href="/css/tablet.css" rel="stylesheet" type="text/css" media="only screen and (min-width: 321px) and (max-width: 910px)" >
         <link href="/css/index.css" rel="stylesheet" type="text/css" media="only screen and (min-width: 911px)" >
         <script type="text/javascript">
 

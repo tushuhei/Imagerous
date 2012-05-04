@@ -64,11 +64,6 @@
     width:728px;
 }
 #rightSidebar {
-    width:180px;
-    position:fixed;
-    right:20px;
-    top:50px;
-    text-align:right;
 }
 #effect_desc {
     float:left;
@@ -101,27 +96,33 @@
     display:none;
 }
 #downloadBtn {
+    width:200px;
+    float:left;
     margin:15px 0;
 }
 #playBtn {
+    width:200px;
+    float:left;
     margin:15px 0;
 }
-#coverPic {
+.workPic {
     position:absolute;
     top:0px;
     left:0px;
     width:728px;
 }
-#bgPic {
-    width:728px;
-}
 #finishBtn {
-    margin:5px;
+    width:150px;
+    float:left;
+    margin:15px 0;
 }
 #saveBtn {
-    margin:5px;
+    width:150px;
+    float:left;
+    margin:15px 0;
 }
 #sampleDesc {
+    clear:left;
     margin:10px 0;
 }
 #brashContainer { 
@@ -129,14 +130,10 @@
     color:#fff;
 }
 #brashLbl {
-    text-align:right; 
+    clear:left;
     font-size:18px; 
     margin-bottom:10px;
 }
-#brashCircles {
-    width:100%;
-}
 .brashCircle {
-    clear:right;
-    float:right;
+    float:left;
 }

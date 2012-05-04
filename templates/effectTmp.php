@@ -6,7 +6,57 @@
     <div id="spContainer" style="position:absolute; top:0px; left:0px;border:solid black 1px; opacity: 0.8">
     </div>
 </div>
-<div style="margin:10px 0">
+<div style="margin-top:10px">
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-6865664974975544";
+/* imagerous-effect-footer */
+google_ad_slot = "6081988943";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+</div>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+<div id="rightSidebar">
+    <div id="finishBtn">
+        <a class="btn btn-large" href="javascript:changeOpacity()">
+            <i id="changeOpacityBtn" class="icon-ok"></i>
+            <span id="changeOpacityLbl"> 仕上げる </span>
+        </a>
+    </div>
+    <div id="saveBtn">
+        <a class="btn btn-large" href="javascript:saveImage()">
+            <i id="saveImageBtn" class="icon-eject"></i>
+            <span id="saveImageLbl"> 保存する </span>
+        </a>
+    </div>
+    <div id="brashContainer">
+        <div id="brashLbl"> 
+            ブラシサイズ
+        </div>
+        <div id="brashCircles" class="clearfix">
+        <? $brashSizes = array(20,40,80, 160); ?>
+        <? foreach ($brashSizes as $brashSize): ?>
+            <a class="brashCircle">
+                <div style="
+                    margin:5px;
+                    width:<?=$brashSize?>px; 
+                    height:<?=$brashSize?>px; 
+                    -webkit-border-radius:<?=($brashSize/2)?>px; 
+                    -moz-border-radius:<?=($brashSize/2)?>px;
+                    border:1px solid #fff;
+                    background-color: #bbb;
+                    " 
+                    class="brashCircle"
+                    id="brashCircle<?=$brashSize?>"></div>
+            </a>
+        <? endforeach ?>
+        </div>
+    </div>
+</div>
+<div id="sampleDesc">
     <h3 style="color:#ddd; margin:10px 0">お手本</h3>
     <a href="http://matome.naver.jp/odai/2130018442449290201" target="_blank">
         <div class="side_feed clearfix">
@@ -22,42 +72,6 @@
     <h3 style="color:#ddd; margin:10px 0">わかりましたね？それではお楽しみください</h3>
     <canvas id="subCanvas"></canvas>
     <img id="subPic">
-</div>
-<div id="rightSidebar">
-    <div style="margin:5px">
-        <a class="btn btn-large" href="javascript:changeOpacity()">
-            <i id="changeOpacityBtn" class="icon-ok"></i>
-            <span id="changeOpacityLbl"> 仕上げる </span>
-        </a>
-    </div>
-    <div style="margin:5px">
-        <a class="btn btn-large" href="javascript:saveImage()">
-            <i id="saveImageBtn" class="icon-eject"></i>
-            <span id="saveImageLbl"> 保存する </span>
-        </a>
-    </div>
-    <div style="margin-top:30px; color:#fff">
-        <div style="text-align:right; font-size:18px; margin-bottom:10px">
-            ブラシサイズ
-        </div>
-        <? $brashSizes = array(20,40,80, 160); ?>
-        <? foreach ($brashSizes as $brashSize): ?>
-        <a class="brashCircle">
-            <div style="
-                clear:right;
-                margin:5px;
-                float:right;
-                width:<?=$brashSize?>px; 
-                height:<?=$brashSize?>px; 
-                -webkit-border-radius:<?=($brashSize/2)?>px; 
-                -moz-border-radius:<?=($brashSize/2)?>px;
-                border:1px solid #fff;
-                background-color: #bbb;
-                " class="brashCircle"
-                id="brashCircle<?=$brashSize?>"></div>
-        </a>
-        <? endforeach ?>
-    </div>
 </div>
 <script type="text/javascript" src="/js/wScratchPad.js"></script>
 <script type="text/javascript">
