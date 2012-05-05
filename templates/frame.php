@@ -110,7 +110,7 @@
                         <? elseif($template === 'workTmp'): ?>
                         <ul class="nav">
                             <li>
-                            <a href="http://matome.naver.jp/odai/<?=$picture->articleId?>/<?=$picture->id?>" target="_blank">
+                            <a href="http://imagero.us/index.php?id=<?=$picture->articleId?>" target="_blank">
                                 <?=$picture->title?>
                             </a>
                             </li>

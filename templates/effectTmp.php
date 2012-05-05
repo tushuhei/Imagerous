@@ -58,7 +58,7 @@ src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
 </div>
 <div id="sampleDesc">
     <h3 style="color:#ddd; margin:10px 0">お手本</h3>
-    <a href="http://matome.naver.jp/odai/2130018442449290201" target="_blank">
+    <a href="http://imagero.us/index.php?id=2130018442449290201" target="_blank">
         <div class="side_feed clearfix">
             <div style="float:left; width:60px; text-align:center">
                 <img src="http://tc1.search.naver.jp/?/kaze/mission/USER/1/8/169368/22279/438x438x47c5aea94e73b6527d0b7ee5.jpg/c.95x95" width="50">

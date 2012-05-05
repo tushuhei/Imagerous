@@ -1,4 +1,15 @@
 <? if ($picture->id !== null): ?>
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-6865664974975544";
+/* imagerous-wide-picture-top */
+google_ad_slot = "5458767037";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
 <div id="picContainer">
     <img id="mainPic" src="<?=$picture->url?>" onerror="document.getElementById('mainPic').src='<?=$picture->small?>';
 document.getElementById('playBtn').style.display = 'none'"
@@ -20,7 +31,7 @@ document.getElementById('playBtn').style.display = 'none'"
                 google_ad_width = 320;
                 google_ad_height = 50;
             } else {
-                /* imagerous-wide-picture */
+                /* imagerous-wide-picture-footer */
                 google_ad_slot = "8350949815";
                 google_ad_width = 728;
                 google_ad_height = 90;
