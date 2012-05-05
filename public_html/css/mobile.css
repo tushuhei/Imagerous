@@ -28,11 +28,13 @@
 }
 .pic_square {
     float:left;
-    width:150px;
-    height:150px;
+    width:200px;
+    height:200px;
+    margin-top:-50px;
+    margin-left:-50px;
 }
 .main_image {
-    clip:rect(auto, 150px, 150px, auto);
+    clip:rect(50px, 200px, 200px, 50px);
     position:absolute;
 }
 #mobile_title {
