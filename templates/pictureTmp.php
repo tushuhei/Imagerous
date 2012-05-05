@@ -1,3 +1,13 @@
+<div style="visibility:hidden; height:0px;">
+<!-- google_ad_section_start -->
+壁紙をまとめる、眺める、つかう。新しいイメージキュレーションサービスです。
+<?=$article->title?>
+<? foreach($article->wdata as $data): ?>
+<?=$data->title?>
+<?=$data->description?>
+<? endforeach ?>
+<!-- google_ad_section_end -->
+</div>
 <? if ($picture->id !== null): ?>
 <script type="text/javascript"><!--
 google_ad_client = "ca-pub-6865664974975544";

@@ -16,6 +16,10 @@ if (isset($_GET['article']) and isset($_GET['image'])) {
     $picture->id = $_GET['image'];
     $picture->getContents();
     $picture->getSmallPic($page);
+
+    $article = new Article();
+    $article->id = $picture->articleId;
+    $article->getContents();
 }
 
 $template = 'pictureTmp';
