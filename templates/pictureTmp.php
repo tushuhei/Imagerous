@@ -1,10 +1,15 @@
 <? if ($picture->id !== null): ?>
 <script type="text/javascript"><!--
 google_ad_client = "ca-pub-6865664974975544";
-/* imagerous-wide-picture-top */
-google_ad_slot = "5458767037";
-google_ad_width = 728;
-google_ad_height = 90;
+if (!((navigator.userAgent.indexOf('iPhone') > 0
+    && navigator.userAgent.indexOf('iPad') == -1)
+    || navigator.userAgent.indexOf('iPod') > 0
+    || navigator.userAgent.indexOf('Android') > 0)) {
+        /* imagerous-wide-picture-top */
+        google_ad_slot = "5458767037";
+        google_ad_width = 728;
+        google_ad_height = 90;
+    }
 //-->
 </script>
 <script type="text/javascript"
