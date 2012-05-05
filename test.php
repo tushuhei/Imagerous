@@ -6,6 +6,7 @@ require_once $basedir.'/models/Article.php';
 require_once $basedir.'/models/Picture.php';
 require_once $basedir.'/models/Work.php';
 require_once $basedir.'/util.php';
+$db = connect_db();
 
 $db = connect_db();
 
