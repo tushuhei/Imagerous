@@ -6,10 +6,7 @@ require_once $basedir.'/models/Article.php';
 require_once $basedir.'/models/Picture.php';
 require_once $basedir.'/models/Work.php';
 require_once $basedir.'/util.php';
+$db = connect_db();
 
-$db = connect_db('imagerous');
-
-$work = new Work();
-$work->id = 1;
-$work->loadById($db);
-var_dump($work);
+$str = "ほげ待受け";
+var_dump(preg_match('/(画像|壁紙|ショット|待ち?受け?)/u', $str, $match));
