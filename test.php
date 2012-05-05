@@ -7,9 +7,6 @@ require_once $basedir.'/models/Picture.php';
 require_once $basedir.'/models/Work.php';
 require_once $basedir.'/util.php';
 
-$db = connect_db('imagerous');
+$db = connect_db();
 
-$work = new Work();
-$work->id = 1;
-$work->loadById($db);
-var_dump($work);
+var_dump(getAllWorks($db));

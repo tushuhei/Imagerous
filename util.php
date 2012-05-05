@@ -1,6 +1,6 @@
 <?php
 
-function connect_db($db_name){
+function connect_db(){
     $dsn = 'mysql:dbname=imagerous;host=localhost';
     $user = 'root';
     $password = '';
