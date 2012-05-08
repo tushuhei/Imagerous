@@ -193,6 +193,18 @@
             </div>
         </div>
         <div class="mobileOnly">
+            <div style="color:#ddd; font-size:21px; margin:20px 0"> さがす </div>
+            <form method="GET" action="search.php">
+                <div class="input">
+                    <input class="span4" name="query" type="text" value="<?if (isset($query)) {echo $query;} ?>">
+                </div>
+                <div style="float:right">
+                    <input type="submit" class="btn btn-primary" value="検索"
+                    onClick="_gaq.push(['_trackEvent','click-search-button');">
+                </div>
+            </form>
+        </div>
+        <div class="mobileOnly">
             <div style="color:#ddd; font-size:21px; margin:20px 0"> おすすめ </div>
             <? for($i = 0; $i < 5; $i++): ?>
             <a href="index.php?id=<?=$recommends[$i]->id?>">

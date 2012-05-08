@@ -1,12 +1,35 @@
 <script type="text/javascript" src="/js/searchresult.js"></script>
-<div style="float:left; width:780px" id="searchResultFeeds">
+<div id="searchResultFeeds">
+<div class="mobileOnly" style="color:#ddd;font-size:21px;">
+    検索結果
+</div>
+    <script type="text/javascript">
+        google_ad_client = "ca-pub-6865664974975544";
+        if ((navigator.userAgent.indexOf('iPhone') > 0
+            && navigator.userAgent.indexOf('iPad') == -1)
+            || navigator.userAgent.indexOf('iPod') > 0
+            || navigator.userAgent.indexOf('Android') > 0) {
+            /* imagerous-mobile-top */
+            google_ad_slot = "0785399817";
+            google_ad_width = 320;
+            google_ad_height = 50;
+        } else {
+            /* imagerous-wide-index */
+            google_ad_slot = "7236739845";
+            google_ad_width = 728;
+            google_ad_height = 90;
+        }
+    </script>
+    <script type="text/javascript"
+        src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+    </script>
     <? foreach ($articles as $article): ?>
     <a href="index.php?id=<?=$article->id?>">
         <div class="feed clearfix">
             <div style="float:left; width:60px; text-align:center">
                 <img src="<?=$article->thumb?>" width="50">
             </div>
-            <div style="float:left;margin-left:5px;height:50px; width:710px">
+            <div id="feedTitle">
                 <?=$article->title?>
             </div>
         </div>
