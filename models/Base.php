@@ -12,3 +12,14 @@ function getAllWorks ($db) {
     }
     return $result;
 }
+
+function isMobile () {
+    $uas = array('iPhone', 'iPod', 'Android', 'dream', 'CUPCAKE', 'blackberry', 'webOS', 'incognito', 'webmate');
+    foreach ($uas as $ua) {
+        if (preg_match("/$ua/i", $_SERVER['HTTP_USER_AGENT'])) {
+            return true;
+            break;
+        }
+    }
+    return false;
+}
