@@ -35,7 +35,7 @@
                     </li>
                     <li>
                     <a href="/index.php?id=<?=$picture->articleId?>">
-                        &nbsp;&nbsp; 一覧に戻る
+                        &nbsp;&nbsp; &lt;&lt;画像一覧に戻る
                     </a>
                     </li>
                 </ul>

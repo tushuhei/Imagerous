@@ -17,7 +17,7 @@
         <? endforeach ?>
     <? endif ?>
 <? elseif ($template === 'pictureTmp' or $template === 'effectTmp'): ?>
-    <meta property="og:title" content="<?=$picture->title?> | Imagerous*">
+    <meta property="og:title" content="<?=$article->title?> <?=$picture->title?> | Imagerous*">
     <meta property="og:url" content="http://imagero.us/picture.php?article=<?=$picture->articleId?>&image=<?=$picture->id?>">
     <meta property="og:image" content="<?=$picture->url?>">
     <meta property="og:type" content="article">
@@ -37,7 +37,7 @@
         <title> <?=$article->title?> | Imagerous* </title>
     <? endif ?>
 <? elseif ($template === 'pictureTmp' or $template === 'effectTmp'): ?>
-    <title> <?=$picture->title?> | Imagerous* </title>
+    <title> <?=$article->title?> <?=$picture->title?> | Imagerous* </title>
 <? elseif ($template === 'workTmp'): ?>
     <title> <?=$picture->title?> | Imagerous* </title>
 <? endif ?>
