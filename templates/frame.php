@@ -103,6 +103,11 @@
                                 <?=$picture->title?>
                             </a>
                             </li>
+                            <li>
+                            <a href="/index.php?id=<?=$picture->articleId?>">
+                                &nbsp;&nbsp; 一覧に戻る
+                            </a>
+                            </li>
                         </ul>
                         <span style="position:fixed; top:10px; right:240px">
                             <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://imagero.us/picture.php?article=<?=$picture->articleId?>&image=<?=$picture->id?>" data-lang="ja" data-hashtags="imagerous">ツイート</a>
