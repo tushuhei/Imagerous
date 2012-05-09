@@ -224,5 +224,18 @@
             </a>
             <? endfor ?>
         </div>
+        <div class="mobileOnly">
+            <script type="text/javascript"><!--
+            google_ad_client = "ca-pub-6865664974975544";
+            /* imagerous-mobile-index-bottom */
+            google_ad_slot = "0096993339";
+            google_ad_width = 300;
+            google_ad_height = 250;
+            //-->
+            </script>
+            <script type="text/javascript"
+            src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+            </script>
+        </div>
     </body>
 </html>
