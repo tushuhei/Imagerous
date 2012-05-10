@@ -6,8 +6,8 @@ require_once $basedir.'/models/Article.php';
 require_once $basedir.'/models/Picture.php';
 require_once $basedir.'/models/Work.php';
 require_once $basedir.'/util.php';
-$db = connect_db();
 
-$db = connect_db();
-
-var_dump(getAllWorks($db));
+$article = new Article();
+$article->id = '2133620583597722001';
+$article->getContents();
+var_dump($article);

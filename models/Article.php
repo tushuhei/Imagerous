@@ -1,4 +1,5 @@
 <?php
+$basedir = dirname(__FILE__) . '/..';
 require_once $basedir.'/models/Picture.php';
 
 class Article {
@@ -41,7 +42,9 @@ class Article {
             }
 
             $nodes = $xpath->query('//div[@class="mdHeading01Thumb"]/img');
-            $this->thumb = $nodes->item(0)->getAttribute('src');
+            if ($nodes->item(0)) {
+                $this->thumb = $nodes->item(0)->getAttribute('src');
+            }
 
             $nodes = $xpath->query('//h1[@class="mdHeading01Ttl"]');
             $this->title = $nodes->item(0)->textContent;
