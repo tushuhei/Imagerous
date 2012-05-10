@@ -40,4 +40,8 @@ shuffle($article->pictures);
 
 $template = 'indexTmp';
 
-include('../templates/frame.php');
+if (isMobile()) {
+    include('../templates/frameMob.php');
+} else {
+    include('../templates/frame.php');
+}
