@@ -25,7 +25,7 @@ foreach ($items as $item) {
         $article->getContents();
         if (count($article->pictures) > 20) {
             $content = "{$item->title}\n http://imagero.us/index.php?id={$article->id}";
-            $twitter::tweet($content);
+            $twitter->tweet($content);
             break;
         } else {
             sleep(3);
