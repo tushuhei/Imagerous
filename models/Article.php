@@ -53,6 +53,15 @@ class Article {
         }
     }
 
+    public function getAllPicURL () {
+        $pictures = array();
+        foreach ($this->pictures as $picture) {
+            $picture->getContents();
+            $pictures[] = $picture;
+        }
+        $this->pictures = $pictures;
+    }
+
     public function validateNaverId () {
         $result = array();
         if ($this->id === null) {
