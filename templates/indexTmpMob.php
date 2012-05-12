@@ -9,10 +9,10 @@
 <!-- google_ad_section_end -->
 </div>
 <script type="text/javascript" src="/js/index.js"></script>
+<div id="mobile_title">
 <? if (!empty($result)): ?>
 <div class="alert"><?=$result[0]?></div>
 <? endif ?>
-<div id="mobile_title" class="mobileOnly">
 <?=$article->title?>
 </div>
 <div id="wide_top_ad">
