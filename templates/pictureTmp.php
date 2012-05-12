@@ -59,13 +59,13 @@ document.getElementById('playBtn').style.display = 'none'"
 <div id="rightSidebar">
     <div id="downloadBtn">
         <a id="downloadAnc" class="btn btn-large" href="<?=$picture->url?>"
-        onClick="_gaq.push(['_trackEvent','click-download-button',<?=$picture->articleId?>,<?=$picture->id?>]);">
+        onClick="_gaq.push(['_trackEvent','click-download-button','<?=$picture->articleId?>','<?=$picture->id?>']);">
             <i class="icon-download-alt"></i> ダウンロード 
         </a>
     </div>
     <div id="playBtn">
         <a class="btn btn-large" href="/effect.php?article=<?=$picture->articleId?>&image=<?=$picture->id?>"
-        onClick="_gaq.push(['_trackEvent','click-play-button',<?=$picture->articleId?>,<?=$picture->id?>]);">
+        onClick="_gaq.push(['_trackEvent','click-play-button','<?=$picture->articleId?>','<?=$picture->id?>']);">
             <i class="icon-star"></i>&nbsp;&nbsp;&nbsp;写真で遊ぶ&nbsp;&nbsp
         </a>
     </div>

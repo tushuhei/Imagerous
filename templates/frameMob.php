@@ -20,7 +20,7 @@
                 </div>
                 <div style="float:right">
                     <input type="submit" class="btn btn-primary" value="検索"
-                    onClick="_gaq.push(['_trackEvent','click-search-button');">
+                    onClick="_gaq.push(['_trackEvent','click-search-button']);">
                 </div>
             </form>
             <div style="color:#ddd; font-size:21px; margin:20px 0"> おすすめ </div>
