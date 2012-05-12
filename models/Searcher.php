@@ -1,4 +1,5 @@
 <?php
+$basedir = dirname(__FILE__) . '/..';
 require_once $basedir.'/models/Article.php';
 
 class Searcher {
