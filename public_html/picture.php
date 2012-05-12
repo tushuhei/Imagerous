@@ -23,4 +23,8 @@ if (isset($_GET['article']) and isset($_GET['image'])) {
 }
 
 $template = 'pictureTmp';
-include('../templates/frame.php');
+if (isMobile()) {
+    include('../templates/frameMob.php');
+} else {
+    include('../templates/frame.php');
+}

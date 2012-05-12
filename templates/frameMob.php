@@ -6,13 +6,15 @@
     <body style="background-color:#222">
         <? include('navbar.php') ?>
         <div>
-            <div id="mainFrame">
+            <div id="mainFrame" class="clearfix">
                 <?include($template.'Mob.php');?>
             </div>
-            <span>
-                <a href="https://twitter.com/share" class="twitter-share-button" data-text="<?=$article->title?> | Imagerous*" data-url="http://imagero.us/index.php?id=<?=$article->id?>" data-lang="ja" data-hashtags="imagerous">ツイート</a>
-            </span>
-            <div class="fb-like" data-href="http://imagero.us/index.php?id=<?=$article->id?>" data-send="false" data-layout="button_count" data-width="30" data-show-faces="false"></div>
+            <div style="margin-top:10px">
+                <span>
+                    <a href="https://twitter.com/share" class="twitter-share-button" data-text="<?=$article->title?> | Imagerous*" data-url="http://imagero.us/index.php?id=<?=$article->id?>" data-lang="ja" data-hashtags="imagerous">ツイート</a>
+                </span>
+                <div class="fb-like" data-href="http://imagero.us/index.php?id=<?=$article->id?>" data-send="false" data-layout="button_count" data-width="30" data-show-faces="false"></div>
+            </div>
             <div style="color:#ddd; font-size:21px; margin:20px 0"> さがす </div>
             <form method="GET" action="search.php">
                 <div class="input">
