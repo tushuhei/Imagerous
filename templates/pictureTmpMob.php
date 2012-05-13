@@ -10,22 +10,24 @@
 </div>
 <? if ($picture->id !== null): ?>
 <div id="picContainer">
-    <script type="text/javascript"><!--
-    google_ad_client = "ca-pub-6865664974975544";
-    /* imagerous-mobile-picture-top */
-    google_ad_slot = "4573877363";
-    google_ad_width = 320;
-    google_ad_height = 50;
-    //-->
-    </script>
-    <script type="text/javascript"
-    src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
-    </script>
+    <div>
+        <script type="text/javascript"><!--
+        google_ad_client = "ca-pub-6865664974975544";
+        /* imagerous-mobile-picture-top */
+        google_ad_slot = "4573877363";
+        google_ad_width = 320;
+        google_ad_height = 50;
+        //-->
+        </script>
+        <script type="text/javascript"
+        src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+        </script>
+    </div>
     <div>
         <img id="mainPic" src="<?=$picture->url?>" onerror="document.getElementById('mainPic').src='<?=$picture->small?>';"
     title="<?=$picture->title?>" alt="<?=$picture->title?>">
     </div>
-    <div style="text-align:center">
+    <div style="text-align:center; margin-top:5px;">
         <a id="goPrev" class="btn btn-large goNav" href="javascript:loadPic(0)"
         onClick="_gaq.push(['_trackEvent','click-prev-mobile-button',<?=$picture->articleId?>,<?=$picture->id?>]);">
             <i class="icon-backward"></i>戻る
