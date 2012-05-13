@@ -44,7 +44,7 @@
     padding-top:30px;
 }
 #mainPic {
-    width:320px;
+    width:100%;
 }
 #downloadBtn {
     text-align:center;
@@ -54,23 +54,6 @@
 }
 #playBtn {
     display:none;
-}
-#goNext {
-    right:0px;
-}
-#goPrev {
-    left:0px;
-}
-.goNav {
-    font-size:30px;
-    padding-top:100px;
-    position:absolute;
-    top:45px;
-    text-align:center;
-    color:#fff;
-    opacity:0.5;
-    width:70px;
-    background-color:#000;
 }
 #searchResultFeeds {
     margin-top:30px;
