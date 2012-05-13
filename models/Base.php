@@ -1,7 +1,10 @@
 <?php
 $basedir = dirname(__FILE__) . '/..';
-// おすすめ json の取得
-$recommends = json_decode(file_get_contents($basedir.'/recommend.json'));
+require_once $basedir.'/util.php';
+require_once $basedir.'/models/Recommend.php';
+$db = connect_db();
+$recommend = new Recommend();
+$recommends = $recommend::getAll($db);
 shuffle($recommends);
 
 function getAllWorks ($db) {

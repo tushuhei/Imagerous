@@ -5,9 +5,9 @@ require_once $basedir.'/models/Searcher.php';
 require_once $basedir.'/models/Article.php';
 require_once $basedir.'/models/Picture.php';
 require_once $basedir.'/models/Work.php';
+require_once $basedir.'/models/Recommend.php';
 require_once $basedir.'/util.php';
+$db = connect_db();
 
-$article = new Article();
-$article->id = '2133620583597722001';
-$article->getContents();
-var_dump($article);
+$recommend = new Recommend();
+var_dump($recommend::getAll($db));
