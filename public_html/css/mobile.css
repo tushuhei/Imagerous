@@ -24,15 +24,17 @@
     z-index:100;
 }
 .pic_square {
-    float:left;
-    width:200px;
-    height:200px;
-    margin-top:-50px;
-    margin-left:-50px;
+    display: inline-block;
+    position:relative;
+    width:147px;
+    height:147px;
+    line-height:147px;
+    overflow:hidden;
 }
 .main_image {
-    clip:rect(50px, 200px, 200px, 50px);
     position:absolute;
+    top:-30px;
+    left:-30px;
 }
 #mobile_title {
     padding-top:30px;
