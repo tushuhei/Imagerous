@@ -1,5 +1,5 @@
 <?php
-$basedir = dirname(__FILE__) . '/';
+$basedir = dirname(__FILE__) . '/..';
 require_once $basedir.'/models/Recommend.php';
 require_once $basedir.'/util.php';
 $db = connect_db();

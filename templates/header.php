@@ -30,6 +30,7 @@
 <meta property="og:description" content="壁紙をまとめる、眺める、つかう。">
 <meta property="og:site_name" content="Imagerous*">
 <meta property="fb:admins" content="100000617688375">
+<meta property="fb:app_id" content="366371993398682">
 <? if ($template === 'indexTmp'): ?>
     <? if (!isset($_GET['id'])): ?>
         <title> Imagerous* </title>

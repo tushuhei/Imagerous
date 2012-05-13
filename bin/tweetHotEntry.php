@@ -8,6 +8,7 @@ $db = connect_db();
 
 $topic = new Topic();
 $topicIds = $topic::selectTopics($db);
+echo $topicIds."\n";
 $contents = simplexml_load_file("http://matome.naver.jp/feed/topic/".$topicIds[0]);
 $items = array();
 foreach ($contents->channel->item as $item) {
