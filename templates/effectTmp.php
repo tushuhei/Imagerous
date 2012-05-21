@@ -8,9 +8,9 @@
 </div>
 <div style="margin-top:10px">
 <script type="text/javascript"><!--
-google_ad_client = "ca-pub-6865664974975544";
+google_ad_client = "ca-pub-8950789672544776";
 /* imagerous-effect-footer */
-google_ad_slot = "6081988943";
+google_ad_slot = "2447364818";
 google_ad_width = 728;
 google_ad_height = 90;
 //-->

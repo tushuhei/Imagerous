@@ -14,9 +14,9 @@
 <? endif ?>
 <div id="wide_top_ad">
     <script type="text/javascript">
-        google_ad_client = "ca-pub-6865664974975544";
-        /* imagerous-wide-index */
-        google_ad_slot = "7236739845";
+        google_ad_client = "ca-pub-8950789672544776";
+        /* imagerous-index-top */
+        google_ad_slot = "9642143535";
         google_ad_width = 728;
         google_ad_height = 90;
     </script>
@@ -40,9 +40,9 @@
 </a>
 <div id="wide_foot_ad">
     <script type="text/javascript">
-        google_ad_client = "ca-pub-6865664974975544";
-        /* imagerous-footer */
-        google_ad_slot = "3360904027";
+        google_ad_client = "ca-pub-8950789672544776";
+        /* imagerous-index-footer */
+        google_ad_slot = "7090844181";
         google_ad_width = 728;
         google_ad_height = 90;
     </script>

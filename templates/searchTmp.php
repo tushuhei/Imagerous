@@ -4,18 +4,18 @@
     検索結果
 </div>
     <script type="text/javascript">
-        google_ad_client = "ca-pub-6865664974975544";
+        google_ad_client = "ca-pub-8950789672544776";
         if ((navigator.userAgent.indexOf('iPhone') > 0
             && navigator.userAgent.indexOf('iPad') == -1)
             || navigator.userAgent.indexOf('iPod') > 0
             || navigator.userAgent.indexOf('Android') > 0) {
-            /* imagerous-mobile-top */
-            google_ad_slot = "0785399817";
+            /* imagerous-mobile-index-top */
+            google_ad_slot = "8177211870";
             google_ad_width = 320;
             google_ad_height = 50;
         } else {
-            /* imagerous-wide-index */
-            google_ad_slot = "7236739845";
+            /* imagerous-index-top */
+            google_ad_slot = "9642143535";
             google_ad_width = 728;
             google_ad_height = 90;
         }

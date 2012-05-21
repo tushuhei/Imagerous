@@ -10,9 +10,9 @@
 </div>
 <? if ($picture->id !== null): ?>
 <script type="text/javascript"><!--
-    google_ad_client = "ca-pub-6865664974975544";
-    /* imagerous-wide-picture-top */
-    google_ad_slot = "5458767037";
+    google_ad_client = "ca-pub-8950789672544776";
+    /* imagerous-picture-top */
+    google_ad_slot = "5705307090";
     google_ad_width = 728;
     google_ad_height = 90;
     //-->
@@ -31,9 +31,9 @@ document.getElementById('playBtn').style.display = 'none'"
     <a href="javascript:loadPic(0)"><div class="mobileOnly goNav" id="goPrev">&lt;</div></a>
     <div style="height:90px; padding-top:10px">
         <script type="text/javascript">
-            google_ad_client = "ca-pub-6865664974975544";
-            /* imagerous-wide-picture-footer */
-            google_ad_slot = "8350949815";
+            google_ad_client = "ca-pub-8950789672544776";
+            /* imagerous-picture-footer */
+            google_ad_slot = "1119964197";
             google_ad_width = 728;
             google_ad_height = 90;
         </script>

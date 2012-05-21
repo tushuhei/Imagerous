@@ -41,9 +41,9 @@
                 </div>
                 <div class="side_component">
                     <script type="text/javascript"><!--
-                        google_ad_client = "ca-pub-6865664974975544";
+                        google_ad_client = "ca-pub-8950789672544776";
                         /* imagerous-side */
-                        google_ad_slot = "5719922558";
+                        google_ad_slot = "5006418462";
                         google_ad_width = 160;
                         google_ad_height = 600;
                         //-->

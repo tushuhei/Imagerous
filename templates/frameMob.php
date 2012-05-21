@@ -41,9 +41,9 @@
         </div>
         <div style="margin-top:10px">
             <script type="text/javascript"><!--
-            google_ad_client = "ca-pub-6865664974975544";
+            google_ad_client = "ca-pub-8950789672544776";
             /* imagerous-mobile-index-bottom */
-            google_ad_slot = "0096993339";
+            google_ad_slot = "0384544814";
             google_ad_width = 300;
             google_ad_height = 250;
             //-->

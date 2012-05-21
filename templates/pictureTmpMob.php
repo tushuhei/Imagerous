@@ -12,9 +12,9 @@
 <div id="picContainer">
     <div>
         <script type="text/javascript"><!--
-        google_ad_client = "ca-pub-6865664974975544";
+        google_ad_client = "ca-pub-8950789672544776";
         /* imagerous-mobile-picture-top */
-        google_ad_slot = "4573877363";
+        google_ad_slot = "2063993064";
         google_ad_width = 320;
         google_ad_height = 50;
         //-->
@@ -45,9 +45,9 @@
     </div>
     <div style="height:90px; padding-top:10px">
         <script type="text/javascript">
-            google_ad_client = "ca-pub-6865664974975544";
-            /* imagerous-mobile-footer-picture */
-            google_ad_slot = "3683174449";
+            google_ad_client = "ca-pub-8950789672544776";
+            /* imagerous-mobile-picture-footer */
+            google_ad_slot = "2529514144";
             google_ad_width = 320;
             google_ad_height = 50;
         </script>
