@@ -13,16 +13,21 @@
 <div class="alert"><?=$result[0]?></div>
 <? endif ?>
 <div id="wide_top_ad">
-    <script type="text/javascript">
-        google_ad_client = "ca-pub-8950789672544776";
-        /* imagerous-index-top */
-        google_ad_slot = "9642143535";
-        google_ad_width = 728;
-        google_ad_height = 90;
-    </script>
-    <script type="text/javascript"
-        src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
-    </script>
+<script type="text/javascript"><!--
+in_uid = '275098';
+in_templateid = '15033';
+in_charset = 'UTF-8';
+in_group = 'DefaultGroup';
+in_matchurl = '';
+in_HBgColor = '222222';
+in_HBorderColor = '222222';
+in_HTitleColor = 'EEEEEE';
+in_HTextColor = 'CCCCCC';
+in_HUrlColor = 'CCCCCC';
+frame_width = '728';
+frame_height = '90';
+--></script>
+<script type='text/javascript' src='http://cache.microad.jp/send0100.js'></script>
 </div>
 <div id="squares">
 <? for($i = 0; $i < count($article->pictures); $i++): ?>
