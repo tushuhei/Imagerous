@@ -10,16 +10,20 @@
 </div>
 <? if ($picture->id !== null): ?>
 <script type="text/javascript"><!--
-    google_ad_client = "ca-pub-8950789672544776";
-    /* imagerous-picture-top */
-    google_ad_slot = "5705307090";
-    google_ad_width = 728;
-    google_ad_height = 90;
-    //-->
-</script>
-<script type="text/javascript"
-src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
-</script>
+in_uid = '275098';
+in_templateid = '15033';
+in_charset = 'UTF-8';
+in_group = 'ImagerousPictureTop';
+in_matchurl = '';
+in_HBgColor = '222222';
+in_HBorderColor = '222222';
+in_HTitleColor = 'EEEEEE';
+in_HTextColor = 'CCCCCC';
+in_HUrlColor = 'CCCCCC';
+frame_width = '728';
+frame_height = '90';
+--></script>
+<script type='text/javascript' src='http://cache.microad.jp/send0100.js'></script>
 <div id="picContainer">
     <img id="mainPic" src="<?=$picture->url?>" onerror="document.getElementById('mainPic').src='<?=$picture->small?>';
 document.getElementById('playBtn').style.display = 'none'"
@@ -30,15 +34,21 @@ document.getElementById('playBtn').style.display = 'none'"
     <a href="javascript:loadPic(1)"><div class="mobileOnly goNav" id="goNext">&gt;</div></a>
     <a href="javascript:loadPic(0)"><div class="mobileOnly goNav" id="goPrev">&lt;</div></a>
     <div style="height:90px; padding-top:10px">
-        <script type="text/javascript">
-            google_ad_client = "ca-pub-8950789672544776";
-            /* imagerous-picture-footer */
-            google_ad_slot = "1119964197";
-            google_ad_width = 728;
-            google_ad_height = 90;
-        </script>
-        <script type="text/javascript"
-            src="http://pagead2.googlesyndication.com/pagead/show_ads.js"> </script>
+<script type="text/javascript"><!--
+in_uid = '275098';
+in_templateid = '15033';
+in_charset = 'UTF-8';
+in_group = 'ImagerousPictureBottom';
+in_matchurl = '';
+in_HBgColor = '222222';
+in_HBorderColor = '222222';
+in_HTitleColor = 'EEEEEE';
+in_HTextColor = 'CCCCCC';
+in_HUrlColor = 'CCCCCC';
+frame_width = '728';
+frame_height = '90';
+--></script>
+<script type='text/javascript' src='http://cache.microad.jp/send0100.js'></script>
     </div>
 </div>
 <div id="rightSidebar">

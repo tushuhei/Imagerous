@@ -40,21 +40,21 @@
                     <? endfor ?>
                 </div>
                 <div class="side_component">
-                    <script type="text/javascript"><!--
-                        in_uid = '275098';
-                        in_templateid = '0';
-                        in_charset = 'UTF-8';
-                        in_group = 'ImagerousLeftSide';
-                        in_matchurl = '';
-                        in_HBgColor = '222222';
-                        in_HBorderColor = '222222';
-                        in_HTitleColor = 'DDDDDD';
-                        in_HTextColor = 'CCCCCC';
-                        in_HUrlColor = 'CCCCCC';
-                        frame_width = '';
-                        frame_height = '';
-                        --></script>
-                    <script type='text/javascript' src='http://cache.microad.jp/send0100.js'></script>
+<script type="text/javascript"><!--
+in_uid = '275098';
+in_templateid = '15023';
+in_charset = 'UTF-8';
+in_group = 'ImagerousLeftSide';
+in_matchurl = '';
+in_HBgColor = '222222';
+in_HBorderColor = '222222';
+in_HTitleColor = 'EEEEEE';
+in_HTextColor = 'CCCCCC';
+in_HUrlColor = 'CCCCCC';
+frame_width = '160';
+frame_height = '600';
+--></script>
+<script type='text/javascript' src='http://cache.microad.jp/send0100.js'></script>
                 </div> 
                 <div style="color:#ddd; margin-top:40px; text-align:center">
                     Powered by TMI-Webbiz7<br>
