@@ -10,17 +10,20 @@
 </div>
 <? if ($picture->id !== null): ?>
 <script type="text/javascript"><!--
-amazon_ad_tag = "tushuhei-22";
-amazon_ad_width = "728";
-amazon_ad_height = "90";
-amazon_ad_logo = "hide";
-amazon_ad_link_target = "new";
-amazon_ad_border = "hide";
-amazon_color_background = "222222";
-amazon_color_text = "EEEEEE";
-amazon_color_price = "CC6600";
-//--></script>
-<script type="text/javascript" src="http://www.assoc-amazon.jp/s/ads.js"></script>
+in_uid = '275098';
+in_templateid = '15033';
+in_charset = 'UTF-8';
+in_group = 'ImagerousPictureTop';
+in_matchurl = '';
+in_HBgColor = '222222';
+in_HBorderColor = '222222';
+in_HTitleColor = 'EEEEEE';
+in_HTextColor = 'CCCCCC';
+in_HUrlColor = 'CCCCCC';
+frame_width = '728';
+frame_height = '90';
+--></script>
+<script type='text/javascript' src='http://cache.microad.jp/send0100.js'></script>
 <div id="picContainer">
     <img id="mainPic" src="<?=$picture->url?>" onerror="document.getElementById('mainPic').src='<?=$picture->small?>';
 document.getElementById('playBtn').style.display = 'none'"
