@@ -14,18 +14,18 @@
 <? endif ?>
 <div id="wide_top_ad">
 <script type="text/javascript"><!--
--in_uid = '275098';
--in_templateid = '15033';
--in_charset = 'UTF-8';
--in_group = 'DefaultGroup';
--in_matchurl = '';
--in_HBgColor = '222222';
--in_HBorderColor = '222222';
--in_HTitleColor = 'EEEEEE';
--in_HTextColor = 'CCCCCC';
--in_HUrlColor = 'CCCCCC';
--frame_width = '728';
--frame_height = '90';
+in_uid = '275098';
+in_templateid = '15033';
+in_charset = 'UTF-8';
+in_group = 'ImagerousIndexTop';
+in_matchurl = '';
+in_HBgColor = '222222';
+in_HBorderColor = '222222';
+in_HTitleColor = 'EEEEEE';
+in_HTextColor = 'CCCCCC';
+in_HUrlColor = 'CCCCCC';
+frame_width = '728';
+frame_height = '90';
 --></script>
 <script type='text/javascript' src='http://cache.microad.jp/send0100.js'></script>
 </div>
