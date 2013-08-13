@@ -22,10 +22,10 @@
                     </a>
                     </li>
                 </ul>
-                <span style="position:fixed; top:10px; right:240px">
+                <span style="position:fixed; top:10px; right:140px">
                     <a href="https://twitter.com/share" class="twitter-share-button" data-text="<?=$article->title?> | Imagerous*" data-url="http://imagero.us/index.php?id=<?=$article->id?>" data-lang="ja" data-hashtags="imagerous">ツイート</a>
                 </span>
-                <div style="position:fixed; top:10px; right:150px" class="fb-like" data-href="http://imagero.us/index.php?id=<?=$article->id?>" data-send="false" data-layout="button_count" data-width="30" data-show-faces="false"></div>
+                <div style="position:fixed; top:10px; right:350px" class="fb-like" data-href="http://imagero.us/index.php?id=<?=$article->id?>" data-send="false" data-layout="button_count" data-width="30" data-show-faces="false"></div>
                 <? elseif($template === 'pictureTmp' or $template === 'effectTmp'): ?>
                 <ul class="nav">
                     <li>
@@ -39,10 +39,10 @@
                     </a>
                     </li>
                 </ul>
-                <span style="position:fixed; top:10px; right:240px">
+                <span style="position:fixed; top:10px; right:140px">
                     <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://imagero.us/picture.php?article=<?=$picture->articleId?>&image=<?=$picture->id?>" data-lang="ja" data-hashtags="imagerous">ツイート</a>
                 </span>
-                <div style="position:fixed; top:10px; right:150px" class="fb-like" data-href="http://imagero.us/picture.php?article=<?=$picture->articleId?>&image=<?=$picture->id?>" data-send="false" data-layout="button_count" data-width="30" data-show-faces="false"></div>
+                <div style="position:fixed; top:10px; right:350px" class="fb-like" data-href="http://imagero.us/picture.php?article=<?=$picture->articleId?>&image=<?=$picture->id?>" data-send="false" data-layout="button_count" data-width="30" data-show-faces="false"></div>
                 <? elseif($template === 'workTmp'): ?>
                 <ul class="nav">
                     <li>
@@ -51,10 +51,10 @@
                     </a>
                     </li>
                 </ul>
-                <span style="position:fixed; top:10px; right:240px">
+                <span style="position:fixed; top:10px; right:140px">
                     <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://imagero.us/work.php?id=<?=$work->id?>" data-lang="ja" data-hashtags="imagerous">ツイート</a>
                 </span>
-                <div style="position:fixed; top:10px; right:150px" class="fb-like" data-href="http://imagero.us/work.php?id=<?=$work->id?>" data-send="false" data-layout="button_count" data-width="30" data-show-faces="false"></div>
+                <div style="position:fixed; top:10px; right:350px" class="fb-like" data-href="http://imagero.us/work.php?id=<?=$work->id?>" data-send="false" data-layout="button_count" data-width="30" data-show-faces="false"></div>
                 <? elseif($template === 'searchTmp'): ?>
                 <ul class="nav">
                     <li>

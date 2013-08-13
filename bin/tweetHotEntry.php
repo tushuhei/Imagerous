@@ -18,7 +18,7 @@ shuffle($items);
 
 $twitter = new Twitter();
 foreach ($items as $item) {
-    if (preg_match('/(画像|壁紙|ショット|待ち?受け?)/u', $item->title)) {
+    if (preg_match('/(画像|写真|壁紙|ショット|待ち?受け?)/u', $item->title)) {
         preg_match('/http\:\/\/matome\.naver\.jp\/odai\/([0-9]+)/', $item->guid, $match);
         echo "{$item->title}: {$match[1]}\n";
         $article = new Article();

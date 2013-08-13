@@ -26,7 +26,7 @@ class Searcher {
             if(isset($img)) { 
                 $thumb = $img->getAttribute('src');
                 $title = $node->getElementsByTagName('h3')->item(0)->textContent;
-                if (preg_match('/(画像|壁紙|ショット|待ち?受け?)/u', $title, $match)) {
+                if (preg_match('/(画像|写真|壁紙|ショット|待ち?受け?)/u', $title, $match)) {
                     $link = $node->getElementsByTagName('a')->item(0)->getAttribute('href');
                     preg_match('/http:\/\/matome\.naver\.jp\/odai\/([0-9]+)/', $link, $matches);
                     $article = new Article();
