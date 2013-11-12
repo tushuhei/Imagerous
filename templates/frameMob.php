@@ -16,13 +16,10 @@
                 <div class="fb-like" data-href="http://imagero.us/index.php?id=<?=$article->id?>" data-send="false" data-layout="button_count" data-width="30" data-show-faces="false"></div>
             </div>
             <div style="color:#ddd; font-size:21px; margin:20px 0"> さがす </div>
-            <form method="GET" action="search.php">
+            <form method="GET" action="search.php" class="form-search">
                 <div class="input">
-                    <input class="span4" name="query" type="text" value="<?if (isset($query)) {echo $query;} ?>">
-                </div>
-                <div style="float:right">
-                    <input type="submit" class="btn btn-primary" value="検索"
-                    onClick="_gaq.push(['_trackEvent','click-search-button']);">
+                    <input class="span3" name="query" type="text" value="<?if (isset($query)) {echo $query;} ?>" style="margin-bottom: 0">
+                    <button  class="btn btn-primary" onClick="_gaq.push(['_trackEvent','click-search-button']);">検索</button>
                 </div>
             </form>
             <div style="color:#ddd; font-size:21px; margin:20px 0"> おすすめ </div>
@@ -40,16 +37,14 @@
             <? endfor ?>
         </div>
         <div style="margin-top:10px">
-            <script type="text/javascript"><!--
-            google_ad_client = "ca-pub-8950789672544776";
-            /* imagerous-mobile-index-bottom */
-            google_ad_slot = "0384544814";
-            google_ad_width = 300;
-            google_ad_height = 250;
-            //-->
-            </script>
-            <script type="text/javascript"
-            src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+            <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+            <!-- imagerous_mobile_bot -->
+            <ins class="adsbygoogle"
+                style="display:inline-block;width:320px;height:50px"
+                data-ad-client="ca-pub-2363640980453937"
+                data-ad-slot="2936579531"></ins>
+            <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
             </script>
         </div>
     </body>

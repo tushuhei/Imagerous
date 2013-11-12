@@ -15,12 +15,10 @@
                 <div class="side_component">
                     <div class="side_title"> さがす </div>
                     <form method="GET" action="search.php">
-                        <div class="input">
-                            <input class="span3" name="query" type="text" value="<?if (isset($query)) {echo $query;} ?>">
-                        </div>
-                        <div style="float:right">
-                            <input type="submit" class="btn btn-primary" value="検索"
-                            onClick="_gaq.push(['_trackEvent','click-search-button']);">
+                        <div class="input-append">
+                            <input class="span2" name="query" type="text" value="<?if (isset($query)) {echo $query;} ?>">
+                            <button type="submit" class="btn btn-primary"
+                            onClick="_gaq.push(['_trackEvent','click-search-button']);">検索</button>
                         </div>
                     </form>
                 </div>
@@ -40,21 +38,15 @@
                     <? endfor ?>
                 </div>
                 <div class="side_component">
-<script type="text/javascript"><!--
-in_uid = '275098';
-in_templateid = '15023';
-in_charset = 'UTF-8';
-in_group = 'ImagerousLeftSide';
-in_matchurl = '';
-in_HBgColor = '222222';
-in_HBorderColor = '222222';
-in_HTitleColor = 'EEEEEE';
-in_HTextColor = 'CCCCCC';
-in_HUrlColor = 'CCCCCC';
-frame_width = '160';
-frame_height = '600';
---></script>
-<script type='text/javascript' src='http://cache.microad.jp/send0100.js'></script>
+                    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                    <!-- side_scraper -->
+                    <ins class="adsbygoogle"
+                        style="display:inline-block;width:160px;height:600px"
+                        data-ad-client="ca-pub-2363640980453937"
+                        data-ad-slot="9100864335"></ins>
+                    <script>
+                        (adsbygoogle = window.adsbygoogle || []).push({});
+                    </script>
                 </div> 
                 <div style="color:#ddd; margin-top:40px; text-align:center">
                     Powered by TMI-Webbiz7<br>

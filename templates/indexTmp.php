@@ -13,22 +13,15 @@
 <div class="alert"><?=$result[0]?></div>
 <? endif ?>
 <div id="wide_top_ad">
-<script type="text/javascript"><!--
-in_uid = '275098';
-in_templateid = '15033';
-in_charset = 'UTF-8';
-in_group = 'ImagerousIndexTop';
-in_matchurl = '';
-in_HBgColor = '222222';
-in_HBorderColor = '222222';
-in_HTitleColor = 'EEEEEE';
-in_HTextColor = 'CCCCCC';
-in_HUrlColor = 'CCCCCC';
-frame_width = '728';
-frame_height = '90';
---></script>
-<script type='text/javascript' src='http://cache.microad.jp/send0100.js'></script>
-</div>
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- top_index -->
+<ins class="adsbygoogle"
+style="display:inline-block;width:728px;height:90px"
+data-ad-client="ca-pub-2363640980453937"
+data-ad-slot="6426599532"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
 <div id="squares">
 <? for($i = 0; $i < count($article->pictures); $i++): ?>
     <div class="pic_square">
@@ -44,20 +37,14 @@ frame_height = '90';
     </div>
 </a>
 <div id="wide_foot_ad">
-    <script type="text/javascript"><!--
-        in_uid = '275098';
-        in_templateid = '15033';
-        in_charset = 'UTF-8';
-        in_group = 'ImagerousIndexBottom';
-        in_matchurl = '';
-        in_HBgColor = '222222';
-        in_HBorderColor = '222222';
-        in_HTitleColor = 'EEEEEE';
-        in_HTextColor = 'CCCCCC';
-        in_HUrlColor = 'CCCCCC';
-        frame_width = '728';
-        frame_height = '90';
-        --></script>
-    <script type='text/javascript' src='http://cache.microad.jp/send0100.js'></script>
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- bot_index -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:728px;height:90px"
+     data-ad-client="ca-pub-2363640980453937"
+     data-ad-slot="4810265535"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
 </div>
 <div id="article" style="visibility:hidden"><?=$article->id?></div>

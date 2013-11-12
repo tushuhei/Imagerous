@@ -15,10 +15,10 @@ class Twitter {
     }
 
     public function tweet($out_tweet) {
-        $req = $this->to->OAuthRequest("http://api.twitter.com/1/statuses/update.xml","POST",
+        $req = $this->to->OAuthRequest("http://api.twitter.com/1.1/statuses/update.json","POST",
             array("status" => $out_tweet)
         );
-        header("Content-Type: application/xml");
+        header("Content-Type: application/json");
         echo $req;
     }
 

@@ -18,7 +18,7 @@ class Picture {
             libxml_clear_errors();
 
             $xpath = new DOMXPath($doc);
-            $this->url = $xpath->query('//p[@class="mdMTMEnd01Img01"]/a/img/@src')->item(0)->textContent;
+            $this->url = $xpath->query('//p[@class="mdMTMEnd01Img01"]/a/@href')->item(0)->textContent;
 
             if (preg_match("/<title>(.+)?:.+<\/title>/i", $content, $matches)) { 
                 $this->title = $matches[1];
