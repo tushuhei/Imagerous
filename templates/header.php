@@ -68,5 +68,3 @@
     window.google_analytics_uacct = "UA-30923853-3";
 </script>
 <script type="text/javascript" src="/js/jquery-1.7.2.min.js"></script>
-<script src="http://f1.nakanohito.jp/lit/index.js" type="text/javascript" charset="utf-8"></script>
-<script type="text/javascript">try { var lb = new Vesicomyid.Bivalves("119599"); lb.init(); } catch(err) {} </script>

@@ -16,8 +16,8 @@
                     <div class="side_title"> さがす </div>
                     <form method="GET" action="search.php">
                         <div class="input-append">
-                            <input class="span2" name="query" type="text" value="<?if (isset($query)) {echo $query;} ?>">
-                            <button type="submit" class="btn btn-primary"
+                            <input class="span2" style="margin-bottom:0" name="query" type="text" value="<?if (isset($query)) {echo $query;} ?>">
+                            <button type="submit" class="btn btn-primary" style="margin-left: -5px"
                             onClick="_gaq.push(['_trackEvent','click-search-button']);">検索</button>
                         </div>
                     </form>

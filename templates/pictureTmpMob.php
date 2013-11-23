@@ -9,7 +9,7 @@
     <!-- google_ad_section_end -->
 </div>
 <? if ($picture->id !== null): ?>
-<div id="picContainer">
+<div id="picContainer" style="padding-top: 50px">
     <div>
         <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
         <!-- imagerous_mobile_picture_top -->
