@@ -42,15 +42,6 @@
 <? elseif ($template === 'workTmp'): ?>
     <title> <?=$picture->title?> | Imagerous* </title>
 <? endif ?>
-<link rel="stylesheet" type="text/css" href="/css/bootstrap/css/bootstrap.css">
-<!--[if IE]><link rel="stylesheet" href="/css/ie.css"><![endif]-->
-<? if (isMobile()): ?>
-    <link href="/css/mobile.css" rel="stylesheet" type="text/css">
-<? else: ?>
-    <link href="/css/mobile.css" rel="stylesheet" type="text/css" media="only screen and (min-width: 0px) and (max-width: 320px)" >
-    <link href="/css/tablet.css" rel="stylesheet" type="text/css" media="only screen and (min-width: 321px) and (max-width: 910px)" >
-    <link href="/css/index.css" rel="stylesheet" type="text/css" media="only screen and (min-width: 911px)" >
-<? endif ?>
 <script type="text/javascript">
 
     var _gaq = _gaq || [];
@@ -67,4 +58,3 @@
 <script type="text/javascript">
     window.google_analytics_uacct = "UA-30923853-3";
 </script>
-<script type="text/javascript" src="/js/jquery-1.7.2.min.js"></script>
