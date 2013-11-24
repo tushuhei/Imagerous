@@ -7,4 +7,5 @@ $db = connect_db();
 $id = $argv[1];
 $recommend = new Recommend();
 $recommend->id = $id;
+$recommend->deleteById($db);
 $recommend->insertById($db);

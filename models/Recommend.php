@@ -63,7 +63,7 @@ class Recommend {
     public function deleteById ($db) {
         $stmt = $db->prepare("
             DELETE
-            FROM works
+            FROM recommends
             WHERE id = :id
             ");
         $stmt->execute(array(

@@ -13,7 +13,9 @@
         <meta property="og:url" content="http://imagero.us/index.php?id=<?=$article->id?>">
         <meta property="og:type" content="article">
         <? foreach ($ogp_pics as $ogp_pic): ?>
+            <? if (isset($ogp_pic->url)): ?>
             <meta property="og:image" content="<?=$ogp_pic->url?>">
+            <? endif ?>
         <? endforeach ?>
     <? endif ?>
 <? elseif ($template === 'pictureTmp' or $template === 'effectTmp'): ?>
