@@ -50,6 +50,12 @@
             <i class="icon-download-alt"></i> ダウンロード 
         </a>
     </div>
+    <div id="playBtn">
+        <a class="btn btn-large" href="/effect.php?article=<?=$picture->articleId?>&image=<?=$picture->id?>"
+            onClick="_gaq.push(['_trackEvent','click-play-button','<?=$picture->articleId?>','<?=$picture->id?>']);">
+            <i class="icon-star"></i>&nbsp;&nbsp;&nbsp;写真で遊ぶ&nbsp;&nbsp
+        </a>
+    </div>
 </div>
 <? else: ?>
 <span style="color:#fff"> 画像が見つかりませんでした </span>

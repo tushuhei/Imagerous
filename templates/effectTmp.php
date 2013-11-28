@@ -6,19 +6,6 @@
     <div id="spContainer" style="position:absolute; top:0px; left:0px;border:solid black 1px; opacity: 0.8">
     </div>
 </div>
-<div style="margin-top:10px">
-<script type="text/javascript"><!--
-google_ad_client = "ca-pub-8950789672544776";
-/* imagerous-effect-footer */
-google_ad_slot = "2447364818";
-google_ad_width = 728;
-google_ad_height = 90;
-//-->
-</script>
-</div>
-<script type="text/javascript"
-src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
-</script>
 <div id="rightSidebar">
     <div id="finishBtn">
         <a class="btn btn-large" href="javascript:changeOpacity()">
