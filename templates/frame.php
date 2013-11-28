@@ -38,6 +38,7 @@
                     <? endfor ?>
                 </div>
                 <div class="side_component">
+                    <? if ($show_ad): ?>
                     <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
                     <!-- side_scraper -->
                     <ins class="adsbygoogle"
@@ -47,6 +48,7 @@
                     <script>
                         (adsbygoogle = window.adsbygoogle || []).push({});
                     </script>
+                    <? endif ?>
                 </div> 
                 <div style="color:#ddd; margin-top:40px; text-align:center">
                     Powered by TMI-Webbiz7<br>

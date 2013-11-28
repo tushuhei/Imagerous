@@ -3,26 +3,6 @@
 <div class="mobileOnly" style="color:#ddd;font-size:21px;">
     検索結果
 </div>
-    <script type="text/javascript">
-        google_ad_client = "ca-pub-8950789672544776";
-        if ((navigator.userAgent.indexOf('iPhone') > 0
-            && navigator.userAgent.indexOf('iPad') == -1)
-            || navigator.userAgent.indexOf('iPod') > 0
-            || navigator.userAgent.indexOf('Android') > 0) {
-            /* imagerous-mobile-index-top */
-            google_ad_slot = "8177211870";
-            google_ad_width = 320;
-            google_ad_height = 50;
-        } else {
-            /* imagerous-index-top */
-            google_ad_slot = "9642143535";
-            google_ad_width = 728;
-            google_ad_height = 90;
-        }
-    </script>
-    <script type="text/javascript"
-        src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
-    </script>
     <? foreach ($articles as $article): ?>
     <a href="index.php?id=<?=$article->id?>">
         <div class="feed clearfix">

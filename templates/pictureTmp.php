@@ -9,6 +9,7 @@
     <!-- google_ad_section_end -->
 </div>
 <? if ($picture->id !== null): ?>
+<? if ($show_ad): ?>
 <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 <!-- imagerous_picture_top -->
 <ins class="adsbygoogle"
@@ -18,6 +19,7 @@
 <script>
     (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
+<? endif ?>
 <div id="picContainer">
     <img id="mainPic" src="<?=$picture->url?>" onerror="document.getElementById('mainPic').src='<?=$picture->small?>';
     document.getElementById('playBtn').style.display = 'none'"
@@ -28,6 +30,7 @@
     <a href="javascript:loadPic(1)"><div class="mobileOnly goNav" id="goNext">&gt;</div></a>
     <a href="javascript:loadPic(0)"><div class="mobileOnly goNav" id="goPrev">&lt;</div></a>
     <div style="height:90px; padding-top:10px">
+<? if ($show_ad): ?>
         <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
         <!-- imagerous_picture_bottom -->
         <ins class="adsbygoogle"
@@ -37,6 +40,7 @@
         <script>
             (adsbygoogle = window.adsbygoogle || []).push({});
         </script>
+<? endif ?>
     </div>
 </div>
 <div id="rightSidebar">
@@ -44,12 +48,6 @@
         <a id="downloadAnc" class="btn btn-large" href="<?=$picture->url?>"
             onClick="_gaq.push(['_trackEvent','click-download-button','<?=$picture->articleId?>','<?=$picture->id?>']);">
             <i class="icon-download-alt"></i> ダウンロード 
-        </a>
-    </div>
-    <div id="playBtn">
-        <a class="btn btn-large" href="/effect.php?article=<?=$picture->articleId?>&image=<?=$picture->id?>"
-            onClick="_gaq.push(['_trackEvent','click-play-button','<?=$picture->articleId?>','<?=$picture->id?>']);">
-            <i class="icon-star"></i>&nbsp;&nbsp;&nbsp;写真で遊ぶ&nbsp;&nbsp
         </a>
     </div>
 </div>

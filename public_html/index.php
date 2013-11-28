@@ -38,6 +38,13 @@ for ($i = 0; $i < 3; $i++ ) {
 // 写真をシャッフルする
 shuffle($article->pictures);
 
+// アダルトワード対策
+$show_ad = true;
+if (preg_match("/エロ|パンチラ|抜ける|アダルト/", $article->title)) {
+    $show_ad = false;
+}
+
+
 $template = 'indexTmp';
 
 if (isMobile()) {

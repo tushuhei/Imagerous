@@ -15,6 +15,7 @@
     <?=$article->title?>
 </div>
 <div id="wide_top_ad">
+    <? if ($show_ad): ?>
     <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
     <!-- imagerous_mobile_top -->
     <ins class="adsbygoogle"
@@ -24,6 +25,7 @@
     <script>
         (adsbygoogle = window.adsbygoogle || []).push({});
     </script>
+<? endif ?>
 </div>
 <div id="squares">
     <? for($i = 0; $i < count($article->pictures); $i++): ?>
@@ -40,6 +42,7 @@
     </div>
 </a>
 <div id="wide_foot_ad">
+<? if ($show_ad): ?>
     <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
     <!-- imagerous_mobile_mid -->
     <ins class="adsbygoogle"
@@ -49,5 +52,6 @@
     <script>
         (adsbygoogle = window.adsbygoogle || []).push({});
     </script>
+<? endif ?>
 </div>
 <div id="article" style="visibility:hidden"><?=$article->id?></div>

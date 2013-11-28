@@ -37,6 +37,7 @@
             <? endfor ?>
         </div>
         <div style="margin-top:10px">
+<? if ($show_ad): ?>
             <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
             <!-- imagerous_mobile_bot -->
             <ins class="adsbygoogle"
@@ -46,6 +47,7 @@
             <script>
                 (adsbygoogle = window.adsbygoogle || []).push({});
             </script>
+<? endif ?>
         </div>
 <link rel="stylesheet" type="text/css" href="/css/bootstrap/css/bootstrap.min.css">
 <!--[if IE]><link rel="stylesheet" href="/css/ie.css"><![endif]-->

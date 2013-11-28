@@ -12,6 +12,7 @@
 <div class="alert"><?=$result[0]?></div>
 <? endif ?>
 <div id="wide_top_ad">
+<? if ($show_ad): ?>
 <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 <!-- top_index -->
 <ins class="adsbygoogle"
@@ -21,6 +22,7 @@ data-ad-slot="6426599532"></ins>
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
+<? endif ?>
 <div id="squares">
 <? for($i = 0; $i < count($article->pictures); $i++): ?>
     <div class="pic_square">
@@ -36,6 +38,7 @@ data-ad-slot="6426599532"></ins>
     </div>
 </a>
 <div id="wide_foot_ad">
+<? if ($show_ad): ?>
 <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 <!-- bot_index -->
 <ins class="adsbygoogle"
@@ -45,5 +48,6 @@ data-ad-slot="6426599532"></ins>
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
+<? endif ?>
 </div>
 <div id="article" style="visibility:hidden"><?=$article->id?></div>

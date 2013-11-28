@@ -11,6 +11,7 @@
 <? if ($picture->id !== null): ?>
 <div id="picContainer" style="padding-top: 50px">
     <div>
+<? if ($show_ad): ?>
         <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
         <!-- imagerous_mobile_picture_top -->
         <ins class="adsbygoogle"
@@ -20,6 +21,7 @@
         <script>
             (adsbygoogle = window.adsbygoogle || []).push({});
         </script>
+<? endif ?>
     </div>
     <div>
         <img id="mainPic" src="<?=$picture->url?>" onerror="document.getElementById('mainPic').src='<?=$picture->small?>';"
@@ -42,6 +44,7 @@
         </a>
     </div>
     <div style="height:90px; padding-top:10px">
+<? if ($show_ad): ?>
         <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
         <!-- imagerous_mobile_picture_middle -->
         <ins class="adsbygoogle"
@@ -51,6 +54,7 @@
         <script>
             (adsbygoogle = window.adsbygoogle || []).push({});
         </script>
+<? endif ?>
     </div>
 </div>
 <div id="rightSidebar">
