@@ -40,7 +40,7 @@ shuffle($article->pictures);
 
 // アダルトワード対策
 $show_ad = true;
-if (preg_match("/エロ|パンチラ|抜ける|アダルト/", $article->title)) {
+if (preg_match("/エロ|パンチラ|抜ける|アダルト|JK|18禁/", $article->title)) {
     $show_ad = false;
 }
 
