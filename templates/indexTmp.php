@@ -17,7 +17,7 @@ data-ad-slot="6426599532"></ins>
 <? for($i = 0; $i < count($article->pictures); $i++): ?>
     <div class="pic_square">
         <a class="main_image" href="picture.php?article=<?=$article->id?>&image=<?=$article->pictures[$i]->id?>&page=1">
-            <img class="main_image" src="<?=$article->pictures[$i]->small?>">
+            <img src="<?=$article->pictures[$i]->small?>">
         </a>
     </div>
 <? endfor ?>
