@@ -16,14 +16,14 @@ data-ad-slot="6426599532"></ins>
 <div id="squares">
 <? for($i = 0; $i < count($article->pictures); $i++): ?>
     <div class="pic_square">
-        <a class="main_image" href="picture.php?article=<?=$article->id?>&image=<?=$article->pictures[$i]->id?>&page=1">
+        <a class="main_image" style="display:none" href="picture.php?article=<?=$article->id?>&image=<?=$article->pictures[$i]->id?>&page=1">
             <img src="<?=$article->pictures[$i]->small?>">
         </a>
     </div>
 <? endfor ?>
 </div>
 <a id="loadNext">
-    <div id="loadNext" style="margin-bottom:10px">
+    <div id="loadNext" style="margin-top:30px;margin-bottom:10px">
         もっと見る
     </div>
 </a>

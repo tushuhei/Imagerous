@@ -24,7 +24,6 @@
 .main_image {
     clip:rect(auto, 200px, 200px, auto);
     position:absolute;
-    display:none;
 }
 .main_image > img {
     border-style: solid;

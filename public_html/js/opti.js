@@ -13,7 +13,7 @@ function get_params() {
         },
         error: function(XMLHttpRequest, textStatus, errorThrown){
             console.log(textStatus, errorThrown.message);
-            return {};
+            $(".main_image").css("display", "block");
         }
     });
 }
