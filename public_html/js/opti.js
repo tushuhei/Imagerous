@@ -10,6 +10,7 @@ function get_params() {
         success: function(res){
             $.cookie("optikey", res.optikey, { expires: 7 });
             revise(res.params);
+            send_log("view", 1);
         },
         error: function(XMLHttpRequest, textStatus, errorThrown){
             console.log(textStatus, errorThrown.message);
@@ -42,7 +43,6 @@ function send_log(action, value) {
             "url": document.URL
         },
         success: function(res){
-            console.log(res)
         },
         error: function(XMLHttpRequest, textStatus, errorThrown){
             console.log(textStatus, errorThrown.message);
@@ -53,5 +53,4 @@ function send_log(action, value) {
 
 window.onload = function () {
     get_params();
-    send_log("view", 1);
 }
