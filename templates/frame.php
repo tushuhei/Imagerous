@@ -4,6 +4,7 @@
         <? include('header.php') ?>
         <link rel="stylesheet" type="text/css" href="/css/bootstrap/css/bootstrap.min.css">
         <link href="/css/index.css" rel="stylesheet" type="text/css">
+        <script type="text/javascript" src="/js/jquery-1.7.2.min.js"></script>
     </head>
     <body style="background-color:#222">
         <? include('navbar.php') ?>
@@ -61,7 +62,6 @@
                 <? include($template.'.php'); ?>
             </div>
         </div>
-        <script type="text/javascript" src="/js/jquery-1.7.2.min.js"></script>
         <script type="text/javascript" src="/js/jquery.cookie.min.js"></script>
         <script type="text/javascript" src="/js/opti.js"></script>
         <script type="text/javascript" src="/js/index.js"></script>
