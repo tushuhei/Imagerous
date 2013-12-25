@@ -24,6 +24,10 @@
 .main_image {
     clip:rect(auto, 200px, 200px, auto);
     position:absolute;
+    display:none;
+}
+.main_image > img {
+    border-style: solid;
 }
 .main_image :hover {
     filter: alpha(opacity=70); /*For IE*/

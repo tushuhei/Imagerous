@@ -2,8 +2,8 @@
 <html>
     <head>
         <? include('header.php') ?>
-        <script type="text/javascript" src="/js/jquery-1.7.2.min.js"></script>
-        <script type="text/javascript" src="/js/index.js"></script>
+        <link rel="stylesheet" type="text/css" href="/css/bootstrap/css/bootstrap.min.css">
+        <link href="/css/index.css" rel="stylesheet" type="text/css">
     </head>
     <body style="background-color:#222">
         <? include('navbar.php') ?>
@@ -61,14 +61,9 @@
                 <? include($template.'.php'); ?>
             </div>
         </div>
-<link rel="stylesheet" type="text/css" href="/css/bootstrap/css/bootstrap.min.css">
-<!--[if IE]><link rel="stylesheet" href="/css/ie.css"><![endif]-->
-<? if (isMobile()): ?>
-    <link href="/css/mobile.css" rel="stylesheet" type="text/css">
-<? else: ?>
-    <link href="/css/mobile.css" rel="stylesheet" type="text/css" media="only screen and (min-width: 0px) and (max-width: 320px)" >
-    <link href="/css/tablet.css" rel="stylesheet" type="text/css" media="only screen and (min-width: 321px) and (max-width: 910px)" >
-    <link href="/css/index.css" rel="stylesheet" type="text/css" media="only screen and (min-width: 911px)" >
-<? endif ?>
+        <script type="text/javascript" src="/js/jquery-1.7.2.min.js"></script>
+        <script type="text/javascript" src="/js/jquery.cookie.min.js"></script>
+        <script type="text/javascript" src="/js/opti.js"></script>
+        <script type="text/javascript" src="/js/index.js"></script>
     </body>
 </html>
