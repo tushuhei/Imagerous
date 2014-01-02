@@ -7,6 +7,7 @@ function get_params() {
         dataType: "jsonp",
         jsonpCallback: "callback",
         data: {"optikey": $.cookie("optikey")},
+        timeout: 2000,
         success: function(res){
             $.cookie("optikey", res.optikey, { expires: 7 });
             revise(res.params);
@@ -36,6 +37,7 @@ function send_log(action, value) {
         url: opti_domain + "/obs",
         dataType: "jsonp",
         jsonpCallback: "observed",
+        timeout: 2000,
         data: {
             "optikey": $.cookie("optikey"),
             "action": action,
@@ -46,11 +48,15 @@ function send_log(action, value) {
         },
         error: function(XMLHttpRequest, textStatus, errorThrown){
             console.log(textStatus, errorThrown.message);
-            return {};
         }
     });
 }
 
 window.onload = function () {
     get_params();
+    var startTime = new Date();
+    setInterval(function(){
+        var curTime = new Date();
+        send_log("tos", curTime - startTime);
+    }, 5000);
 }

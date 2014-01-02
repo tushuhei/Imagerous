@@ -1,8 +1,8 @@
 <? if (!empty($result)): ?>
 <div class="alert"><?=$result[0]?></div>
 <? endif ?>
-<div id="wide_top_ad">
 <? if ($show_ad): ?>
+<div id="wide_top_ad">
 <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 <!-- top_index -->
 <ins class="adsbygoogle"
@@ -12,8 +12,9 @@ data-ad-slot="6426599532"></ins>
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
+</div>
 <? endif ?>
-<div id="squares">
+<div id="squares" class="clearfix">
 <? for($i = 0; $i < count($article->pictures); $i++): ?>
     <div class="pic_square">
         <a class="main_image" style="display:none" href="picture.php?article=<?=$article->id?>&image=<?=$article->pictures[$i]->id?>&page=1">
@@ -22,13 +23,9 @@ data-ad-slot="6426599532"></ins>
     </div>
 <? endfor ?>
 </div>
-<a id="loadNext">
-    <div id="loadNext" style="margin-top:30px;margin-bottom:10px">
-        もっと見る
-    </div>
-</a>
-<div id="wide_foot_ad">
+<a id="loadNext"><div style="margin-top:50px;margin-bottom:10px"> もっと見る </div></a>
 <? if ($show_ad): ?>
+<div id="wide_foot_ad">
 <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 <!-- bot_index -->
 <ins class="adsbygoogle"
@@ -38,6 +35,6 @@ data-ad-slot="6426599532"></ins>
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
-<? endif ?>
 </div>
+<? endif ?>
 <div id="article" style="visibility:hidden"><?=$article->id?></div>

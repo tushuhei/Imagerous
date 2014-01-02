@@ -46,7 +46,7 @@
     background-color: #fff;
     color:#fff;
 }
-#loadNext {
+#loadNext > div {
     clear:left;
     width:100%;
     height:30px;
