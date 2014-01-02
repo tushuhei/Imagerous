@@ -48,6 +48,7 @@ function send_log(action, value) {
         },
         error: function(XMLHttpRequest, textStatus, errorThrown){
             console.log(textStatus, errorThrown.message);
+            $(".main_image").css("display", "block");
         }
     });
 }
