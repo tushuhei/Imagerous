@@ -63,7 +63,7 @@
             </div>
         </div>
         <script type="text/javascript" src="/js/jquery.cookie.min.js"></script>
-        <script type="text/javascript" src="/js/opti.js"></script>
+        <script type="text/javascript" src="/js/opti.js?v=3"></script>
         <script type="text/javascript" src="/js/index.js"></script>
     </body>
 </html>

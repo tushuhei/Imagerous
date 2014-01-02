@@ -56,8 +56,10 @@ function send_log(action, value) {
 window.onload = function () {
     get_params();
     var startTime = new Date();
-    setInterval(function(){
+    var timer = setInterval(function(){
         var curTime = new Date();
         send_log("tos", curTime - startTime);
+        if (curTime - startTime > 50000) clearTimer();
     }, 5000);
+    function clearTimer () {clearInterval(timer);}
 }
