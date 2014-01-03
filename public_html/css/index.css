@@ -10,6 +10,8 @@
     width: 200px;
     height: 200px;
     float: left;
+    border-style: solid;
+    border-color: #fff;
 }
 .side_component {
     color:#ddd;

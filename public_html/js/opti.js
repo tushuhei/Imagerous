@@ -11,12 +11,10 @@ function get_params() {
         success: function(res){
             $.cookie("optikey", res.optikey, { expires: 7 });
             revise(res.params);
-            console.log(res.params);
             send_log("view", "start");
         },
         error: function(XMLHttpRequest, textStatus, errorThrown){
             $(".imager").css("display", "block");
-            console.log(textStatus, errorThrown.message);
         }
     });
 }
@@ -52,7 +50,6 @@ function send_log(action, value) {
         },
         error: function(XMLHttpRequest, textStatus, errorThrown){
             $(".imager").css("display", "block");
-            console.log(textStatus, errorThrown.message);
         }
     });
 }

@@ -3,7 +3,7 @@
     <head>
         <? include('header.php') ?>
         <link rel="stylesheet" type="text/css" href="/css/bootstrap/css/bootstrap.min.css">
-        <link href="/css/index.css" rel="stylesheet" type="text/css">
+        <link href="/css/index.css?v=2" rel="stylesheet" type="text/css">
         <script type="text/javascript" src="/js/jquery-1.7.2.min.js"></script>
     </head>
     <body style="background-color:#222" id="body">
@@ -63,7 +63,7 @@
             </div>
         </div>
         <script type="text/javascript" src="/js/jquery.cookie.min.js"></script>
-        <script type="text/javascript" src="/js/opti.js?v=4"></script>
-        <script type="text/javascript" src="/js/index.js"></script>
+        <script type="text/javascript" src="/js/opti.js?v=5"></script>
+        <script type="text/javascript" src="/js/index.js?v=2"></script>
     </body>
 </html>
