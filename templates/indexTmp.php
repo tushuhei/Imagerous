@@ -16,11 +16,9 @@ data-ad-slot="6426599532"></ins>
 <? endif ?>
 <div id="squares" class="clearfix">
 <? for($i = 0; $i < count($article->pictures); $i++): ?>
-    <div class="pic_square">
-        <a class="main_image" style="display:none" href="picture.php?article=<?=$article->id?>&image=<?=$article->pictures[$i]->id?>&page=1">
-            <img src="<?=$article->pictures[$i]->small?>">
-        </a>
-    </div>
+    <a class="imager" style="display:none" href="picture.php?article=<?=$article->id?>&image=<?=$article->pictures[$i]->id?>&page=1">
+        <div style="background-image: url(<?=$article->pictures[$i]->small?>);"></div>
+    </a>
 <? endfor ?>
 </div>
 <a id="loadNext"><div style="margin-top:50px;margin-bottom:10px"> もっと見る </div></a>

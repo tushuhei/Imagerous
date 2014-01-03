@@ -14,13 +14,12 @@ $(function(){
             page++;
             for (var i = 0; i < obj.length; i++ ) {
                 $("#squares").append(
-'<div class="pic_square">'+
-'    <a class="main_image" href="picture.php?article='+$("#article").html()+'&image='+obj[i].id+'&page='+page+'">'+
-'        <img src="'+obj[i].small+'" class="main_image">'+
-'    </a>'+
-'</div>'
+                '    <a class="imager" href="picture.php?article='+$("#article").html()+'&image='+obj[i].id+'&page='+page+'">'+
+                '        <div style="background-image: url('+obj[i].small+')"></div>'+
+                '    </a>'
                 );
             }
+            send_log("view", "more")
         },
         error: function(data){
                }

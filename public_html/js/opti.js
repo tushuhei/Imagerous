@@ -11,10 +11,11 @@ function get_params() {
         success: function(res){
             $.cookie("optikey", res.optikey, { expires: 7 });
             revise(res.params);
-            send_log("view", 1);
+            console.log(res.params);
+            send_log("view", "start");
         },
         error: function(XMLHttpRequest, textStatus, errorThrown){
-            $(".main_image").css("display", "block");
+            $(".imager").css("display", "block");
             console.log(textStatus, errorThrown.message);
         }
     });
@@ -23,11 +24,14 @@ function get_params() {
 function revise(params) {
     for (var i = 0; i < params.length; i++) {
         var selector = params[i]["selector"];
-        var property = params[i]["property"];
+        var properties = params[i]["property"].split(":");
         var level = params[i]["level"];
-        $(selector).css(property, level);
+        if (level == "sizeper2") level = $(".imager>div").width() / 2;
+        for (var k = 0; k < properties.length; k++) {
+            $(selector).css(properties[k], level);
+        }
     }
-    $(".main_image").css("display", "block");
+    $(".imager").css("display", "block");
 }
 
 
@@ -47,7 +51,7 @@ function send_log(action, value) {
         success: function(res){
         },
         error: function(XMLHttpRequest, textStatus, errorThrown){
-            $(".main_image").css("display", "block");
+            $(".imager").css("display", "block");
             console.log(textStatus, errorThrown.message);
         }
     });
@@ -55,7 +59,7 @@ function send_log(action, value) {
 
 window.onload = function () {
     if (_ua.ltIE6 || _ua.ltIE7 ||_ua.ltIE8) {
-        $(".main_image").css("display", "block");
+        $(".imager").css("display", "block");
     } else {
         get_params();
         var startTime = new Date();
@@ -69,20 +73,20 @@ window.onload = function () {
 }
 
 var _ua = (function(){
-     return {
-           ltIE6:typeof window.addEventListener == "undefined" && typeof document.documentElement.style.maxHeight == "undefined",
-      ltIE7:typeof window.addEventListener == "undefined" && typeof document.querySelectorAll == "undefined",
-      ltIE8:typeof window.addEventListener == "undefined" && typeof document.getElementsByClassName == "undefined",
-      ltIE9:document.uniqueID && !window.matchMedia,
-      gtIE10:document.uniqueID && document.documentMode >= 10,
-      Trident:document.uniqueID,
-      Gecko:'MozAppearance' in document.documentElement.style,
-      Presto:window.opera,
-      Blink:window.chrome,
-      Webkit:!window.chrome && 'WebkitAppearance' in document.documentElement.style,
-      Touch:typeof document.ontouchstart != "undefined",
-      Mobile:typeof window.orientation != "undefined",
-      Pointer:window.navigator.pointerEnabled,
-      MSPoniter:window.navigator.msPointerEnabled
-     }
+return {
+ltIE6:typeof window.addEventListener == "undefined" && typeof document.documentElement.style.maxHeight == "undefined",
+ltIE7:typeof window.addEventListener == "undefined" && typeof document.querySelectorAll == "undefined",
+ltIE8:typeof window.addEventListener == "undefined" && typeof document.getElementsByClassName == "undefined",
+ltIE9:document.uniqueID && !window.matchMedia,
+gtIE10:document.uniqueID && document.documentMode >= 10,
+Trident:document.uniqueID,
+Gecko:'MozAppearance' in document.documentElement.style,
+Presto:window.opera,
+Blink:window.chrome,
+Webkit:!window.chrome && 'WebkitAppearance' in document.documentElement.style,
+Touch:typeof document.ontouchstart != "undefined",
+Mobile:typeof window.orientation != "undefined",
+Pointer:window.navigator.pointerEnabled,
+MSPoniter:window.navigator.msPointerEnabled
+}
 })();

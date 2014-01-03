@@ -1,3 +1,16 @@
+.imager {
+    float:left;
+}
+.imager :hover {
+    filter: alpha(opacity=70); /*For IE*/
+    opacity: 0.7; /*Opera・Safari*/
+    -moz-opacity: 0.7; /*For FireFox*/
+}
+.imager > div {
+    width: 200px;
+    height: 200px;
+    float: left;
+}
 .side_component {
     color:#ddd;
     margin-bottom:20px;
@@ -20,18 +33,6 @@
 .side_feed img {
     background-color: #fff;
     color:#fff;
-}
-.main_image {
-    clip:rect(auto, 200px, 200px, auto);
-    position:absolute;
-}
-.main_image > img {
-    border-style: solid;
-}
-.main_image :hover {
-    filter: alpha(opacity=70); /*For IE*/
-    opacity: 0.7; /*Opera・Safari*/
-    -moz-opacity: 0.7; /*For FireFox*/
 }
 .feed {
     border-bottom:1px solid #777;
@@ -95,11 +96,6 @@
 #wide_top_ad {
     height:90px; 
     padding-bottom:10px;
-}
-.pic_square {
-    float:left;
-    width:200px;
-    height:200px;
 }
 .mobileOnly {
     display:none;
