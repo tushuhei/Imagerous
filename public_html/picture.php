@@ -21,6 +21,7 @@ if (isset($_GET['article']) and isset($_GET['image'])) {
     $article->id = $picture->articleId;
     $article->getContents();
 }
+$show_ad = false;
 
 $template = 'pictureTmp';
 if (isMobile()) {
