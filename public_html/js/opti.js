@@ -1,4 +1,4 @@
-var opti_domain = "http://cn.imagero.us";
+var opti_domain = "http://opti.imagero.us";
 
 function get_params() {
     $.ajax({

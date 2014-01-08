@@ -12,6 +12,7 @@
     float: left;
     border-style: solid;
     border-color: #fff;
+    border-width: 0px;
 }
 .side_component {
     color:#ddd;
