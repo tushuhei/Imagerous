@@ -23,18 +23,15 @@
     padding-top:30px;
     z-index:100;
 }
-.pic_square {
-    display: inline-block;
-    position:relative;
-    width:147px;
-    height:147px;
-    line-height:147px;
-    overflow:hidden;
+.imager {
+    float:left;
 }
-.main_image {
-    position:absolute;
-    top:-30px;
-    left:-30px;
+.imager > div {
+    border-style: solid;
+    border-color: #fff;
+    border-width: 0px;
+    background-position: center;
+    background-size: cover;
 }
 #mobile_title {
     padding-top:50px;

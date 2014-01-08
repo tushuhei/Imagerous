@@ -6,7 +6,7 @@ function get_params() {
         url: opti_domain + "/gen",
         dataType: "jsonp",
         jsonpCallback: "callback",
-        data: {"optikey": $.cookie("optikey")},
+        data: {"optikey": $.cookie("optikey"), "isMobile": isMobile},
         timeout: 2000,
         success: function(res){
             $.cookie("optikey", res.optikey, { expires: 7 });

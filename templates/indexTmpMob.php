@@ -19,11 +19,9 @@
 </div>
 <div id="squares">
     <? for($i = 0; $i < count($article->pictures); $i++): ?>
-    <div class="pic_square">
-        <a class="main_image" href="picture.php?article=<?=$article->id?>&image=<?=$article->pictures[$i]->id?>&page=1">
-            <img class="main_image" src="<?=$article->pictures[$i]->small?>">
-        </a>
-    </div>
+    <a class="imager" style="display:none" href="picture.php?article=<?=$article->id?>&image=<?=$article->pictures[$i]->id?>&page=1">
+        <div style="background-image: url(<?=$article->pictures[$i]->small?>);"></div>
+    </a>
     <? endfor ?>
 </div>
 <a id="loadNext">

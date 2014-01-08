@@ -9,10 +9,11 @@
 .imager > div {
     width: 200px;
     height: 200px;
-    float: left;
     border-style: solid;
     border-color: #fff;
     border-width: 0px;
+    background-position: center;
+    background-size: cover;
 }
 .side_component {
     color:#ddd;

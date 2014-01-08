@@ -52,6 +52,9 @@
         <? endif ?>
         </div>
         <script type="text/javascript" src="/js/jquery-1.7.2.min.js"></script>
+        <script type="text/javascript" src="/js/jquery.cookie.min.js "></script>
+        <script> var isMobile = <?=(isMobile())?1:0?>; </script>
+        <script type="text/javascript" src="/js/opti.js"></script>
         <script type="text/javascript" src="/js/index.js"></script>
     </body>
 </html>
