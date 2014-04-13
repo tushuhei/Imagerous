@@ -19,7 +19,7 @@ $(function(){
                 '    </a>'
                 );
             }
-            send_log("view", "more")
+            //send_log("view", "more")
         },
         error: function(data){
                }

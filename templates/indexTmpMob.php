@@ -19,12 +19,12 @@
 </div>
 <div id="squares">
     <? for($i = 0; $i < count($article->pictures); $i++): ?>
-    <a class="imager" style="display:none" href="picture.php?article=<?=$article->id?>&image=<?=$article->pictures[$i]->id?>&page=1">
+    <a class="imager" href="picture.php?article=<?=$article->id?>&image=<?=$article->pictures[$i]->id?>&page=1">
         <div style="background-image: url(<?=$article->pictures[$i]->small?>);"></div>
     </a>
     <? endfor ?>
 </div>
-<a id="loadNext">
+<a>
     <div id="loadNext" style="margin-bottom:10px">
         もっと見る
     </div>

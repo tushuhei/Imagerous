@@ -27,9 +27,8 @@
     float:left;
 }
 .imager > div {
-    border-style: solid;
-    border-color: #fff;
-    border-width: 0px;
+    width: 100px;
+    height: 100px;
     background-position: center;
     background-size: cover;
 }
