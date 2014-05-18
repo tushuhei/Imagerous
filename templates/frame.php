@@ -62,7 +62,6 @@
                 <? include($template.'.php'); ?>
             </div>
         </div>
-        <script type="text/javascript" src="/js/jquery.cookie.min.js"></script>
         <script> var isMobile = <?=(isMobile())?1:0?>; </script>
         <script type="text/javascript" src="/js/index.js?v=2"></script>
     </body>

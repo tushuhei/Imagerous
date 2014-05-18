@@ -18,16 +18,23 @@
             <? endif ?>
         <? endforeach ?>
     <? endif ?>
-<? elseif ($template === 'pictureTmp' or $template === 'effectTmp'): ?>
+<? elseif ($template === 'pictureTmp'): ?>
     <meta property="og:title" content="<?=$article->title?> <?=$picture->title?> | Imagerous*">
     <meta property="og:url" content="http://imagero.us/picture.php?article=<?=$picture->articleId?>&image=<?=$picture->id?>">
     <meta property="og:image" content="<?=$picture->url?>">
     <meta property="og:type" content="article">
+<? elseif ($template === 'effectTmp'): ?>
+    <meta property="og:title" content="<?=$article->title?> <?=$picture->title?> | Imagerous*">
+    <meta property="og:url" content="http://imagero.us/picture.php?article=<?=$picture->articleId?>&image=<?=$picture->id?>">
+    <meta property="og:image" content="<?=$picture->url?>">
+    <meta property="og:type" content="article">
+    <meta name="robots" content="noindex">
 <? elseif ($template === 'workTmp'): ?>
     <meta property="og:title" content="<?=$picture->title?> | Imagerous*">
     <meta property="og:url" content="http://imagero.us/work.php?id=<?=$work->id?>">
     <meta property="og:image" content="<?=$picture->url?>">
     <meta property="og:type" content="article">
+    <meta name="robots" content="noindex">
 <? endif ?>
 <meta property="og:description" content="壁紙をまとめる、眺める、つかう。">
 <meta property="og:site_name" content="Imagerous*">
@@ -45,7 +52,6 @@
     <title> <?=$picture->title?> | Imagerous* </title>
 <? endif ?>
 <script type="text/javascript">
-
 var _gaq = _gaq || [];
 _gaq.push(['_setAccount', 'UA-30923853-3']);
 _gaq.push(['_trackPageview']);
@@ -55,5 +61,4 @@ _gaq.push(['_trackPageview']);
     ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
     var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
 })();
-
 </script>
