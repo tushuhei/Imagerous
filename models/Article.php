@@ -1,6 +1,7 @@
 <?php
 $basedir = dirname(__FILE__) . '/..';
 require_once $basedir.'/models/Picture.php';
+require_once $basedir.'/models/Searcher.php';
 
 class Article {
     public $id;
@@ -8,6 +9,7 @@ class Article {
     public $thumb;
     public $pictures;
     public $wdata;
+    public $related;
 
     public function getContents ($page = null) {
         libxml_use_internal_errors(true);
@@ -53,13 +55,29 @@ class Article {
         }
     }
 
-    public function getAllPicURL () {
-        $pictures = array();
-        foreach ($this->pictures as $picture) {
-            $picture->getContents();
-            $pictures[] = $picture;
+    public function getRelatedArticles () {
+        $result = array();
+        $url = "http://jlp.yahooapis.jp/KeyphraseService/V1/extract?appid=vekn5nWxg67HWN69sM4vwBEQAOATDik58ctDCW2ho6moWxuSg9h2.Tkl32sWd.I-&output=json&sentence=".urlencode($this->title);
+        $data = (array)json_decode(@file_get_contents($url));
+        $keyword = array_search(max($data), $data);
+        $searcher = new Searcher();
+        $articles = $searcher::getArticles($keyword);
+        foreach ($articles as $article) {
+            if ($article->id != $this->id) {
+                $result[] = $article;
+            }
         }
-        $this->pictures = $pictures;
+        if (count($related) < 3) {
+            unset($data[$keyword]);
+            $keyword = array_search(max($data), $data);
+            $articles = $searcher::getArticles($keyword);
+            foreach ($articles as $article) {
+                if ($article->id != $this->id) {
+                    $result[] = $article;
+                }
+            }
+        }
+        $this->related = $result;
     }
 
     public function validateNaverId () {

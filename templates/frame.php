@@ -25,6 +25,23 @@
                         </div>
                     </form>
                 </div>
+                <? if (isset($article->related) and $article->related): ?>
+                <div class="side_component" style="margin-top:40px">
+                    <div class="side_title"> 関連コンテンツ </div>
+                    <? foreach ($article->related as $related): ?>
+                    <a href="index.php?id=<?=$related->id?>">
+                    <div class="side_feed clearfix">
+                        <div style="float:left; width:30%; text-align:center">
+                            <img src="<?=$related->thumb?>" width="50">
+                        </div>
+                        <div style="float:left; width:65%; margin-left:5px;">
+                            <?=$related->title?>
+                        </div>
+                    </div>
+                    </a>
+                    <? endforeach ?>
+                </div>
+                <? endif ?>
                 <div class="side_component" style="margin-top:40px">
                     <div class="side_title"> おすすめ </div>
                     <? for($i = 0; $i < 5; $i++): ?>

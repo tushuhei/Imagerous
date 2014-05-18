@@ -24,6 +24,21 @@
                     <button  class="btn btn-primary" onClick="_gaq.push(['_trackEvent','click-search-button']);">検索</button>
                 </div>
             </form>
+            <? if (isset($article->related) and $article->related): ?>
+            <div style="color:#ddd; font-size:21px; margin:20px 0"> おすすめ </div>
+            <? foreach ($article->related as $related): ?>
+            <a href="index.php?id=<?=$related->id?>">
+            <div class="side_feed clearfix">
+                <div style="float:left; width:30%; text-align:center">
+                    <img src="<?=$related->thumb?>" width="50">
+                </div>
+                <div style="float:left; width:65%; margin-left:5px;">
+                    <?=$related->title?>
+                </div>
+            </div>
+            </a>
+            <? endforeach ?>
+            <? endif ?>
             <div style="color:#ddd; font-size:21px; margin:20px 0"> おすすめ </div>
             <? for($i = 0; $i < 5; $i++): ?>
             <a href="index.php?id=<?=$recommends[$i]->id?>">

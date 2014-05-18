@@ -7,15 +7,6 @@ $recommend = new Recommend();
 $recommends = $recommend::getAll($db);
 shuffle($recommends);
 
-function getAllWorks ($db) {
-    $query = $db->query("SELECT id FROM works ORDER BY create_time DESC LIMIT 5");
-    $result = array();
-    foreach($query as $row) {
-        $result[] = $row['id'];
-    }
-    return $result;
-}
-
 function isMobile () {
     $uas = array('iPhone', 'iPod', 'Android', 'dream', 'CUPCAKE', 'blackberry', 'webOS', 'incognito', 'webmate');
     foreach ($uas as $ua) {

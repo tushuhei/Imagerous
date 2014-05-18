@@ -17,6 +17,7 @@ if (isset($_GET['id'])) {
     $article->id = $recommends[rand(0, count($recommends)-1)]->id;
 }
 $article->getContents();
+$article->getRelatedArticles();
 
 // 取得出来なかったときの対処
 if ($article->id === null) {
