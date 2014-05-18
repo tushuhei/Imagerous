@@ -25,7 +25,7 @@
                 </div>
             </form>
             <? if (isset($article->related) and $article->related): ?>
-            <div style="color:#ddd; font-size:21px; margin:20px 0"> おすすめ </div>
+            <div style="color:#ddd; font-size:21px; margin:20px 0"> 関連コンテンツ </div>
             <? foreach ($article->related as $related): ?>
             <a href="index.php?id=<?=$related->id?>">
             <div class="side_feed clearfix">
