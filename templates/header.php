@@ -17,6 +17,10 @@
             <meta property="og:image" content="<?=$ogp_pic->url?>">
             <? endif ?>
         <? endforeach ?>
+        <? $numOfPics = $article->numOfPics($db); ?>
+        <? if (!is_null($numOfPics) and $numOfPics < 15): ?>
+        <meta name="robots" content="noindex">
+        <? endif ?>
     <? endif ?>
 <? elseif ($template === 'pictureTmp'): ?>
     <meta property="og:title" content="<?=$article->title?> <?=$picture->title?> | Imagerous*">

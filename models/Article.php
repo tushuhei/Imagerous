@@ -104,4 +104,19 @@ class Article {
         return $result;
     }
 
+    public function numOfPics($db) {
+      if ($this->id) {
+        $sth = $db->prepare("SELECT num_pic FROM matome WHERE id = ?");
+        $sth->execute(array($this->id));
+        $result = $sth->fetchAll();
+        if (count($result) == 0) {
+          return null;
+        } else {
+          return (int)$result[0]["num_pic"];
+        }
+      } else {
+        return null;
+      }
+    }
+
 }
