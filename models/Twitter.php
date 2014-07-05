@@ -4,6 +4,7 @@ require_once $basedir.'/rsc/twitteroauth.php';
 class Twitter {
 
     public $to;
+    public $me = 576300337;
 
     public function __construct() {
         $to = new TwitterOAuth(
@@ -15,53 +16,75 @@ class Twitter {
     }
 
     public function tweet($out_tweet) {
-        $req = $this->to->OAuthRequest("http://api.twitter.com/1.1/statuses/update.json","POST",
-            array("status" => $out_tweet)
-        );
-        header("Content-Type: application/json");
-        echo $req;
+        $res = $this->to->OAuthRequest("https://api.twitter.com/1.1/statuses/update.json","POST", array("status" => $out_tweet));
+        return $res;
     }
 
     public function follow($target) {
-        $req = $this->to->OAuthRequest("https://api.twitter.com/1/friendships/create.json?user_id=".$target, "POST", array());
-        header("Content-Type: application/xml");
-        echo $req;
+        $res = $this->to->OAuthRequest("https://api.twitter.com/1.1/friendships/create.json", "POST", array("user_id" => $target));
+        return $res;
     }
 
-    public static function getUserTlBySn($screen_name) {
-        $api_response = json_decode(file_get_contents('http://api.twitter.com/1/statuses/user_timeline.json?screen_name=' . urlencode($screen_name)));
-        return $api_response;
+    public function unfollow($target) {
+        $res = $this->to->OAuthRequest("https://api.twitter.com/1.1/friendships/destroy.json", "POST", array("user_id" => $target));
+        return $res;
     }
 
-    public static function getUserTlById($id) {
-        $api_response = json_decode(file_get_contents('http://api.twitter.com/1/statuses/user_timeline.json?user_id=' . $id));
-        return $api_response;
+    public function search($query) {
+        $res = $this->to->OAuthRequest("https://api.twitter.com/1.1/search/tweets.json", "GET", array(
+            "q" => $query,
+            "lang" => "ja",
+            "count" => 100
+        ));
+        return $res;
     }
 
-    public static function getUserFollowers($screen_name, $maxiter = 100) {
+    public function getMyFollowers($maxiter = 100) {
+        return $this->getUserFollowers($this->me, $maxiter);
+    }
+
+    public function getUserFollows($user_id, $maxiter = 100) {
+        $url = "https://api.twitter.com/1.1/friends/ids.json";
+        return $this->getUserFriendships($user_id, $url, $maxiter);
+    }
+
+    public function getMyFollows($maxiter = 100) {
+        return $this->getUserFollows($this->me, $maxiter);
+    }
+
+    public function getUserFollowers($user_id, $maxiter = 100) {
+        $url = "https://api.twitter.com/1.1/followers/ids.json";
+        return $this->getUserFriendships($user_id, $url, $maxiter);
+    }
+
+    public function getUserFriendships($user_id, $url, $maxiter = 100) {
         $cursor = -1;
         $result = array();
         $counter = 0;
         while ($cursor != 0 and $counter < $maxiter) {
-            $api_response = json_decode(file_get_contents('https://api.twitter.com/1/followers/ids.json?cursor=' . $cursor . '&screen_name=' . urlencode($screen_name)));
-            foreach ($api_response->ids as $id) {
-                $result[] = $id;
-            }
-            $cursor = $api_response->next_cursor_str;
+            $res = $this->to->OAuthRequest($url, "GET", array(
+                    "cursor" => $cursor,
+                    "stringify_ids" => true,
+                    "user_id" => $user_id
+                ));
+            $res = json_decode($res);
+            foreach ($res->ids as $id) $result[] = $id;
+            $cursor = $res->next_cursor_str;
             $counter++;
             echo "fetched ".($counter * 5000)." people.\n";
-            sleep(3);
         }
         return $result;
     }
 
-    public static function getUserIdBySn($screen_name) {
-        $api_response = json_decode(file_get_contents('https://api.twitter.com/1/users/lookup.json?screen_name=' . urlencode($screen_name)));
+    public function getUserIdBySn($screen_name) {
+        $res = $this->to->OAuthRequest("https://api.twitter.com/1.1/users/lookup.json", "GET", array("screen_name" => urlencode($screen_name)));
+        $api_response = json_decode($res);
         return ($api_response[0]->id_str);
     }
 
-    public static function getUserSnById($id) {
-        $api_response = json_decode(file_get_contents('https://api.twitter.com/1/users/lookup.json?user_id=' . $id));
+    public function getUserSnById($user_id) {
+        $res = $this->to->OAuthRequest("https://api.twitter.com/1.1/users/lookup.json", "GET", array("user_id" => $user_id));
+        $api_response = json_decode($res);
         return ($api_response[0]->screen_name);
     }
 }

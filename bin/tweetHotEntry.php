@@ -9,7 +9,7 @@ $db = connect_db();
 $topic = new Topic();
 $topicIds = $topic::selectTopics($db);
 echo $topicIds."\n";
-$contents = simplexml_load_file("http://matome.naver.jp/feed/topic/".$topicIds[0]);
+$contents = simplexml_load_file("http://matome.naver.jp/feed/topic/".$topicIds[0]."?d=1000");
 $items = array();
 foreach ($contents->channel->item as $item) {
     $items[] = $item;
@@ -24,7 +24,7 @@ foreach ($items as $item) {
         $article = new Article();
         $article->id = $match[1];
         $article->getContents();
-        if (count($article->pictures) > 20) {
+        if (count($article->pictures) > 10) {
             $content = "{$item->title}\n http://imagero.us/index.php?id={$article->id}";
             $twitter->tweet($content);
             break;

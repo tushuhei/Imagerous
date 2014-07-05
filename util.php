@@ -14,3 +14,13 @@ function connect_db(){
 
     return $db;
 }
+
+function getXpath($url) {
+    libxml_use_internal_errors(true);
+    $content = @file_get_contents($url);
+    $doc = new DOMDocument();
+    $doc->loadHTML(mb_convert_encoding($content, 'HTML-ENTITIES', 'UTF-8'));
+    libxml_clear_errors();
+    $xpath = new DOMXPath($doc);
+    return $xpath;
+}

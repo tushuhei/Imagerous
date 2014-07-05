@@ -72,7 +72,7 @@
                 </div> 
                 <div style="color:#ddd; margin-top:40px; text-align:center">
                     Powered by TMI-Webbiz7<br>
-                    Copyright (c) 2012 Shuhei Iitsuka @tushuhei All rights reserved.
+                    Copyright (c) 2014 @tushuhei All rights reserved.
                 </div>
             </div>
             <div id="mainFrame">
