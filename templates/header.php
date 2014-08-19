@@ -17,8 +17,7 @@
             <meta property="og:image" content="<?=$ogp_pic->url?>">
             <? endif ?>
         <? endforeach ?>
-        <? $numOfPics = $article->numOfPics($db); ?>
-        <? if (!is_null($numOfPics) and $numOfPics < 15): ?>
+        <? if (count($article->pictures) < 15):?>
         <meta name="robots" content="noindex">
         <? endif ?>
     <? endif ?>
