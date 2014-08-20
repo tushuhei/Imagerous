@@ -16,9 +16,6 @@ if (isset($_GET['article']) and isset($_GET['image'])) {
     $picture->id = $_GET['image'];
     $picture->getContents();
     $picture->getSmallPic($page);
-    if ($picture->id == null) {
-      header('HTTP/1.0 404 Not Found');
-    }
 
     $article = new Article();
     $article->id = $picture->articleId;
