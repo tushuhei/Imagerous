@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf8">
+    <title>{% block title %}{% endblock %} - Imagerous*</title>
+    <meta property="og:description" content="壁紙をまとめる、眺める、つかう。">
+    <meta property="og:site_name" content="Imagerous*">
+    <meta property="fb:admins" content="100000617688375">
+    <meta property="fb:app_id" content="366371993398682">
+    <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-30923853-3']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+     var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+     ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+     var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+     })();
+    </script>
+  </head>
+  <body>
+  <header>{% include "header.html" %}</header>
+  <div id="sidebar">{% include "sidebar.html" %}</div>
+  <div id="content">{% block content %}{% endblock %}</div>
+  </body>
+</html>

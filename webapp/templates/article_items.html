@@ -1,9 +1,6 @@
-{% extends "base.html" %}
-{% block title %}{{article.title}}{% endblock %}
-{% block content %}
 {% for picture in article.pictures %}
 <a href="/nav/{{article.id}}/{{picture.id}}">
   <img src="{{picture.thumb_src}}">
 </a>
 {% endfor %}
-{% endblock %}
+

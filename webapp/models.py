@@ -9,15 +9,15 @@ CHECK_ADULT_RE =  u"ソープ|上原亜衣|ロリ|色気|裸|AV|ＡＶ|ヌード
 
 
 class Article:
-  def __init__(self, id, page=1):
+  def __init__(self, id):
     self.id = id
-    self.page = page
     self.pictures = []
     self.thumb = None
     self.title = None
 
-  def fetch_contents(self):
-    url = "http://matome.naver.jp/odai/%d?page=%d"%(self.id, self.page)
+  def fetch_contents(self, page=1):
+    url = "http://matome.naver.jp/odai/%d?page=%d"%(self.id, page)
+    print url
     res = urllib2.urlopen(url)
     source = res.read()
     html = lxml.html.fromstring(source)

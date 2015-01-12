@@ -20,6 +20,14 @@ def article(article_id):
   else:
     return render_template("404.html")
 
+@app.route("/ajax/nav")
+def article_ajax():
+  article_id = request.args.get("article_id")
+  page = request.args.get("page", 1)
+  article = Article(int(article_id))
+  article.fetch_contents(int(page))
+  return render_template("article_items.html", article=article)
+
 @app.route("/nav/<int:article_id>/<int:picture_id>")
 def picture(article_id, picture_id):
   article = Article(article_id)
@@ -33,6 +41,14 @@ def search():
   search = Search(query)
   search.fetch_articles()
   return render_template("search.html", search=search)
+
+@app.route("/ajax/search")
+def search_ajax():
+  query = request.args.get("q")
+  page = request.args.get("page", 1)
+  search = Search(query)
+  search.fetch_articles(int(page))
+  return render_template("search_items.html", search=search)
 
 if __name__ == "__main__":
   app.run(host='0.0.0.0', debug = True)
