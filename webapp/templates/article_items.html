@@ -1,6 +1,4 @@
 {% for picture in article.pictures %}
-<a href="/nav/{{article.id}}/{{picture.id}}">
-  <img src="{{picture.thumb_src}}">
-</a>
+<a href="/nav/{{article.id}}/{{picture.id}}" class="pic-tile" style="background-image: url({{picture.thumb_src}})"></a>
 {% endfor %}
 

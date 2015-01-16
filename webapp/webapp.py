@@ -11,14 +11,41 @@ RECOMMENDED_ARTICLES = set([2009031320030588506, 2125662177297156181, 2127191486
 def index():
   return redirect('/nav/%d'%random.sample(RECOMMENDED_ARTICLES, 1)[0])
 
+@app.route("/index.php")
+def move_index():
+  article_id = int(request.args.get("id"))
+  return redirect("/nav/%d"%article_id)
+
+@app.route("/picture.php")
+def move_picture():
+  article_id = int(request.args.get("article"))
+  picture_id = int(request.args.get("image"))
+  return redirect("/nav/%d/%d"%(article_id, picture_id))
+
 @app.route("/nav/<int:article_id>")
 def article(article_id):
   article = Article(article_id)
   article.fetch_contents()
+  article.fetch_related_articles()
   if len(article.pictures) > 0:
-    return render_template("article.html", article=article)
+    return render_template("article.html", article=article, page_type="article")
   else:
     return render_template("404.html")
+
+@app.route("/nav/<int:article_id>/<int:picture_id>")
+def picture(article_id, picture_id):
+  article = Article(article_id)
+  picture = article.get_picture(picture_id)
+  article.fetch_related_articles()
+  return render_template("picture.html", article=article, picture=picture, page_type="picture")
+
+@app.route("/search")
+def search():
+  query = request.args.get("q", None)
+  if not query: return redirect("/")
+  search = Search(query)
+  search.fetch_articles()
+  return render_template("search.html", search=search, page_type="search")
 
 @app.route("/ajax/nav")
 def article_ajax():
@@ -27,20 +54,6 @@ def article_ajax():
   article = Article(int(article_id))
   article.fetch_contents(int(page))
   return render_template("article_items.html", article=article)
-
-@app.route("/nav/<int:article_id>/<int:picture_id>")
-def picture(article_id, picture_id):
-  article = Article(article_id)
-  picture = article.get_picture(picture_id)
-  return render_template("picture.html", article=article, picture=picture)
-
-@app.route("/search")
-def search():
-  query = request.args.get("q", None)
-  if not query: return redirect("/")
-  search = Search(query)
-  search.fetch_articles()
-  return render_template("search.html", search=search)
 
 @app.route("/ajax/search")
 def search_ajax():

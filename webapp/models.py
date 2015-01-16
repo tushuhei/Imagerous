@@ -1,4 +1,5 @@
 #coding: utf8
+import json
 import lxml.html
 import re
 import urllib
@@ -11,13 +12,14 @@ CHECK_ADULT_RE =  u"ソープ|上原亜衣|ロリ|色気|裸|AV|ＡＶ|ヌード
 class Article:
   def __init__(self, id):
     self.id = id
-    self.pictures = []
+    self.pictures = None
     self.thumb = None
     self.title = None
+    self.related_articles = None
 
   def fetch_contents(self, page=1):
+    self.pictures = []
     url = "http://matome.naver.jp/odai/%d?page=%d"%(self.id, page)
-    print url
     res = urllib2.urlopen(url)
     source = res.read()
     html = lxml.html.fromstring(source)
@@ -53,11 +55,28 @@ class Article:
         datum["desc"] = desc_data[0] if desc_data else None
       self.pictures.append(datum)
 
+  def fetch_related_articles(self):
+    self.related_articles = []
+    url = "http://jlp.yahooapis.jp/KeyphraseService/V1/extract?appid=vekn5nWxg67HWN69sM4vwBEQAOATDik58ctDCW2ho6moWxuSg9h2.Tkl32sWd.I-&output=json&sentence=%s"%urllib.quote(self.title.encode("utf8"))
+    res = urllib2.urlopen(url)
+    source = res.read()
+    data = json.loads(source)
+    related_words = [x for x in sorted(data.items(), key=lambda x:x[1], reverse=True) if not re.search(PREDICT_IMAGE_RE, x[0])]
+    if not related_words: return []
+    most_relavant_word = related_words[0][0]
+    search = Search(most_relavant_word)
+    search.fetch_articles()
+    self.related_articles = search.articles
+
   def get_picture(self, picture_id):
     url = "http://matome.naver.jp/odai/%d/%d"%(self.id, picture_id)
     res = urllib2.urlopen(url)
     source = res.read()
     html = lxml.html.fromstring(source)
+
+    title_data = html.xpath('//h1[@class="mdHeading02Ttl"]')
+    self.title = title_data[0].text_content()
+
     src_data = html.xpath("//p[@class='mdMTMEnd01Img01']/a/@href")
     return src_data[0] if src_data else None
 
@@ -104,11 +123,6 @@ class Search:
 
 if __name__ == "__main__":
   from prettyprint import pp
-  article = Article(2131752433532190801)
-  article.fetch_contents()
-  picture = article.get_picture(2131752461532193703)
-  print article.pictures, picture
-  search = Search(u"化物語")
-  search.fetch_articles()
-  pp([a.title for a in search.articles])
-
+  article = Article(2127443454584433101)
+  pic = article.get_picture(2127616037707297103)
+  pp(article.title)

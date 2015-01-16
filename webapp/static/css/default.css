@@ -1,0 +1,134 @@
+/* General Settings */
+body {
+  background: #222;
+  color: #ddd;
+}
+
+#content {
+  position: relative;
+}
+
+/* Sidebar Settings */
+#sidebar {
+  margin-top: 50px;
+}
+
+#search-input input {
+  width: 140px;
+}
+
+#search-input .btn {
+  margin-top: -9px;
+  margin-left: -4px;
+}
+
+/* Header Settings */
+
+.navbar-inner .brand a {
+  color: #ddd;
+  text-decoration: none;
+}
+
+.navbar-inner .brand a:hover {
+  color: #fff;
+}
+
+.navbar-inner .container {
+  position: relative;
+}
+
+.navbar-inner .tweet-btn {
+  display: none;
+  position: absolute;
+  right: 100px;
+  top: 10px;
+}
+
+.navbar-inner .like-btn {
+  display: none;
+  position: absolute;
+  right: 0;
+  top: 10px;
+}
+
+.navbar-inner .brand {
+  float: none;
+  text-align: center;
+  margin: 0;
+}
+
+.navbar-inner .nav {
+  display: none;
+}
+
+/* Article Settings */
+.article-abst {
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+
+.article-abst img {
+  float: left;
+  margin-right: 10px;
+  width: 50px;
+}
+
+.article-abst h2 {
+  font-size: 16px;
+  line-height: 21px;
+  overflow: auto;
+}
+
+.pic-tile {
+  background-position: center;
+  background-size: cover;
+  border-color: #fff;
+  border-style: solid;
+  border-width: 0px;
+  display: inline-block;
+  height: 200px;
+  width: 200px;
+}
+
+
+@media screen and (min-width: 980px) {
+  /* General Settings */
+  #content {
+    margin-top: 50px;
+  }
+
+  /* Header Settings */
+  .navbar-inner .tweet-btn {
+    display: block;
+  }
+
+  .navbar-inner .like-btn {
+    display: block;
+  }
+
+  .navbar-inner .brand {
+    float: left;
+  }
+
+  .navbar-inner .nav {
+    display: inline;
+  }
+
+  /* Sidebar Settings */
+  #sidebar {
+    left: 0;
+    padding: 10px;
+    position: absolute;
+    width: 210px;
+  }
+
+  #content {
+    left: 250px;
+    position: absolute;
+  }
+
+  /* Article Settings */
+  .article-abst {
+    display: none;
+  }
+}
