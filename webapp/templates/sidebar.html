@@ -2,25 +2,46 @@
   <h3>Imagerous* とは？</h3>
   <p>壁紙をまとめる、眺める、つかう。新しいイメージキュレーションサービスです。</p>
 </section>
+
 <section>
   <h3>さがす</h3>
   <form method="get" action="/search">
     <div class="input-append" id="search-input">
-      <input name="q" type="text" value="">
+      <input name="q" type="text" value="{% if search %}{{search.query}}{% endif %}">
       <button type="submit" class="btn btn-primary"
         onClick="_gaq.push(['_trackEvent','click-search-button']);">検索</button>
     </div>
   </form>
 </section>
-<section>
-  <h3>おすすめ</h3>
-  {% for article in article.related_articles %}
-  <div>
-  {{article.title}}
-</div>
-  {% endfor %}
-</section>
-<section>
+
+{% if article %}
+  <section>
+    <h3>関連記事</h3>
+    {% for article in article.related_articles %}
+      {% include "article_feed.html" %}
+    {% endfor %}
+  </section>
+{% endif %}
+
+{% if not article.is_adult() %}
+  <!-- imagerous_v2_article_side -->
+  <ins class="adsbygoogle"
+    id="ads-sidebar-middle"
+    data-ad-client="ca-pub-2363640980453937"
+    data-ad-slot="8239533136"></ins>
+  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+{% endif %}
+
+{% if recommends %}
+  <section>
+    <h3>おすすめ記事</h3>
+    {% for article in recommends %}
+      {% include "article_feed.html" %}
+    {% endfor %}
+  </section>
+{% endif %}
+
+<section id="credit">
   Powered by TMI-Webbiz7<br>
   Copyright (c) 2015 @tushuhei All rights reserved.
 </section>

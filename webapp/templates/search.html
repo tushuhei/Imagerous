@@ -1,4 +1,8 @@
-piyo
-{% for article in search.articles %}
-<div><a href="/nav/{{article.id}}">{{article.title}}</a></div>
-{% endfor %}
+{% extends "base.html" %}
+{% block title %}{{search.query}}{% endblock %}
+{% block content %}
+  <section id="search-items" data-search-query="{{search.query}}">
+    {% include "search_items.html" %}
+  </section>
+  <div class="seemore" onclick="searchManager.loadNext()">もっと見る</div>
+{% endblock %}

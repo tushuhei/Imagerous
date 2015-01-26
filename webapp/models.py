@@ -1,13 +1,13 @@
 #coding: utf8
 import json
 import lxml.html
+import random
 import re
 import urllib
 import urllib2
 
 PREDICT_IMAGE_RE = u"画像|写真|壁紙|ショット|待ち?受け?"
 CHECK_ADULT_RE =  u"ソープ|上原亜衣|ロリ|色気|裸|AV|ＡＶ|ヌード|下着|素人|コスプレ|おしり|ニーハイ|パンツ|太もも|ギャル|RQ|ＲＱ|レズ|キス|セクシー|谷間|エロ|パンチラ|抜ける|アダルト|JK|ＪＫ|18禁|oppai|ｏｐｐａｉ|SEX|ＳＥＸ|アナル|エッチ|エロ|オ◯ンコ|お◯んこ|オ○ニー|オーガズム|おち○ぽ|おちんこ|オチンチン|おちんぽ|おっぱい|オナニー|オマンコ|おまんこ|おめこ|ガチハメ|くぱぁ|クリトリス|グロ|クンニ|コンドーム|ザーメン|ジュニアアイドル|スカトロ|スケベ|ズッポリ|セ○クス|セクース|セクス|セクロス|セッ○ス|セックス|セックル|セフレ|ソープランド|ダッチワイフ|チ○ポ|チ●ポ|ちんこ|チンポ|ちんぽ|ディルド|デカパイ|尻|デカ乳|でか乳|パイズリ|パイパン|バイブ責め|ハメ撮り|ハメ写メ|パンチラ|パンモロ|ファック|フェラ|マ○コ|マンコ|まんこ|まんスジ|マン汁|まん毛|レイピスト|レイプ|ロリコン|わいせつ|愛液|淫乱|援交|援助交際|我慢汁|顔射|騎乗位|逆さ撮り|巨乳|貧乳|胸チラ|胸ちら|穴空き|雌穴|自画撮り|射精|手コキ|獣姦|人妻|正常位|生ハメ|痴漢|痴女|中出し|潮吹|珍棒|電マ|奴隷|盗撮|肉便器|買春|売春|露出|勃起|無修正|乱交|立ちバック|輪姦|炉利|和姦|猥姦/"
-
 
 class Article:
   def __init__(self, id):
@@ -121,8 +121,12 @@ class Search:
       article.title = title
       if article.predict_image(): self.articles.append(article)
 
+
+def get_recommends(cur, num=1):
+  cur.execute("SELECT * FROM recommends")
+  data = list(cur.fetchall())
+  random.shuffle(data)
+  return data[:num]
+
 if __name__ == "__main__":
-  from prettyprint import pp
-  article = Article(2127443454584433101)
-  pic = article.get_picture(2127616037707297103)
-  pp(article.title)
+  pass

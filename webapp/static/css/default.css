@@ -4,8 +4,16 @@ body {
   color: #ddd;
 }
 
+h3 {
+  font-size: 15px;
+}
+
 #content {
   position: relative;
+}
+
+#content img {
+  max-width: 100%;
 }
 
 /* Sidebar Settings */
@@ -14,12 +22,32 @@ body {
 }
 
 #search-input input {
-  width: 140px;
+  width: 79%;
 }
 
 #search-input .btn {
   margin-top: -9px;
   margin-left: -4px;
+}
+
+#credit {
+  font-size: 11px;
+  line-height: 12px;
+  margin: 20px 0;
+  text-align: center;
+}
+
+.seemore {
+  background: #333;
+  cursor: pointer;
+  font-weight: bold;
+  margin: 5px 0px 10px 0;
+  padding: 20px;
+  text-align: center;
+}
+
+.seemore:hover {
+  background: #444;
 }
 
 /* Header Settings */
@@ -90,6 +118,80 @@ body {
   width: 200px;
 }
 
+/* Article Feed Settings */
+.article-feed {
+  color: #ddd;
+  cursor: pointer;
+  margin: 10px 0;
+  overflow: auto;
+  padding: 5px;
+}
+
+.article-feed:hover {
+  color: #fff;
+  background: #333;
+}
+
+.article-feed-anchor:hover {
+  text-decoration: none;
+}
+
+.article-feed .article-feed-thumb {
+  clear: left;
+  float: left;
+  margin-right: 7px;
+  width: 50px;
+}
+
+.article-feed .article-feed-thumb img {
+  width: 100%;
+}
+
+.article-feed a {
+  text-decoration: none;
+}
+
+.article-feed .article-feed-contents {
+  overflow: auto;
+}
+
+.article-feed .article-feed-contents h4 {
+  font-size: 13px;
+  font-weight: normal;
+}
+
+/* Ads Settings */
+
+#ads-article-top {
+  display: inline-block;
+  height: 90px;
+  width: 100%;
+}
+
+#ads-article-bottom {
+  display: inline-block;
+  height: 90px;
+  width: 100%;
+}
+
+#ads-sidebar-middle {
+  display: inline-block;
+  height: 300px;
+  max-width: 320px;
+  width: 100%;
+}
+
+#ads-picture-top {
+  display: inline-block;
+  height: 90px;
+  width: 100%;
+}
+
+#ads-picture-bottom {
+  display: inline-block;
+  height: 90px;
+  width: 100%;
+}
 
 @media screen and (min-width: 980px) {
   /* General Settings */
@@ -119,11 +221,11 @@ body {
     left: 0;
     padding: 10px;
     position: absolute;
-    width: 210px;
+    width: 300px;
   }
 
   #content {
-    left: 250px;
+    left: 350px;
     position: absolute;
   }
 
@@ -131,4 +233,27 @@ body {
   .article-abst {
     display: none;
   }
+
+  /* Ads Settings */
+
+  #ads-article-top {
+    width: 728px;
+  }
+
+  #ads-article-bottom {
+    width: 728px;
+  }
+
+  #ads-sidebar-middle {
+    height: 600px;
+  }
+
+  #ads-picture-top {
+    width: 728px;
+  }
+
+  #ads-picture-bottom {
+    width: 728px;
+  }
+
 }
