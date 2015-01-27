@@ -23,7 +23,7 @@
   </section>
 {% endif %}
 
-{% if not article.is_adult() %}
+{% if not (article and article.is_adult()) %}
   <!-- imagerous_v2_article_side -->
   <ins class="adsbygoogle"
     id="ads-sidebar-middle"

@@ -162,13 +162,13 @@ h3 {
 
 /* Ads Settings */
 
-#ads-article-top {
+.ads-page-top {
   display: inline-block;
   height: 90px;
   width: 100%;
 }
 
-#ads-article-bottom {
+.ads-page-bottom {
   display: inline-block;
   height: 90px;
   width: 100%;
@@ -181,17 +181,6 @@ h3 {
   width: 100%;
 }
 
-#ads-picture-top {
-  display: inline-block;
-  height: 90px;
-  width: 100%;
-}
-
-#ads-picture-bottom {
-  display: inline-block;
-  height: 90px;
-  width: 100%;
-}
 
 @media screen and (min-width: 980px) {
   /* General Settings */
@@ -236,24 +225,16 @@ h3 {
 
   /* Ads Settings */
 
-  #ads-article-top {
+  .ads-page-top {
     width: 728px;
   }
 
-  #ads-article-bottom {
+  .ads-page-bottom {
     width: 728px;
   }
 
   #ads-sidebar-middle {
     height: 600px;
-  }
-
-  #ads-picture-top {
-    width: 728px;
-  }
-
-  #ads-picture-bottom {
-    width: 728px;
   }
 
 }
