@@ -70,7 +70,10 @@ class Article:
 
   def get_picture(self, picture_id):
     url = "http://matome.naver.jp/odai/%d/%d"%(self.id, picture_id)
-    res = urllib2.urlopen(url)
+    try:
+      res = urllib2.urlopen(url)
+    except urllib2.HTTPError, e:
+      return None
     source = res.read()
     html = lxml.html.fromstring(source)
 

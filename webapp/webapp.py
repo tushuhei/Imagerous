@@ -29,22 +29,24 @@ def article(article_id):
   article.fetch_contents()
   article.fetch_related_articles()
   recommends = get_recommends(cur, 5)
-  if len(article.pictures) > 0:
-    return render_template("article.html",
-        article=article, recommends=recommends)
-  else:
-    return render_template("404.html")
+  if len(article.pictures) == 0:
+    return render_template("404.html", recommends=recommends)
+  return render_template("article.html",
+      article=article, recommends=recommends)
 
 @app.route("/nav/<int:article_id>/<int:picture_id>")
 def picture(article_id, picture_id):
+  #TODO get through with gettyimage issue ex. http://matome.naver.jp/odai/2137920545314560501
   thumb = request.args.get("thumb", None)
   cur = utils.connect_db()
+  recommends = get_recommends(cur, 5)
   article = Article(article_id)
   picture = article.get_picture(picture_id)
+  if not picture:
+    return render_template("404.html", recommends=recommends)
   article.fetch_related_articles()
-  recommends = get_recommends(cur, 5)
-  return render_template("picture.html",
-      article=article, picture=picture, thumb=thumb, recommends=recommends)
+  return render_template("picture.html", article=article,
+      picture=picture, thumb=thumb, recommends=recommends)
 
 @app.route("/search")
 def search():

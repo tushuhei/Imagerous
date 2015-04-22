@@ -91,7 +91,6 @@ h3 {
 
 /* Article Settings */
 .article-abst {
-  overflow: hidden;
   margin-bottom: 20px;
 }
 
@@ -117,6 +116,27 @@ h3 {
   height: 200px;
   width: 200px;
 }
+
+.article-abst .abst-info {
+  overflow: hidden;
+}
+.article-abst .social-feed {
+  height: 50px;
+  position: relative;
+}
+
+.article-abst .tweet-btn {
+  position: absolute;
+  top: 5px;
+  left: 58px;
+}
+
+.article-abst .like-btn {
+  position: absolute;
+  top: 5px;
+  left: 190px;
+}
+
 
 /* Article Feed Settings */
 .article-feed {

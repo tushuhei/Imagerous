@@ -11,8 +11,22 @@
   {% endif %}
 
   <section class="article-abst">
-    <img src="{{article.thumb}}">
-    <h2>{{article.title}}</h2>
+    <div class="abst-info">
+      <img src="{{article.thumb}}">
+      <h2>{{article.title}}</h2>
+    </div>
+    <div class="social-feed">
+      <div class="tweet-btn">
+        <a href="https://twitter.com/share" class="twitter-share-button"
+          data-text="{{article.title}} | Imagerous*"
+          data-url="http://imagero.us/index.php?id={{article.id}}"
+          data-lang="ja" data-hashtags="imagerous">ツイート</a>
+      </div>
+      <div class="like-btn">
+        <div class="fb-like" data-href="http://imagero.us/nav/{{article.id}}"
+          data-send="false" data-layout="button_count" data-width="30" data-show-faces="false"></div>
+      </div>
+    </div>
   </section>
 
   <section id="article-items" data-article-id="{{article.id}}">
