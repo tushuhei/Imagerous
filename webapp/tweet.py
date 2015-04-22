@@ -35,8 +35,6 @@ def main():
       print str(datetime.datetime.now()), "Tweet: %s"%(status).encode("utf8")
       break
 
-
-
 if __name__ == "__main__":
   main()
 

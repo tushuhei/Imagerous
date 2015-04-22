@@ -9,9 +9,9 @@
       data-ad-slot="9267111137"></ins>
     <script> (adsbygoogle = window.adsbygoogle || []).push({}); </script>
   {% endif %}
-
-  <img id="main-pic" src="{{picture}}" {% if thumb %} onerror="document.getElementById('main-pic').src='{{thumb}}';" {% endif %}>
-
+  <div>
+    <img id="main-pic" src="{{picture}}" {% if thumb %} onerror="document.getElementById('main-pic').src='{{thumb}}';" {% endif %}>
+  </div>
   {% if not article.is_adult() %}
     <!-- imagerous_v2_picture_bottom -->
     <ins class="adsbygoogle ads-page-bottom"
@@ -20,5 +20,4 @@
       data-ad-slot="1743844333"></ins>
     <script> (adsbygoogle = window.adsbygoogle || []).push({}); </script>
   {% endif %}
-
 {% endblock %}

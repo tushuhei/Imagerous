@@ -1,0 +1,5 @@
+{% for picture in article.pictures %}
+  <a href="/son/{{article.id}}/detail?src={{picture.src|urlencode()}}" class="pic-tile" style="background-image: url({{picture.thumb_src}})"></a>
+{% endfor %}
+
+
